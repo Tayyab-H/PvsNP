@@ -1389,3 +1389,81 @@ The exact circuit patching budget is `CC(hybrid)<=t s1+O(t)`, so up to `Theta(n)
 ### Idea 378 - Pair proof joins with their dual blockers (C-260)
 
 The native least-fixed-point grammar generates minimal proof certificates `C_i` and their exact minimal transversal blockers `B_i`. For an accepting context K with a hole at i, every consistent join `K union P` with a proof P rooted at i is an accepting output certificate, and every output blocker hits it. Pigeonholing forces an internal state to serve `2^d/q` repeated-block anchors when `d log d=O(s1)`, but C-258's O(N) equality fingerprint shows this reuse can remain safe. This creates a two-sided incidence object `(K,P,B)` tied to one q-rule grammar. The missing bound is incidence multiplicity: one blocker can hit many joins. No q lower bound follows. Full derivation: C-260.
+
+## Q132 — Transfer Rao matching hardness into LowExt
+
+C-261 gives a genuine cyclic monotone source lower bound exp(Omega(sqrt(v))) for perfect matching versus no v/4-matching. Use v=Theta(log^2 N); the source has only Theta(log^4 N) edge inputs and its cyclic complexity can exceed N^(1+epsilon) by choosing the constant. C-262 reduces the transfer question to building a monotone signed-partial-table map phi with AND cost below the source exponent, low completion on every YES graph, and high completion on every NO graph. The simple edge-indicator code is killed by C-263. Look for a global code-validity mechanism, possibly using block summaries of absent rails, without making phi compute matching itself.
+
+## Q133 — Summary-rail synchronization
+
+Cavalar et al. (ECCC TR26-128, 2026) use block summary variables for absent literals in a lifted Resolution-to-monotone-learning construction. This does not directly transfer to our full truth-table LowExt relation: it is conditional algorithmic hardness for succinct examples. The technique-level question is whether a compact summary of absent table rails can synchronize many context/proof joins while preserving one latent circuit description. Any proposed bridge must quantify its AND cost and pass the C-258 equality test.
+
+## Q134 — Compatibility relation beyond row counts
+
+For each native state i, define the low-description relation Comp_i(w,w') when an accepting context matching w and a proof rooted at i matching w' have a consistent union. Pair this relation with the output blockers. C-260 proves exact incidence; C-258 shows equality fingerprints realize compact safe synchronization. Do not count rows, pairs, or blocker hits alone. Seek a complexity measure for the grammar's representation of many incompatible Comp_i relations that yields q>=N g(N).
+
+## Q135 — Cofactor recursion ceiling
+
+Independent recursive partitioning into r blocks multiplies the number of free size-s1 leaf circuits. The soundness budget permits R=O(n) leaves, while making all leaf truth tables trivially size-s1 requires R=N^(1-beta+o(1)). Retire the naive product recursion. Continue only with a globally shared circuit description or a new cofactor compiler that preserves coherence without paying R s1.
+
+## Q136 — Matching source parameter window with explicit cyclic semantics
+
+C-266 audits the cyclic step: a q-intersection least-fixed-point grammar stabilizes in q rounds and unrolls to `O(q^2(v^2+q))` ordinary monotone gates. Thus Rao's perfect-matching versus no-`v/4`-matching lower bound survives cycles as `exp(Omega(sqrt(v)))`. With `v=A(log N)^2`, the source exponent beats `N^(1+epsilon)` if `c' sqrt(A)>1+epsilon`; map cost `N^eta` is dominated if `c' sqrt(A)>eta`. The small-beta completion-size issue is gone for `poly(v)` witnesses. The unsolved step is still a low-AND monotone LowExt map with a high NO completion.
+
+## Q137 — Do not import generic partial-MCSP hardness as a monotone reduction
+
+Ilango's ETH-hard partial-MCSP result uses a full truth-table output and permutation choices encoded by optimal monotone read-once formulas. It gives no bound on the number of AND gates in each output rail as a monotone function of source bits, and no unrestricted high-completion promise. Reuse the optimal-description synchronization motif only after constructing and auditing those exact interfaces.
+
+## Q138 — Hard-baseline patch mask obstruction
+
+If a NO image fully pins one high table z, and a YES witness w_M differs from z only on a succinct mask D_M whose indicator costs at most `s2-s1-O(1)`, then z itself has size at most s2. This kills structured edge-block masks on a common fully specified baseline. A surviving map must either use genuinely hard-to-describe changed-coordinate masks or leave part of z unpinned and hide its hardness there; the latter must still prevent every unintended low completion.
+
+## Q139 — Expander-overlap synchronization family (candidate, unproved)
+
+Replace repeated identical blocks by local views of one short latent circuit description placed on overlapping sets indexed by a bounded-degree expander. Each view should be individually computable by a size-s1 circuit, while independently recombining views should typically require size above s2. The intended global test is whether a q-state grammar can enforce agreement on all overlapping projections without an equality scan for one fixed partition. Mandatory checks: (i) explicit circuit for every diagonal low table; (ii) counting or construction of high hybrids; (iii) prove any consistent state splice corresponds to independent local choices; (iv) test whether one O(N) fingerprint family still synchronizes them. No construction or q lower bound exists yet; this is a design target, not evidence.
+
+## Q140 — Terminal-specific BPHP sink answer localization
+
+Static labels fail by C-256. For a terminal-specific route, a broad collision-pair rectangle leaves the common hole value among `2^n0` choices; splitting into fixed violated-clause rectangles costs exponential-in-n0 refiners and erases the Beame-Whitmeyer exponent at `n0=K log^4 N`. Seek an invariant of the actual pulled-back sink rectangles that reduces the answer list, and preserve the triangle-DAG target model. Otherwise close the common-translate/BPHP route.
+
+## Q141 — Compile the native worklist without replaying all dense supports
+
+The fixed-support closure has q activations and E<=2q^2 support incidences; a sequential worklist scans each incidence once, but a plain synchronous circuit recomputes all E incidences for q rounds. Explore an oblivious event queue plus batched routing/flag updates with total `O((qN+E)polylog q)` gates. A construction must explicitly implement dynamic selection and writes; uncounted RAM operations or a generic circuit simulation are not enough. No such circuit is known here.
+
+## Q142 - Near-linear semantic quotient under one-description coherence
+
+Direct universal verification uses one N-coordinate conjunction per size-s1 circuit description. Quotienting by local block restrictions drops the global circuit identity and accepts hybrids; independent cofactors are capped at O(log N) pieces by s2/s1, far below the number needed for a trivial base. A per-subfunction state table is superpolynomial even on the sparse-indicator/shattered family. Continue only with a compact global semantic object that carries one circuit witness across all addresses without enumerating descriptions. C-271 kills these implementations only, not all N^(1+o(1)) covers.
+
+## Q143 - Expander-copy CSP splices across incompatible wirings
+
+A concrete low family comes from `w_C(u,i,j)=C(u) XOR C(Gamma(u,i))` on repeated directed edges of an explicit expander. Let V=Theta(s2) so all vertex labelings C have Lupanov size O(V/logV)<=s1; choose r=Theta(logN) edge copies so E=Theta(s2 logN)>log|SIZE(s2)|. The low cut-code anchors have overlapping local views, while 2^E independent edge-copy hybrids are almost all high. One fixed expander has an O(E) consistency checker, so it cannot force q>N; seek many incompatible expander/projection systems and a theorem forcing their simultaneous synchronization cost. Full calculation and caveat: C-272.
+
+## Q144 - Asymmetric rail order after monotone example hardness
+
+C-273 shows that sparse example constraints do have high completions by counting, but their natural partial rail vector `P` lies below a fitting low code (`P<=e(w)`), whereas C-125 needs the low code below the YES image. The upper-completion encoding fixes this order but has both rails at unspecified coordinates and cannot be below a one-hot NO code. The 2026 result also gives sample-agreement hardness, not a source-monotone rail map. Search for a monotone construction that supplies the asymmetric YES/NO orders; account for map AND-cost.
+
+## Q145 - Broad-conflict map after the patching obstruction
+
+C-274: if a C-125 map's union of conflicted YES coordinates has size `delta<= (s2-s1)/(K log N)`, its common low restriction outside that union lets us compute the source using the map plus at most N-1 AND gates. Thus any map that saves more than N gates against a source lower bound must have global conflict support Omega(s2/logN), around N^beta/logN. Test constructions with broad unions of rare per-input conflicts, and separately count conflicts simultaneously active at one YES input. The union threshold alone is necessary, not impossible and not a q-bound.
+
+## Q146 - Matching transfer must use broad, witness-dependent conflict support
+
+C-266/C-276 settle the source and its parameter scale: `v=A(log N)^2` gives `L(v)=N^(c sqrt(A)-o(1))`, enough for `q>N^(1+epsilon)` if `a(N)<L(v)-N^(1+epsilon)` and YES completion circuits are `poly(v)`. C-275 says any such map must have a union of YES-side conflict positions larger than `c_beta s2=Theta(N^beta)`. Discard maps with a common low table whose disagreement from a high baseline is patchable, and maps whose YES conflicts stay on at most `c_beta s2` coordinates. The live construction must select genuinely different low tables across YES inputs and create broad global conflict support while keeping every NO image below a high code. It must account for exact AND cost; source hardness alone is not transfer progress.
+
+## Q147 - Hall-cut obstruction to an OR-only LowExt map
+
+C-277 tests the idea of assigning each table coordinate a clause `OR_{e in E_i} x_e`, with every perfect matching hitting every clause and each low-matching graph missing one. Any zero-AND rail map has a fixed polarity per coordinate: opposite rail supports would coactivate on a one- or two-edge NO graph. Thus all YES inputs must share one low code, producing an N-clause monotone CNF. For each vertex cover W of size v/4-1, let G_W contain all edges incident to W. A clause that hits every perfect matching can be false on at most 2^(v/2-1) such G_W by Hall's theorem, while there are 2^(H_2(1/4)v-o(v)) choices of W. Hence at least 2^(0.311...v-o(v)) clauses are needed, more than N at v=A(log N)^2. Any surviving map must use positive AND-cost to create witness-dependent rail patterns; its exact cost and NO high completions remain open. This is a zero-AND route filter only.
+
+
+## Q148 - Vary the NO partial table, not only the YES witness code
+
+C-278 rules out a natural positive-AND repair: take the OR of low codes indexed by YES witnesses, with NO images empty or equal to a fixed partial/high scaffold. ORing all input-dependent rail outputs then computes the hard source itself, using the same AND gates as the map, so `a>=CycAnd(f)`. A useful map must have nonzero, input-dependent decoy rails on NO instances. Those NO rails must remain below a high completion while excluding every low completion, and YES witness rails must extend the monotone image without making the map cost the source hardness. This is a sharper design target than merely encoding matching witnesses. See research/C278_FIXED_NO_BASELINE_WITNESS_MAP_AND_EXTRACTION_2026-09-27.md.
+
+## Q149 - A valid variable-NO palette can still spend all hardness on its decoder
+
+C-279 constructs a genuine C-125 map: rank sums below `m+1` map to empty rails, rank sum `m+1` maps to a high address-class code, and rank sum at least `m+2` activates two neighboring high codes whose disjoint supports contain the low all-zero code. This proves the variable-NO order interface is feasible. It fails quantitatively because each rank predicate `R_t` is visible at one address and `F=OR_t(R_t AND R_(t+1))`, so `a>=CycAnd(F)-O(m)`. Replace scalar rank states by many witness-indexed NO profiles and prove their compatibility pattern cannot be decoded with `o(L)` AND gates. See research/C279_RANK_CODE_LOWEXT_MAP_AND_DECODER_COST_2026-09-27.md.
+## Q150 - Owner-mask product rank for native state reuse (C-281)
+
+Treat a finite native proof as a grammar over partial assignments `{*,0,1}^N`; joining supports merges compatible literals and maps conflicts to bottom. Cutting an output proof at state i gives a context K and replacement P. Every compatible context/proof pair at i is accepted, and its whole cylinder lies inside `SIZE(s2)`. For anchors w,w' matched by K,P, the canonical owner mask `mu=Var(P)\Var(K)` produces the completion `(mu?w':w)`, so every compatible mask restriction on the disagreement set gives a distinct size-s2 table. This is the exact global safety constraint; it is stronger than a pointwise mismatch and does not assume supports are disjoint.
+
+The missing theorem is a q-dependent bound on the **product rank** of these masks across all low-circuit descriptions. A reused state might expose independent replacements, forcing more than `|SIZE(s2)|` hybrids; alternatively, it may preserve a compact equality or parity fingerprint. C-257 and C-258 show why counts, widths, and anchor collisions alone fail. Work next on one rich low-circuit family whose supports can be tracked blockwise, and test whether the closure grammar forces a high-complexity owner selector. In parallel continue the full-promise near-linear cover attack. Actual q remains `N-o(N)`; this is a calibrated target, not a bound. Full derivation: research/C281_NATIVE_CYLINDER_GRAMMAR_AND_OWNER_MASK_FRONTIER_2026-09-27.md.

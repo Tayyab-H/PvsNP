@@ -158,3 +158,45 @@ Cavalar?Oliveira (2025) already establish the exact general correspondence betwe
 ## C-254 continuation
 
 C-254 lifts the C-252 forbidden-pattern readout to partial assignments: any hazardous support has a low-only completion cylinder of dimension at most log2|SIZE(s2)|. A selected readout witness has at most q distinct state labels and at most two seed leaves per state, plus one marker, yielding q >= (N-log2|SIZE(s2)|-1)/2. This is valid but weaker than the existing N-o(N) floor; arbitrary coordinate-order chain event counting still supplies no stronger aggregation. The current primary route is the C-255 shared-DAG programme above. Full correction: research/C254_PARTIAL_SUPPORT_HAZARD_BOUNDARY_2026-09-27.md.
+
+## C-261–C-265 priority reset and success criterion
+
+The latest steering raises the progress threshold. Do not report another local lemma as major progress. The next phase is: (A) import a genuinely strong cyclic monotone lower bound through the exact LowExt map; (B) prove independent splicing versus expensive global synchronization in the native grammar; then (C) keep attacking a full-promise N^(1+o(1)) cover as a falsification route. Bounded route filters: C-263 kills the direct sparse matching code, C-264 shows equality fingerprints defeat raw incidence counts, and C-265 kills naive independent cofactor recursion.
+
+C-261 is genuine source-model progress: the spread-matching lower bound survives q-state least-fixed-point semantics after explicit unrolling. C-262 shows the source size v=Theta(log^2 N) gives enough exponent for arbitrarily small fixed beta if the map and YES completions are polylogarithmic. The map is absent, so the actual Gap-MCSP fusion lower bound remains N-o(N). Keep the goal active.
+
+## Latest priority reset - 27 September 2026 (after C-256)
+
+This instruction supersedes the prior route allocation above. Prioritize only two main attacks: (A) import a genuinely exponential cyclic monotone lower bound into exact `LowExt_{s1}` with a monotone map of AND-cost smaller than the source lower bound and a high completion on every NO input; (B) prove global context/subproof synchronization versus independent splicing for the full `SIZE(s1)` class, calibrated against C-258 equality fingerprints. Secondary bounded attempts: (C) terminal-specific BPHP sink refiners, and (D) an ordinary circuit compiler for fixed-support closure worklists. Do not continue local refinements unless they cross one of these barriers. After 3-5 claims, state whether q changed. The actual q bound remains `N-o(N)`. Latest detailed audit is `research/C266_CYCLIC_MATCHING_LOWEXT_AND_SYNCHRONIZATION_AUDIT_2026-09-27.md`; next task is a concrete global-validity encoding for Route A, or an explicit proof that its cost cannot clear the parameter inequality.
+
+The C-271 universal-circuit quotient audit closes explicit description enumeration, blockwise witness forgetting, independent cofactor recursion, and one-state-per-subfunction tables. It leaves the all-class near-linear cover problem open and does not change q.
+
+## C-273 continuation
+
+The July 2026 monotone-learning result was tested as a Route A bridge. Its natural partial-example vector P lies below a fitting low code, while C-125 needs the low code below the YES image; the standard order reversal creates two rails on unspecified coordinates and cannot support a NO high code. Sparse consistent examples have many high completions by counting, which is compatible with C-125 because NO images may also have low completions. C-273 retires only the direct sample-list encoding and leaves a source-monotone asymmetric rail map with low AND cost as the open task. C-272's edge-hybrid entropy also supplies no q charge. Three-claim checkpoint: q unchanged at N-o(N). Continue O-157/O-163 and O-158/O-162.
+
+## C-274 continuation
+
+C-274 strengthens the transfer-map constraint: if the union S of all YES-side conflict coordinates has size at most about (s2-s1)/logN, the shared low-code restriction outside S lets the monotone map plus an N-way AND compute the source. Thus any map that saves more than N ANDs against CycAnd(f) must have a global conflict support of Omega((s2-s1)/logN), or Omega(N^beta/logN) in the project range. This is stronger than C-127's logarithmic support bound, but still allows broad support spread across different YES inputs. The actual q bound remains N-o(N); next test such broad-conflict architectures or derive a per-input conflict aggregation theorem. See O-164.
+
+## Updated route state after C-275/C-276
+
+The conflict-support patch bound is now `O(delta logN/log delta)`, not the earlier `O(delta logN)` minterm estimate. Hence a transfer strong enough for `q>N^(1+epsilon)` requires a global YES conflict union `delta>c_beta s2`, while the exact matching parameter remains `v=A(log N)^2` with `exp(c sqrt(v))>N^(1+epsilon)+a(N)`. The source theorem survives the cyclic least-fixed-point semantics by explicit unrolling; its direct approximation induction is not itself cyclic.
+
+The actual `q` lower bound remains `N-o(N)`. Task 1 and the arithmetic in Task 2 are settled; Task 2's construction is open. Route B's best object is the context/proof/blocker tensor, but C-258 equality fingerprints and C-272's single-expander calibration show no global state charge. Continue with a broad-conflict LowExt map, or prove the map's AND-cost must consume the source lower bound. The goal remains active.
+
+## C-277: Hall-cut obstruction to an OR-only LowExt map
+
+OR-only rail outputs have one fixed polarity per truth-table coordinate because any two opposing edge supports would conflict on a one/two-edge NO graph. All YES codes are then equal, and their containment test is an N-clause monotone CNF. The vertex-cover graphs `G_W` for `|W|=v/4-1` provide `2^(H_2(1/4)v-o(v))` NO inputs. Any clause that accepts every perfect matching can reject at most `2^(v/2-1)` of them by Hall's condition. Thus the CNF needs `2^(0.311...v-o(v))` clauses; at `v=A(logN)^2`, this is larger than N. Zero-AND maps are ruled out, but positive-AND maps are not. No change to q: it remains `N-o(N)`.
+
+
+## Continuation after C-278
+
+C-278 rules out fixed-NO-scaffold witness-union reductions: if the YES-only excess rails vanish on NO, their OR already computes the source within the map's AND cost. Continue Route A only with a construction whose NO partial image varies with the input and remains high-completable and low-code-free, while YES images contain a full low code and have broad conflict support. Keep the exact `q>=L-a` arithmetic visible. In parallel, revisit Route B only at the global incompatible-synchronization level, testing every proposed object against the C-258 equality fingerprint. Actual q remains `N-o(N)`; no proof of P versus NP has been obtained.
+
+## Continuation after C-279
+
+C-279 verifies that the C-125 asymmetric order conditions can be met with variable high NO codes, but its scalar-rank palette is useless quantitatively: output coordinates reveal each rank predicate, and adjacent-pair decoding gives `CycAnd(F)<=a+O(log^2N)`. Continue by replacing scalar ranks with witness-indexed NO profiles, while proving the output cannot decode the source with `o(L)` extra AND gates. Simultaneously formulate the native context/subproof synchronization object in terms of global profile decodability and retest it against C-258. Preserve the actual checkpoint `q=N-o(N)`; the goal remains active until a verified proof-level breakthrough.
+## Priority reset after C-280/C-281
+
+The active research priority is the global sharing/readout problem in the native cyclic fusion closure. The antichain grammar and exact context/proof splice law are already established (C-260); C-281 expresses their table-space consequence through owner masks. Work on a q-sensitive owner-mask product rank and, in parallel, a full-promise N^(1+o(1)) cover. Route A matching maps, ordinary DAGs, and local-width refinements are secondary unless they produce a global theorem or near-lossless transfer. The actual q bound is still N-o(N); no proof of P versus NP has been found.
