@@ -1,0 +1,11 @@
+backend=cadical195; n=3; rules=1; anchors=7; universe=1; symmetry_break=True; restricted_generators=False; variables=137; clauses=334
+sat_status=sat
+  rule0: E=[]; H=[]; intersection=[]
+  anchor=0; closure_rounds=[[0]]; derives_empty=True
+  anchor=1; closure_rounds=[[0]]; derives_empty=True
+  anchor=2; closure_rounds=[[0]]; derives_empty=True
+  anchor=3; closure_rounds=[[0]]; derives_empty=True
+  anchor=4; closure_rounds=[[0]]; derives_empty=True
+  anchor=5; closure_rounds=[[0]]; derives_empty=True
+  anchor=6; closure_rounds=[[0]]; derives_empty=True
+verified_universal_cover=True

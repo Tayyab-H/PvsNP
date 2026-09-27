@@ -1,0 +1,2 @@
+backend=cadical195; n=5; rules=2; anchors=26; universe=6; symmetry_break=False; restricted_generators=False; first_seed_normal_form=True; variables=1986; clauses=7053
+sat_status=unsat

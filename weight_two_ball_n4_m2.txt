@@ -1,0 +1,16 @@
+backend=cadical195; n=4; rules=2; anchors=11; universe=5; symmetry_break=True; restricted_generators=False; variables=1202; clauses=4627
+sat_status=sat
+  rule0: E=[13, 14]; H=[7, 11, 15]; intersection=[]
+  rule1: E=[11, 14]; H=[7, 13, 15]; intersection=[]
+  anchor=0; closure_rounds=[[0, 1]]; derives_empty=True
+  anchor=1; closure_rounds=[[0, 1]]; derives_empty=True
+  anchor=2; closure_rounds=[[0, 1]]; derives_empty=True
+  anchor=3; closure_rounds=[[1], [0]]; derives_empty=True
+  anchor=4; closure_rounds=[[0, 1]]; derives_empty=True
+  anchor=5; closure_rounds=[[0], [1]]; derives_empty=True
+  anchor=6; closure_rounds=[[0, 1]]; derives_empty=True
+  anchor=8; closure_rounds=[[0, 1]]; derives_empty=True
+  anchor=9; closure_rounds=[[0, 1]]; derives_empty=True
+  anchor=10; closure_rounds=[[0], [1]]; derives_empty=True
+  anchor=12; closure_rounds=[[1], [0]]; derives_empty=True
+verified_universal_cover=True

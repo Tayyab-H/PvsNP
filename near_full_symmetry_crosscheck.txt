@@ -1,0 +1,8 @@
+n=3; rules=1; status=unsat
+n=4; rules=1; status=unsat
+n=5; rules=1; status=unsat
+n=5; rules=2; status=unsat
+n=6; rules=1; status=unsat
+n=6; rules=2; status=unsat
+n=7; rules=1; status=unsat
+n=7; rules=2; status=unsat
