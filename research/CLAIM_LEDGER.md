@@ -2076,3 +2076,178 @@ Let C have size r and approximate a low table w on all but e addresses. Select k
 ## C-225 - One-cell concentration survives approximate signatures
 
 Fix low w with `CC(w)<=s1` and an approximate circuit C of size r that agrees with w on at least N/2 positions. For any k-wire signature containing C's output, some good cell F has `|F|>=N/2^(k+1)`. If `|F|>A*s2*log(s2+n)` and `s1+r+O(k)<=s2/2`, count the completions `z_A=w xor 1_A` for A subseteq F. There are more than the number of tables of circuit size <s2, so one completion is high. Both endpoints w and `w xor 1_F` are low: the latter's circuit computes F using the exact test `C(x)=w(x)` and the signature pattern. The high completion is therefore nonconstant on F and, by point-minterm patching against both low endpoints, has `Omega(s2/n)` minority points in this one good cell. For any fixed beta in (0,1), choose `kappa<min(beta,1-beta)` and k=`floor(kappa*n)`; then the cell size exceeds the circuit-count threshold. This extends C-120 to approximate circuits and the full fixed-beta range. It falsifies mixed-cell-count charges, not arbitrary DAG lower bounds: the location F depends on w,C and the chosen high table. Full proof: `research/C225_APPROXIMATE_SIGNATURE_ONE_CELL_CONCENTRATION_2026-09-27.md`.
+
+## C-226 - Fusion closure is alternating reachability, not an ordinary BP
+
+For each rule i, the least activation equation is an AND of two sides, each an OR over seed literals and predecessor rules. This is exactly the least reachability winning set of a cyclic alternating program: universal choice of side, existential choice of support, infinite plays losing. The program uses O(q) states and O(q(N+q)) transitions. The q rule states therefore cannot be identified with q vertices of a standard acyclic rect-DAG or a one-path NBP. Activation witnesses are shared proof DAGs with two support obligations per node; unrolling may duplicate subproofs, while tracking the active/rank assignment generically takes 2^{O(q)} BP states.
+
+From the local PRG/HSG for standard NBP/co-NBP models, a promise co-NBP separator between CC<=s1 and CC>s2 (both thresholds o(N/n)) must have size at least s1^{3/2-o(1)}: complement it, then it rejects all local low-circuit generator outputs and accepts almost all uniformly random high tables. At OPS parameters this is N^{3 beta/2-o(1)}, useful as a superlinear floor only for beta>2/3. This is an inference from the cited local-generator proof, not the paper's verbatim theorem. Since fusion closure is mapped only to alternating reachability, this BP lower bound gives no q bound. Full proof/scope: `research/C226_FUSION_CLOSURE_ALTERNATING_BP_BOUNDARY_2026-09-27.md`.
+
+
+## C-227 - Native certificate grammar and splice-soundness condition
+
+Each least-fixed-point activation has a finite AND/OR proof tree. At state i, every E-side proof support combines with every H-side proof support by union; alternatives form the minimal-support antichain. Replacing a state occurrence in an accepting proof by any other finite proof rooted at that state is syntactically valid. Its support is the outside-context support K union the replacement support C'. For any consistent such union, the entire truth-table cylinder is accepted. A successful Gap-MCSP cover rejects all tables of complexity greater than s2, so that cylinder has at most M2=|SIZE(s2)| tables and fixes at least N-log2(M2) distinct coordinates.
+
+A forced-splice contradiction must therefore produce a consistent cross-context support fixing fewer than N-log2(M2) coordinates. State reuse alone does not suffice: opposite signs can make the support unrealizable, while a consistent union can fix almost every coordinate and leave only low/medium tables. Full grammar, proof, and finite toy-model calibration: `research/C227_NATIVE_CERTIFICATE_SPLICE_LAW_2026-09-27.md`.
+
+Status: grammar and conditional splice law proved. No forced low-footprint splice for actual low-circuit tables; no superlinear fusion lower bound or P-vs-NP proof follows.
+
+## C-228 - Easy anchors can have hard global readout without splice hardness
+
+Fix a subexponential but superpolynomial family E of truth tables, each of circuit size at most s0=N^alpha, and choose a random R-element subfamily W with R=2^(N^delta), 0<delta<alpha<1. An explicit sparse-indicator family supplies |E|=2^Theta(N^alpha/n). Since the hypercube graph has degree N, one can choose W with no adjacent pair. The total promise Y=W, Z=all other tables has a q-rule readout lower bound by counting: there are binom(|E|,R) possible W, but at most 2^(4Nq+2q^2+q) q-rule outputs. This gives q >= 2^(N^delta/2+O(log N)) for some W, despite every YES table being individually easy and the seed-feature floor being only linear.
+
+Every consistent accepting certificate must fix all N coordinates, since its cylinder lies in the independent set W. Any consistent context/subproof splice in a sound closure also fixes all N coordinates and lands back on W; this model does not force a forbidden hybrid. The readout lower bound comes from arbitrary global labeling, not dangerous splicing. The high side contains many easy tables, so this is an artificial promise and not Gap-MCSP. Learning: certificate width, anchor abundance, and individual easiness alone do not establish the O-151 mechanism; an actual-promise splice proof must exploit additional geometry of SIZE(s1) versus CC>s2. Full proof: `research/C228_RANDOM_SUBFAMILY_READOUT_CALIBRATION_2026-09-27.md`.
+
+## C-229 - Direct universal-circuit witness grammar exposes a synchronization cost
+
+Low-table membership is `exists description d, for all N coordinates k: w_k=C_d(x_k)`. Building one coordinate-check chain per low circuit description gives the simple O(N times number-of-low-tables) native cover. Sharing check states across descriptions removes the description tag that keeps all N checks tied to one witness d. The exact certificate grammar then cross-combines E/H supports from different descriptions; soundness needs every such hybrid to be inconsistent or high-free. Keeping d in the state prevents this cross-mix but restores description-indexed copies. This is a failure of the proposed construction at its sharing step, not a lower bound: carriers may encode semantic consistency more compactly. Next seek a semantic quotient of partial circuit descriptions and count its cross-compatible obligations. Full audit: `research/C229_UNIVERSAL_CIRCUIT_CERTIFICATE_GRAMMAR_AUDIT_2026-09-27.md`.
+
+## C-230 - The exact splice threshold is the maximum safe subcube dimension
+
+Let kappa_square(s2) be the maximum number of free truth-table coordinates in a full subcube all of whose tables have circuit size at most s2. Any consistent accepting proof support C has free-coordinate set of size N-r(C), so soundness requires N-r(C)<=kappa_square(s2). Circuit counting gives kappa_square=O(s2 log(s2+n)). Conversely, fix an input-prefix subcube F of size 2^k and allow an arbitrary Boolean function on its k free address bits, zero outside F. Lupanov synthesis computes every such extension in O(n+2^k/k) gates. Choosing 2^k=Theta(s2 log s2) gives kappa_square=Omega(s2 log s2). Thus kappa_square=Theta(s2 log s2)=Theta(log|SIZE(s2)|) for fixed-beta OPS scales. Certificate-width sharpening alone is therefore exhausted up to constants. Source: Lupanov 1958, bibliographic record/scan at MathNet; full derivation and splice consequence: `research/C230_HIGH_FREE_SUBCUBE_DIMENSION_CALIBRATION_2026-09-27.md`.
+
+## C-232 — Same-alphabet communication/DAG separation; OPS transfer remains open
+
+For an arbitrary Boolean function `f` on N-bit inputs, its KW mismatch relation has N output labels and an `O(N)`-bit protocol (Alice sends her input). Circuit counting gives a function with circuit size `Omega(2^N/N)`, and Sokolov's DAG/KW theorem transfers this to rect-DAG size. This is a generic counterexample to “short communication or small output alphabet implies a small shared DAG.” It does not transfer to the fixed Gap-MCSP promise. For that promise, `S_rect=Theta(C_sep)` and truth-table versus circuit-description input representations have equal minimum DAG size. The direct separator `OR_d AND_k[w_k=G(d)_k]` costs `N*2^(O(s1 log(n+s1)))`; universal evaluation alone does not remove the existential over d. The `2N` mismatch rectangles form a small cover, but arbitrary unions in that cover cannot be binary-expanded unless every intermediate set is a rectangle. Quantitative chain remains `rho_prom<=O(S_rect)` and `S_rect<=O(rho_prom^3/log rho_prom)`; forcing `rho_prom>N^(1+epsilon)` through the latter requires `S_rect>cN^(3+3epsilon)/logN`. Status: model-level calibration proved; no actual-promise superlinear bound or P-vs-NP proof. Full note: C-232.
+
+**C-233 (proved operational lemma; no P-vs-NP consequence).** For the q-rule least closure `x_i=(a_i OR OR_{j∈P_i}x_j) AND (b_i OR OR_{j∈R_i}x_j)`, first-activation ranks are the least solution of `tau_i=1+max(min({0 if a_i}∪{tau_j:j∈P_i}), min({0 if b_i}∪{tau_j:j∈R_i}))`, with infinity when either side has no finite support. A min-priority worklist finalizes exact ranks in nondecreasing order because every candidate is one plus both supporting ranks; each rule is finalized once and each support incidence processed once. With `E<=2q^2`, seed evaluation costs `O(qN)`, yielding `O(qN+(q+E)log q)` word-RAM operations. The closure has a direct `O(qN+E)=O(q^2)`-gate TSC partial recognizer, outputting 1 on Y and Z on high tables, and a total TSC separator of size `q^2 polylog q` via RAM simulation. Neither bound implies a standard Boolean circuit/rect-DAG of that size; RAM/TSC-to-acyclic conversion is unresolved. A partial-TSC lower bound `>N^(2+2epsilon+delta)` would imply `q>N^(1+epsilon)`, but none is established. See `research/C233_MINMAX_ACTIVATION_RANK_AND_TRISTATE_RAM_BRIDGE_2026-09-27.md`.
+## C-234 - Conditional blockwise substitution theorem
+
+**Proved conditionally.** Let D be the family of all k-bit Boolean functions, repeat each g in D across r=N/2^k address-prefix blocks, and choose k so every g has circuit size at most s1/4 and 2^k=Theta(s2). All diagonal tables lie in SIZE(s1); independent block hybrids range over all 2^N tables. If a selected accepting proof for each diagonal table has pairwise-disjoint state occurrences isolating each block from its outside context, then state-label pigeonholing plus repeated valid substitution yields at least (|D|/(2rq))^r accepted hybrids. Circuit counting forces q>=2^(Omega(s2)) at OPS scales.
+
+**Not proved for arbitrary covers.** Block isolation is not automatic. The diagonal-only subpromise has an O(N) Boolean separator and therefore an O(N)-pair fusion cover, proving that no choice of one accepting proof per anchor can satisfy the isolation hypothesis for every anchor simultaneously. The missing theorem is a quantitative charge for the resulting nonlocal/interleaved proof structure or an alternative compatibility theorem. No full-promise superlinear fusion lower bound follows. Full proof: research/C234_BLOCK_REPLICATION_AND_CONDITIONAL_SPLICE_AMPLIFICATION_2026-09-27.md.
+**C-234 exact fingerprint refinement.** For diagonal anchors w_g(p,u)=g(u), context K from w_g and replacement support C from w_h are compatible iff g and h agree on every suffix u represented by at least one coordinate in dom(K) intersect dom(C). The overlap is a partial truth-table fingerprint; a full fingerprint prevents cross-description splicing. For differing u outside the fingerprint, the copies across prefix blocks are assigned to K, C, or left free; constant-side ownership has a low diagonal completion. Dangerous hybrids require prefix-varying ownership. This is an exact mechanism description, not a q lower bound.
+
+## C-235 — Native splice intervals and endpoint joins/meets
+
+For a consistent dual-rail support S, define the Boolean interval `Q(S)=[ell(S),u(S)]`, where ell is the indicator of positive literals and u is the complement of the negative-literal set. Then `Q(S union T)=Q(S) intersect Q(T)`, `ell(S union T)=ell(S) OR ell(T)`, and `u(S union T)=u(S) AND u(T)`. Every output-proof interval of a sound Gap-MCSP closure is wholly inside SIZE(s2); in particular both endpoints are size-s2. This yields exact endpoint constraints for arbitrary context/subproof splices, simultaneous disjoint-occurrence substitutions, and every E/H side cross-product at an output rule.
+
+The endpoint law suggests a possible route around the tight `Theta(s2 log s2)` safe-cube dimension: force a high canonical ownership endpoint directly. No mechanism forcing one is known. The C-228 singleton-safe promise and C-234 diagonal equality cover pass the hostile check. This is a verified structural reformulation, not a lower bound. Full proof: `research/C235_CUBE_INTERVAL_CALCULUS_FOR_NATIVE_SPLICES_2026-09-27.md`.
+
+## C-236 — Disagreement-restricted ownership selector cap
+
+For two repeated low anchors `w_g(p,u)=g(u)` and `w_h(p,u)=h(u)`, any compatible context/subproof splice has endpoint z in SIZE(s2). On the disagreement set D, z equals one of the two anchor values coordinatewise. The selector `mu=(w_g XOR w_h) AND (z XOR w_h)` records which anchor was chosen and is computable with size at most `s2+2s1+O(1)`. More directly, distinct masks require distinct restrictions of z, so across all compatible splices at most `|SIZE(s2)|=2^(o(N))` masks occur. For typical g,h, D has size at least N/3, leaving `2^(Omega(N))` possible masks, almost all forbidden. This isolates the exact consistency constraint, but does not lower-bound q: no bound connects q to the image size of context/subproof products. The O(N) diagonal equality cover passes by keeping masks prefix-constant. Full proof: `research/C236_DISAGREEMENT_SELECTOR_CAP_FOR_COMPATIBLE_SPLICES_2026-09-27.md`.
+
+**C-236-A completion refinement.** For each compatible selector mu, the canonical source hybrid `H_mu=w_h XOR mu` is a completion of the mixed support and hence is itself low. Thus masks outside `L_{g,h}={mu:H_mu in SIZE(s2)}` cannot be induced; the mask-to-hybrid map is injective, giving the `|SIZE(s2)|` cap. This strengthens endpoint-only bookkeeping but still does not connect profile-image size to q. See C-236.
+
+## C-237 — The disagreement-selector safe width is tight
+
+For typical repeated low anchors `w_g,w_h`, their safe selector set contains an axis-aligned cube of dimension `Theta_beta(s2 n)`. If beta<1/2, put a Lupanov-sized free subcube in one disagreement column. If beta>=1/2, choose q differing suffix columns and vary arbitrary prefix functions; Lupanov synthesis costs `O(qr/(n-k)+qk+s1)<=s2`. C-230 gives the matching O(s2 n) upper bound. Thus random anchor disagreement does not shrink the safe-cube threshold; charge free-set geometry/grammar generation instead. No q bound follows. Full proof: `research/C237_SAFE_SELECTOR_CUBE_DIMENSION_2026-09-27.md`.
+
+## C-238 — Whole-skeleton E/H cross-product
+
+A ranked witness skeleton records the active states and the selected predecessor edges while abstracting away seed-literal identities. If two accepted tables realize the same skeleton, mixing all E-side seed labels from x with all H-side labels from y preserves a finite proof DAG whenever the mixed support is consistent. Its full cylinder lies in SIZE(s2). This is a global version of state reuse. The immediate counting route fails: there are at most `2^(O(q log q))` skeletons in a q-rule system, too many for the `2^(Theta(s2))` repeated low anchors when q>=N. No q lower bound follows. Full proof: `research/C238_GLOBAL_WITNESS_SKELETON_MIXING_2026-09-27.md`.
+## C-239 — Canonical rank fibers and conflict-or-cover
+
+The activation-rank vector from C-233 alone does not determine the side witnesses: a nonmaximal side can have minimum rank 0 on one anchor and a positive predecessor rank on another while the state activation rank stays fixed. C-239 gives an endpoint-realizable two-rule counterexample. The augmented profile of both side minima per state does determine a canonical skeleton; selected predecessor edges decrease rank, and equal-side-rank accepted anchors obey C-238's whole-skeleton E/H cross-product. For fixed Q, this canonical profile is a function of the 2q-bit seed signature, so it gives at most 2^(2q) canonical fibers. This is not a count of all C-238 witness topologies, and it remains too large for anchor pigeonholing at q>=N.
+
+For a reusable state i, let K range over outside-context supports in accepting proofs with a marked i occurrence and C over finite proof supports rooted at i. Substitution gives an accepting output support K union C. If consistent, soundness and C-230 imply |free(K) intersect free(C)|<=kappa_square(s2); otherwise the support contains opposing rails. This is the exact conflict-or-cover obligation on state reuse. No extremal theorem charging it to q is known. A blockwise residual-description attempt also fails to produce a near-linear cover because it must preserve nonempty intersection with one common circuit description across all address blocks. Full proof and limits: research/C239_CANONICAL_RANK_FIBERS_AND_NATIVE_SPLICE_OBLIGATION_2026-09-27.md.
+
+## C-241 — Description-space invariance for shared mismatch DAGs
+
+Status: proved exact model fact; no actual-promise lower bound. For any onto map G:D->Y, the rect-DAG complexity of (d,z)->Mis(G(d),z) on D x Z equals that of (w,z)->Mis(w,z) on Y x Z. Lift Alice-side sets through G for one inequality; restrict a description-DAG to a section sigma:Y->D for the reverse. This handles noncanonical/multiple descriptions exactly. Therefore short circuit descriptions help the bit protocol but cannot reduce standard DAG size unless they yield a small separator circuit for the truth-table promise.
+
+The direct universal separator has size O(N|Y|), and the dyadic restriction-profile router has size O(sum_I pi_I(Y)) <= O(N|Y|/log|Y|+N log N), still exponential for OPS low families. The 2N signed mismatch rectangles are a small nondeterministic cover; they do not furnish a binary product-rectangle DAG. The actual shared-state obligation is global aggregation of the local product-hull condition. Quantitative chain and limits: C-241; no superlinear S_rect, rho_prom, or P-vs-NP result.
+
+Sokolov PLS remains distinct: its state graph is acyclic and a state/successor choice with t communication bits incurs an O(2^(3t)) conversion factor per state. Rank-layering Q gives O(q^2) states and t=O(log(q+N)); the resulting O((q^2+N)(q+N)^3) Boolean game is worse than the direct rank/support compiler. The cyclic q-state closure therefore has no hidden standard-PLS identification.
+
+**C-241 compiler cross-check with C-240.** If m empty-carrier output rules have both seed vocabularies nonempty, C-240 forces each pair to be complementary literals on one coordinate. The seed-construction term in the SCC compiler can therefore be refined from O(qN) to O((q-m)N+m). More precisely the bound is O((q-m)N+m+E_ext+sum_C(r_C e_C+r_C^2)+q). This is parameter-sensitive but does not constrain external support incidence or dense SCC feedback; it leaves the worst-case compiler loss unchanged. No near-lossless q-to-DAG map follows.
+
+
+## C-242 — Finite antichain grammar and blocker-path dual
+
+**Established.** For a q-state positive least-fixed-point fusion closure, each state has an exact antichain grammar of inclusion-minimal seed supports, obtained as the least finite-proof solution; every minimal support has a witness of height at most q. Every state context/replacement-support pair produces an output proof by subtree substitution. In a successful Gap-MCSP closure, every consistent such support has its full Boolean interval inside SIZE(s2), so both canonical endpoints are in SIZE(s2) and its free dimension is at most kappa_square(s2).
+
+**Established.** For every high table z, each inactive state has a false side whose seeds and active predecessors are absent. Following these sides through a ranked accepting proof for any low table w reaches a mismatching seed literal after at most q state visits.
+
+**Not established.** No q-sensitive bound on the number/geometry of compatible interval joins; no forced high splice; no near-linear full-promise cover; no superlinear native fusion lower bound; no P-vs-NP resolution. Proof and scope: research/C242_NATIVE_CERTIFICATE_ANTICHAIN_AND_BLOCKER_PATH_2026-09-27.md.
+
+
+**C-242 upper-cover calibration.** For a fixed coordinate order, the native prefix-intersection construction has size at most sum_{t=2}^{N-1}|pi_t(SIZE(s1))|. It is correct because every length-(N-1) low prefix has exactly two table completions, both in SIZE(s2) by one-point patching, so its high-side carrier is empty. C-212 shattering makes the first Theta(s1) levels exponential, so this construction is not near-linear. This is a valid construction and a route-specific failure, not a lower bound on adaptive/native covers. Full argument: research/C242_NATIVE_CERTIFICATE_ANTICHAIN_AND_BLOCKER_PATH_2026-09-27.md.
+
+
+## C-243/C-244 — carrier containment and state-zone factorisation
+
+**Proved.** If C is any finite proof support rooted at state i, then U intersect Cyl(C) is a subset of T_i. Therefore |T_i| >= 2^(N-|dom(C)|)-M2; pairwise-disjoint high portions of t-fixed-coordinate proof cylinders obey the C-243 packing inequality.
+
+**Proved.** Let P_i be all finite proof supports rooted at i and K_i all finite accepting contexts with a hole at i. On legal inputs, Acc_Q(x)=OR_i([P_i](x) AND [K_i](x)). For a sound promise separator, the q zones Z_i=[P_i] intersect [K_i] cover SIZE(s1) and are each subsets of SIZE(s2). Every compatible K,C cylinder is low.
+
+**Open.** No bound relates q to the number or geometry of low circuits in a grammar-generated zone; carrier intersections may be correlated. No superlinear native lower bound, near-linear full-promise cover, or P-vs-NP proof follows. See research/C243_CARRIER_VOLUME_AND_CERTIFICATE_PACKING_2026-09-27.md and research/C244_STATE_ZONE_FACTORISATION_AND_GLOBAL_READOUT_2026-09-27.md.
+
+
+## C-245 — Marked proof/context antichain grammar
+
+**Proved.** Over the antichain semiring of consistent signed-literal supports, a one-hole context recurrence propagates the hole through one rule side and an ordinary proof through the other. For every input and state i, the full-context zone is unchanged if contexts are restricted to height at most 2q: shorten the root-to-hole path by deleting repeated states and replace sibling proofs by rank-minimal proofs.
+
+**Consequence.** The C-244 state-zone decomposition has a direct representation from the same q-rule grammar, with q^2 context-family indices over all hole targets and at most 2q iterations. This counts family labels only; antichains may be exponentially large. It gives no superlinear q lower bound. Full derivation: research/C245_MARKED_ANTICHAIN_GRAMMAR_FOR_CONTEXTS_2026-09-27.md.
+
+
+## C-246 — Repeated-block proof-cylinder capacity; count route fails
+
+**Proved.** In the C-234 diagonal family, if N=rm and each suffix value is repeated r times, a sound support cylinder fixing all but at most kappa coordinates can match at most 2^(kappa/r) diagonal anchors. Since kappa=o(N) and m=Theta(s2), this is 2^(o(m)); an exponential number of proof supports is needed to cover the family.
+
+**Count audit.** A q-state closure has at most q*2^q*(2N+q)^(2q) ranked witness-DAG encodings. Hence certificate count yields only Theta(m)-kappa/r <= O(q log(N+q)), weaker than q>=N-o(N) when m=N^beta, beta<1. The first failed implication is exponential support count => superlinear state count. Full proof and learning: research/C246_REPEATED_BLOCK_CERTIFICATE_CAP_AND_COUNTING_FAILURE_2026-09-27.md.
+
+
+## C-247 — Multi-hole splice entropy budget
+
+**Proved.** Pairwise disjoint marked occurrences in a finite accepting proof can be replaced simultaneously. If their associated anchor completions have distinct restrictions to disjoint private coordinate sets left free by the context and other slots, and all unions are consistent, then the product of family sizes is at most |SIZE(s2)| by soundness.
+
+**Calibration.** C-234 block isolation gives 2^N distinct accepted hybrids and contradicts log|SIZE(s2)|=o(N), recovering its conditional exponential bound. The diagonal equality cover defeats the private-slot premise through context fingerprints. No small-q theorem forces a large compatible product or charges fingerprints superlinearly. See research/C247_MULTIHole_SPLICE_ENTROPY_BUDGET_2026-09-27.md.
+
+
+## C-248 — Blocker rectangles and monotone extension
+
+**Proved.** Every state i induces the product rectangle R_i=A_i×B_i of low tables activating i and high tables blocking i. Output rectangles cover Y×Z. Each R_i is covered by signed seed-mismatch rectangles on whichever side the high input blocks, together with predecessor rectangles; low activation ranks force routes to terminate within q steps. Thus state reuse automatically includes every cross-pair in the rectangle.
+
+**Transfer.** Unrolling q least-fixed-point rounds produces a monotone separator extension over the signed-seed encoding with at most 3q²+1 unbounded-fan-in gates, counting gates but not wires. A lower bound M on this extension measure implies q≥sqrt((M−1)/3). The compiler has O(q²(N+q)) gate-input incidences, hence O(q³) at q≈N; it is not an improved bounded-fan-in compiler.
+
+**Limit.** Every disjoint promise already has a 2N mismatch-rectangle cover. More sharply, the artificial promise Y={0,1}^N \setminus {0^N,1^N}, Z={0^N,1^N} has a one-rule native cover and a full rectangle R_1=Y×Z; different pairs route to different mismatching coordinates. Rectangle area and raw cover count do not charge q, and pair-space cross-swaps do not splice truth tables. No lower bound on the actual promise's monotone extension measure, no superlinear fusion bound, no near-linear cover, and no P-vs-NP proof has been obtained. See research/C248_BLOCKER_RECTANGLES_AND_MONOTONE_EXTENSION_COMPILER_2026-09-27.md.
+
+
+## C-249 — Bi-blocked output-root normal form
+
+**Proved.** At OPS parameters, every signed coordinate half-cube intersects the high side U because |SIZE(s2)|=2^{o(N)}. For each accepted low table, an active empty-carrier state of minimum activation rank has two nonempty, disjoint endpoints: an empty endpoint cannot contain a nonempty seed slice, and any predecessor carrier contained in it would itself be empty and activate earlier. Thus only roots with both endpoints nonempty are needed for completeness.
+
+**Consequence.** Each normalized root i contains high witnesses z_E∈E_i and z_H∈H_i that block its opposite sides. By C-240, direct root seed vocabularies are at most a complementary singleton literal pair or are seedless on one side; an accepting proof must pass to a predecessor. The one-bit root choice or forced escape maps low anchors into predecessor rectangles paired with fixed high witnesses.
+
+**Limit.** This is only a root normal form. It gives no bound on the number or geometry of predecessor families, no q-sensitive cross-join charge, no near-linear cover, and no P-vs-NP proof. The C-248 one-state generic counterexample lacks the actual high-side shattering premise. See research/C249_BIBLOCKED_OUTPUT_ROOT_NORMAL_FORM_2026-09-27.md.
+
+
+## C-250 — Half-safe predecessor supports
+
+**Proved, conditional on C-243.** At a seedful minimum-rank output root, a low anchor matching a direct literal (k,b) must escape through an opposite-side predecessor. Every high table extending any support cylinder C for that predecessor lies in its carrier, which is disjoint from the root's matching high half-cube. Thus the half of Cyl(C) with bit k=b contains no high tables and is wholly in SIZE(s2). Therefore |free(C)| <= ceil(log2|SIZE(s2)|)+1.
+
+**Limit.** On repeated-block anchors this limits each seedful escape cylinder to 2^((kappa+1)/r) anchors, but witness-DAG counting still gives only a scale below the existing linear q floor. Seedless roots are outside the lemma. The needed next result remains a q-sensitive aggregation of context/proof joins across roots; no superlinear q bound or P-vs-NP proof follows. See research/C250_ONE_SIDED_SAFE_ESCAPE_CYLINDERS_2026-09-27.md.
+
+
+## C-251 — Root escape support dichotomy
+
+**Proved.** Every accepted low at a C-249 normalized empty root has one of two selected proof forms. If a direct seed matches, the opposite predecessor support is half-safe by C-250. If no direct seed matches, both sides use predecessor supports; their union is consistent, and every completion preserves the empty-root proof, so the union cylinder lies wholly in SIZE(s2) and has at most floor(log2|SIZE(s2)|) free coordinates. This covers seedless roots and missed-seed branches at the paired-support level.
+
+**Consequence and limit.** In the C-234 repeated-block family each selected single or paired support signature covers at most 2^((kappa+1)/r) anchors. Counting signatures still gives only exp(O(q log(N+q))) capacity, since paired proof-DAG descriptions square the old count up to constants. No cross-root reuse charge, superlinear state bound, near-linear full-promise cover, or P-vs-NP proof follows. See research/C251_ROOT_ESCAPE_SUPPORT_DICHOTOMY_2026-09-27.md.
+
+
+## C-252 — State-conflict graph readout
+
+**Proved.** Aggregate predecessor pairs over all empty output roots into relation G subset [q] x [q]. No high table activates both endpoints of a pair, since C-243 puts it in both disjoint root endpoints. Direct seed/opposite-predecessor branches similarly give at most 2qN forbidden state/literal incidences. Every accepted low activates a pair in G or a state/literal incidence. Thus a depth-two separator readout has at most q^2+2qN terms over the q cyclic activation predicates and input literals.
+
+**Limit.** The readout has q^2+2qN terms; with the existing OPS floor q=Omega(N), composing it with q-round unrolling remains O(q^2) unbounded-fan-in gates, matching C-248. The conflict graph does not bound activation-fibre sizes or give a superlinear q lower bound. The new target is a fibre-geometry theorem for the actual low/high circuit promise, or a near-linear cover. No P-vs-NP proof follows. See research/C252_STATE_CONFLICT_GRAPH_READOUT_2026-09-27.md.
+
+## C-253 ? Conflict-profile fibre subcubes
+
+**Proved.** A profile containing a C-252 conflict edge has no high inputs. For an independent profile sigma, let B_sigma be the seed literals incident to its active states. The low fibre is contained in the union of B_sigma's literal slices; the high fibre avoids all those literals and lies in a subcube fixing every marked coordinate. Thus |U intersect F_sigma| <= 2^(N-r_sigma), or the fibre is high-empty if both polarities are marked at one coordinate.
+
+**Entropy audit.** If I independent profiles occur on high inputs and r_min is their minimum marker-coordinate count, then |U|/2^N <= I*2^(-r_min), so r_min<=log2(I)+o(1)<=q+o(1). This only guarantees one weakly marked high profile; it need not be used by low inputs. Two-wise shattering alone does not force low/high profiles to be coupled. No state lower bound, near-linear cover, or P-vs-NP proof follows. See research/C253_CONFLICT_PROFILE_FIBRE_SUBCUBES_2026-09-27.md.
+
+## C-254 ? Partial-support hazard boundary
+
+**Proved.** Define state activation on a partial support C by existence of a finite proof with all leaf literals contained in C. If C already activates an edge of the C-252 conflict relation, or an active state plus an incident direct-seed literal, every completion activates an empty output root. Hence Cyl(C) is contained in SIZE(s2), and |dom(C)|>=N-log2|SIZE(s2)|. Hazard is monotone under extending C; every low table has a first hazardous prefix at depth at least this large in every coordinate order.
+
+**Corrected support bound.** A selected readout term has a ranked witness DAG with at most q distinct states, at most two seed literals per state, and at most one additional marker. Thus its hazardous support has width <=2q+1, giving q >= (N-log2|SIZE(s2)|-1)/2. This is only linear and weaker than the existing N-o(N) floor; no superlinear aggregate follows. See research/C254_PARTIAL_SUPPORT_HAZARD_BOUNDARY_2026-09-27.md.
+
+
+## C-255 — Shared-DAG route audit
+
+For plain C-75 signed mismatch, the minimum binary rect-DAG size is `Theta(C_sep)`, the minimum Boolean separator extension size. Pullback through `G(d)=TT(C_d)` and restriction to one description per low table show exact size invariance in description space. A q-pair fusion cover currently yields only `S_rect=O(q^3/log q)`; conversely `q<=O(S_rect)`. The q activation graph is cyclic with input-dependent ranks, so q named rules do not themselves form an acyclic q-node DAG. Product-hull safety at each merged state is exact, but no overlap-safe global charge or near-linear adaptive DAG was obtained. C-255 also proves the common-translate lemma: if `|SIZE(s1)||SIZE(s2)|<2^N`, some `r` has `u xor r` outside `SIZE(s2)` for every `u in SIZE(s1)`. It does not solve source-reduction cut soundness. See `research/C255_SHARED_DAG_ROUTE_RESTART_2026-09-27.md`.
+**C-256 static-decoder obstruction (proved).** Let f:{0,1}^M->{0,1} have two-wise-rich one/zero sides, with 0,e_i on the one-side and 1^M on the zero-side. For any common translate r, low base-table encodings u_x,v_y, and a fixed decoder from each outer mismatch label (k,b) to a KW answer, if every induced mismatch rectangle is source-valid then r=v_{1^M} xor u_{0^M} xor OR_i(u_{0^M} xor u_{e_i}). Hence C(r)=O(Ms1); if this fits s2, it contradicts r notin SIZE(s1) xor SIZE(s2). Separately, for full-domain BPHP search, a static decoder from each (k,b) to a collision answer is impossible: at an active coordinate both signed rectangles are nonempty, and their two fixed Alice collision-equality sets would have to cover the full assignment domain, which two equality predicates cannot do. Scope: static output-label reductions only; no target DAG lower bound, because repeated labels at distinct sinks could be decoded differently. Full proof and BPHP source details: research/C256_HARD_TRANSLATE_KW_DECODER_OBSTRUCTION_2026-09-27.md.
