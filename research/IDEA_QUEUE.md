@@ -1369,3 +1369,23 @@ Beame–Whitmeyer (ICALP 2025, Theorem 1.7) prove a `2^(Omega(m^(1/4)))` lower b
 ### Idea 373 — Common-translate answer-code reconstruction obstruction (C-256)
 
 Static output-label decoding can leak enough structure to reconstruct the supposedly hard mask. For a two-wise-rich hard KW partition with 0,e_i on one side and 1^M on the other, every active C-75 coordinate must encode one source bit with the same phase on both parties. The active-coordinate indicator is OR_i(u_0 xor u_ei), and r=v_1 xor u_0 xor active; this costs O(Ms1). The full-domain BPHP source is also blocked: both signed labels at an active target coordinate would make the Alice domain the union of two fixed collision-equality sets, which cannot cover it. These are reduction-interface no-go results, not target lower bounds. Next test whether terminal-specific decoding has a small enough binary-DAG refinement cost; otherwise focus on direct bottleneck capacity or an actual C-75 DAG construction. See C-256.
+
+### Idea 374 — Parity-code splicing lock (C-257)
+
+The even/odd parity promise has a native fusion cover of size `4N-4` although every proper partial assignment has an odd high completion and every consistent accepting support fixes all N bits. Any consistent splice is again even. This is a hostile calibration: width, high-side richness, and anchor count do not force dangerous splicing. The missing target-specific resource is common short-description consistency for `SIZE(s1)` under mixed support joins. Do not use this toy as an OPS lower bound. See `research/C257_PARITY_CODE_SPLICE_LOCKING_CALIBRATION_2026-09-27.md`.
+
+### Idea 375 - Native equality-fingerprint subcover (C-258)
+
+An explicit `2N+2d-1`-pair native list covers all tables constant on each of d blocks of size r, provided this repeated family is disjoint from the actual high set. It builds the two fixed-value carriers for each block, merges them, then intersects across blocks. In particular it covers a `2^d`-member subfamily of `SIZE(s1)` when `d log d=O(s1)`. This is the direct-native form of C-234's diagonal equality escape, not a cover of all low circuits. Next test whether a near-linear family of semantic fingerprints can cover the full low class, or prove that arbitrary circuit descriptions resist all such compression. See C-258.
+
+### Idea 376 - Product-code closure bound (C-258)
+
+For a product of local codebooks `A_j` on coordinate blocks `B_j`, C-258 gives a direct rule count `q<=sum_j |A_j||B_j|+2d-1`. The repeated-block family is the constant-size-library case. This makes explicit how a compact global fingerprint can support extensive reuse; the upper-bound question is whether all low circuits admit a near-linear collection of such regions, and the lower-bound question is whether circuit-description compatibility prevents that. No answer is known. See C-258.
+
+### Idea 377 - The cofactor/splice threshold is Theta(n) (C-259)
+
+The exact circuit patching budget is `CC(hybrid)<=t s1+O(t)`, so up to `Theta(n)` prefix-selected low cofactors remain below s2. The C-247 product entropy budget gives the reverse scale: more than `C n` private slots with `2^(Theta(s2))` alternatives contradict soundness. Next prove the missing q-to-slot/selector theorem; do not count a constant number of compatible holes as progress. See C-259 and C-116.
+
+### Idea 378 - Pair proof joins with their dual blockers (C-260)
+
+The native least-fixed-point grammar generates minimal proof certificates `C_i` and their exact minimal transversal blockers `B_i`. For an accepting context K with a hole at i, every consistent join `K union P` with a proof P rooted at i is an accepting output certificate, and every output blocker hits it. Pigeonholing forces an internal state to serve `2^d/q` repeated-block anchors when `d log d=O(s1)`, but C-258's O(N) equality fingerprint shows this reuse can remain safe. This creates a two-sided incidence object `(K,P,B)` tied to one q-rule grammar. The missing bound is incidence multiplicity: one blocker can hit many joins. No q lower bound follows. Full derivation: C-260.

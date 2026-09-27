@@ -8581,3 +8581,34 @@ Beame–Whitmeyer prove a `2^(Omega(m^(1/4)))` triangle-DAG lower bound for bit-
 ### Idea 373 — Common-translate answer-code reconstruction obstruction (C-256)
 
 Static output-label decoding can leak enough structure to reconstruct the supposedly hard mask. For a two-wise-rich hard KW partition with 0,e_i on one side and 1^M on the other, every active C-75 coordinate must encode one source bit with the same phase on both parties. The active-coordinate indicator is OR_i(u_0 xor u_ei), and r=v_1 xor u_0 xor active; this costs O(Ms1). The full-domain BPHP source is also blocked: both signed labels at an active target coordinate would make the Alice domain the union of two fixed collision-equality sets, which cannot cover it. These are reduction-interface no-go results, not target lower bounds. Next test whether terminal-specific decoding has a small enough binary-DAG refinement cost; otherwise focus on direct bottleneck capacity or an actual C-75 DAG construction. See C-256.
+
+### Idea 374 — Parity-code splicing lock (C-257)
+
+For the artificial promise Y=even-parity strings and U=odd-parity strings, every proper partial assignment extends to a high string. Nonetheless an explicit native closure with `4N-4` pairs accepts all even anchors: propagate prefix-parity carriers by intersecting with the next matching literal slice, then use the final parity contradiction. Every consistent output proof fixes all N bits, and every consistent context/subproof splice therefore names an even string. This defeats any generic sharing-to-high theorem based only on high-side shattering, full certificate width, and anchor abundance. The actual theorem must exploit that low circuits need one shared short description and that mixed blocks may exceed its description budget. This toy is not Gap-MCSP and yields no superlinear bound. Full proof: `research/C257_PARITY_CODE_SPLICE_LOCKING_CALIBRATION_2026-09-27.md`.
+
+### Idea 375 - Native equality-fingerprint subcover (C-258)
+
+If low anchors are constant on d blocks of r truth-table coordinates, an explicit native list with `2N+2d-1` pairs checks each block's two constant patterns and intersects the block carriers. This works against the actual high set `U=complement SIZE(s2)` whenever the repeated family lies in `SIZE(s1)`. It recovers the diagonal equality escape from C-234 without passing through a generic separator-to-fusion compiler. It covers only that structured subfamily; extending it to all small circuits would require a compact family of fingerprints, while a lower bound must rule out other endpoint geometries. See `research/C258_REPEATED_BLOCK_NATIVE_COVER_2026-09-27.md`.
+
+### Idea 376 - Product-code closure bound (C-258)
+
+The repeated-block construction extends to any Cartesian product of local codebooks `A_j` on coordinate blocks `B_j`. If the product family is disjoint from U and every literal slice of U is nonempty, prefix chains for each local word, one existential merge per block, and a final block intersection give a native cover with `q<=sum_j |A_j||B_j|+2d-1`. The bound shows exactly when local pattern libraries remain cheap; it suggests upper-bound work should search for a small product-code cover of the full low-circuit class. No such cover is known, and the theorem does not lower-bound q for Gap-MCSP. See C-258.
+
+## C-257 / C-258 splice-and-fingerprint graph
+
+Odd-parity high set --prefix-parity proof states--> `4N-4`-rule even/odd cover (C-257)
+  --high side extends every proper partial assignment--> every consistent output support fixes all N bits
+  --finite context/proof substitution--> every consistent splice is even
+
+Repeated-block family `Rep_{d,r} subseteq SIZE(s1)` --block-prefix carriers--> merge two block values --intersect across d blocks--> empty carrier since `U intersect Rep=empty` (C-258)
+  --direct native list--> `q=2N+2d-1` for this subfamily against the actual high set
+
+Thus a compact semantic fingerprint can protect extensive state reuse even on the actual high side. Missing edge: cover all `SIZE(s1)` with a near-linear collection of such regions, or prove the full class forces superlinear q despite every alternative fingerprint. Neither toy construction changes the full-promise bound.
+
+### Idea 377 - The cofactor/splice threshold is Theta(n) (C-259)
+
+A prefix mux of t size-s1 cofactors has size `t s1+O(t)`. Since the OPS ratio is `s2/s1=cn`, every simple hybrid using up to a small constant times n low pieces remains in SIZE(s2). Conversely, C-247's private-slot theorem says t independent replacement slots, each with `2^(Theta(s2))` choices, exceed the total size-s2 class only once t is above `C n`. This explains why one-hole or constant-hole splicing cannot yield the desired contradiction. The missing link is still to force `Omega(n)` such independent slots (or a hard selector) from a q-state grammar and charge their suppression. See C-259 and C-116.
+
+### Idea 378 - Pair proof joins with their dual blockers (C-260)
+
+Every native state has a minimal present-feature certificate antichain and a minimal absent-feature blocker antichain, with the latter exactly the transversal family of the former. Cutting at a shared state gives the exact output-certificate convolution `K_i join P_i`; every compatible join is hit by every output blocker. Pigeonholing also forces an internal state to serve at least `2^d/q` anchors on a repeated-block subfamily with `d log d=O(s1)`, but C-258 shows equality fingerprints keep that reuse safe at O(N) cost. The global object to charge is the incidence geometry of context/replacement joins against the shared blocker grammar. The current law only guarantees nonempty intersection, so it yields no q bound. Seek a q-sensitive incidence multiplicity or transversal-slack theorem. See C-260.

@@ -1,10 +1,22 @@
 # A Working Model for P vs NP
 
-**Last updated:** 25 September 2026  
+**Last updated:** 27 September 2026  
 **Status:** research framework; no proof of $P\ne NP$ or $P=NP$ has been found.  
 **Purpose:** make the project's accumulated results usable as a theory-building tool, so new ideas start from precise proof obligations and known failure modes.
 
 This is the project's synthesis file. [ideas.md](ideas.md) remains the broad idea log; [P_VS_NP_PROJECT_AUDIT_2026-08-24.md](P_VS_NP_PROJECT_AUDIT_2026-08-24.md) remains the detailed evidence and literature audit. This file extracts a working model from them and records what that model predicts next.
+
+## Current research priority: global sharing in native fusion closure
+
+The active route is the exact positive cyclic closure, not a generic DAG lower bound. Each rule has two endpoint obligations; finite proof trees witness least-fixed-point activation. Reuse at a state gives the exact product law: any accepting context with a hole at state `i` combines with any finite proof rooted at `i`, provided the resulting seed support is table-consistent. The central unresolved issue is global: can one short circuit description remain consistent across all those context/proof joins?
+
+C-257 gives a necessary hostile calibration. On the odd-parity high set, every proper partial assignment extends to a high object, and every sound output support fixes all `N` coordinates. Yet a `4N-4`-rule fusion list accepts all even anchors, and each consistent splice is again even. So high-side density, certificate width, anchor abundance, and reuse do not force a high hybrid. The missing ingredient must distinguish the actual low-circuit family from an algebraically closed code: low tables each have a short description, but spliced pieces may fail to come from one common description once their combined description cost crosses `s2`.
+
+C-258 shows the equality-fingerprint escape inside the actual high universe. More generally, if a target family is a product of local codebooks `A_j` across coordinate blocks and is disjoint from `U=complement SIZE(s2)`, a direct native list has `q<=sum_j |A_j||B_j|+2d-1` pairs. For repeated-block subfamilies `Rep_{d,r} subseteq SIZE(s1)`, this is `2N+2d-1=O(N)`: build carriers for each constant block value, merge the two values per block, then intersect the block predicates. This is an `O(N)` cover of that subfamily, not the full low class. It sharpens the next question: can low circuits be partitioned or covered by only near-linearly many similarly compressible semantic regions, or does the full class force a superlinear number/cost of distinct fingerprints?
+
+C-259 fixes the scale for multi-hole attacks. The OPS ratio is `s2/s1=cn=Theta(log N)`. Up to `Theta(n)` size-`s1` cofactors can be selected by a prefix mux and still produce a size-`s2` table; more than `C n` mutually independent slots, each with `2^{Theta(s2)}` choices and private coordinates, would exceed the total number of size-`s2` tables by C-247's product bound. This matches C-116's cofactor fragmentation threshold. It does not say that q forces such slots. The live theorem is to derive `Omega(n)` compatible independent choices or selector complexity from the joint context/proof grammar, and then charge suppressing them to q.
+
+This is a hypothesis, not a theorem. The proof target is a q-sensitive statement about the full joint context/proof grammar: either many compatible joins create a table outside `SIZE(s2)`, or suppressing those joins costs superlinear `q`. A matching counter-program is to build a near-linear native cover for the full Gap-MCSP promise. The standard DAG branch stays secondary unless it gives a direct invariant or a near-lossless compiler.
 
 ## 1. The current model in one sentence
 
@@ -3077,3 +3089,18 @@ The ICALP 2025 Beame–Whitmeyer triangle-DAG lower bound gives a concrete share
 The common translate is not a free black-box wrapper. On a rich KW source, fixed-label cut soundness forces every active address bit to copy a source coordinate, with the same phase on Alice's low table and Bob's translated table. A finite test family (0^M, all e_i, and 1^M) then reconstructs the translate as r=v_{1^M} xor u_{0^M} xor OR_i(u_{0^M} xor u_{e_i}). The circuit cost O(Ms1) collides with the OPS gap when M=Theta(log N) and the constants satisfy the transfer threshold. For full-domain BPHP, the analogous obstruction is combinatorial: one target coordinate has only two signed labels, so static decoding would cover all Alice assignments by two fixed collision-equality predicates, impossible.
 
 This teaches a source-transfer filter: for each source answer, take its Alice and Bob projections, and compute their cover numbers. If tau_X>2 and tau_Y>1, one target bit cannot statically decode both signed mismatch cells: any active bit must vary on both sides, after which its two labels cover X by only two answer projections. BPHP has this obstruction because each answer's projections lie inside one fixed collision-pair equality set, and two such equalities never cover a full assignment domain. Terminal-specific decoding can evade this filter only by using path-refined rectangles; if a target DAG has S sinks and each sink rectangle needs a source-search refiner of size at most T, substitution costs at most S(1+T). The quantitative target is to keep S(1+T) below the source lower bound while S itself exceeds N^(3+3epsilon)/log N. No target lower bound follows from C-256. The live proof target remains the actual C-75 shared product-hull bottleneck-capacity theorem or a near-linear DAG.
+
+## C-260 - Two-sided proof/blocker model
+
+Treat a native closure as one cyclic grammar generating two dual families over the signed-literal seed alphabet:
+
+- `C_i`: minimal present-feature certificates that activate state i;
+- `B_i`: minimal absent-feature blockers that keep state i inactive.
+
+The least-fixed-point proof and blocker recurrences are De Morgan duals, so `B_i=Tr(C_i)` exactly. At the output, `C_out` covers accepting inputs and `B_out` covers rejecting inputs. On actual tables, any low certificate and high blocker intersect in a literal expressing a truth-table mismatch.
+
+State reuse has its own exact convolution: a context support K with a hole at i joins every replacement proof P at i whenever `K union P` is consistent. Every such join is an accepting certificate and is hit by every output blocker. The useful global object is therefore the incidence geometry of `(K,P,B)` under one shared q-rule grammar. Merely knowing each join intersects each blocker is too weak: one literal can hit many joins, while C-257 parity and C-258 equality fingerprints show safe reuse can be organized linearly.
+
+C-260 also isolates what is already forced by pigeonholing. On a repeated-block family with `2^d` low anchors and `d log d=O(s1)`, every minimum-rank empty-root proof continues to an internal predecessor by C-249. Hence one internal state is used by at least `2^d/q` anchors. This does not force dangerous reuse: C-258 builds an O(N) cover of exactly this family, where equality fingerprints keep the joins safe. The missing theorem is not “some state is shared,” but “sharing creates a large compatible context/proof product unless q pays to encode its fingerprint.”
+
+Current next theorem target: bound this incidence geometry by q strongly enough to force more than `Theta(n)` independent high-entropy splice choices, a hard ownership selector, or a superlinear cost for suppressing both. In parallel, preserve the same small-circuit description across all address checks in any near-linear upper-cover attempt. C-260 is an exact structural model, not a q lower bound or a P-vs-NP breakthrough.

@@ -2246,8 +2246,34 @@ Sokolov PLS remains distinct: its state graph is acyclic and a state/successor c
 
 **Corrected support bound.** A selected readout term has a ranked witness DAG with at most q distinct states, at most two seed literals per state, and at most one additional marker. Thus its hazardous support has width <=2q+1, giving q >= (N-log2|SIZE(s2)|-1)/2. This is only linear and weaker than the existing N-o(N) floor; no superlinear aggregate follows. See research/C254_PARTIAL_SUPPORT_HAZARD_BOUNDARY_2026-09-27.md.
 
+## C-257 — Parity-code native closure calibration
+
+**Proved.** For odd-parity high set `U` and even-parity anchors, a native list of `4N-4` pairs derives the empty set for every low anchor. Prefix-parity carriers propagate by intersecting with each next matching literal slice; the final even-parity intersection is empty. Every proper partial assignment has a high odd completion, so every consistent output-proof support fixes all N coordinates.
+
+**Splice consequence.** A consistent context/subproof splice is again an output proof and therefore fixes all N bits. Its unique completion cannot be high by soundness, so it is another even anchor. Thus density/shattering, full certificate width, and anchor abundance alone cannot force a bad splice or superlinear q.
+
+**Scope.** This artificial promise does not match `SIZE(s1)` and yields no OPS bound. O-153 needs an actual low-circuit-description consistency theorem. See `research/C257_PARITY_CODE_SPLICE_LOCKING_CALIBRATION_2026-09-27.md`.
+
 
 ## C-255 — Shared-DAG route audit
 
 For plain C-75 signed mismatch, the minimum binary rect-DAG size is `Theta(C_sep)`, the minimum Boolean separator extension size. Pullback through `G(d)=TT(C_d)` and restriction to one description per low table show exact size invariance in description space. A q-pair fusion cover currently yields only `S_rect=O(q^3/log q)`; conversely `q<=O(S_rect)`. The q activation graph is cyclic with input-dependent ranks, so q named rules do not themselves form an acyclic q-node DAG. Product-hull safety at each merged state is exact, but no overlap-safe global charge or near-linear adaptive DAG was obtained. C-255 also proves the common-translate lemma: if `|SIZE(s1)||SIZE(s2)|<2^N`, some `r` has `u xor r` outside `SIZE(s2)` for every `u in SIZE(s1)`. It does not solve source-reduction cut soundness. See `research/C255_SHARED_DAG_ROUTE_RESTART_2026-09-27.md`.
 **C-256 static-decoder obstruction (proved).** Let f:{0,1}^M->{0,1} have two-wise-rich one/zero sides, with 0,e_i on the one-side and 1^M on the zero-side. For any common translate r, low base-table encodings u_x,v_y, and a fixed decoder from each outer mismatch label (k,b) to a KW answer, if every induced mismatch rectangle is source-valid then r=v_{1^M} xor u_{0^M} xor OR_i(u_{0^M} xor u_{e_i}). Hence C(r)=O(Ms1); if this fits s2, it contradicts r notin SIZE(s1) xor SIZE(s2). Separately, for full-domain BPHP search, a static decoder from each (k,b) to a collision answer is impossible: at an active coordinate both signed rectangles are nonempty, and their two fixed Alice collision-equality sets would have to cover the full assignment domain, which two equality predicates cannot do. Scope: static output-label reductions only; no target DAG lower bound, because repeated labels at distinct sinks could be decoded differently. Full proof and BPHP source details: research/C256_HARD_TRANSLATE_KW_DECODER_OBSTRUCTION_2026-09-27.md.
+
+## C-258 - Repeated-block native subcover
+
+For coordinates partitioned into d blocks of length r, let `Rep_{d,r}` be all blockwise constant tables and let U be the actual complement of `SIZE(s2)`. If `Rep_{d,r} subseteq SIZE(s1)` and every literal slice of U is nonempty, the explicit block-prefix/merge/intersection construction in C-258 gives a successful native list with `q=2N+2d-1`. It is an upper bound for this subfamily only. This realizes the diagonal equality fingerprint directly in the cyclic closure model. It does not aggregate over all low circuits and therefore gives no full-promise upper bound or lower bound.
+
+## C-259 - Cofactor patching/splice threshold
+
+**Proved.** If t prefix cofactors are each computed by a size-s1 circuit, muxing them gives `CC<=t s1+O(t)`. Under `s2/s1=cn`, all t up to a sufficiently small constant multiple of n are safely in `SIZE(s2)`. Circuit counting gives `log |SIZE(s2)|=O(s2 n)`; therefore, under C-247's private-coordinate and injective-completion hypotheses, t independent replacement families of size `2^(Theta(s2))` can be sound only for `t=O(n)`.
+
+**Calibration.** Both the constructive patch and the private-slot entropy contradiction turn at `Theta(n)`, matching C-116. This means a constant number of holes cannot suffice; it does not imply that a q-state grammar exposes n holes, nor that q must be superlinear to suppress them. See `research/C259_COFACTOR_PATCHING_SPLICE_THRESHOLD_2026-09-27.md`.
+
+## C-260 - Native proof–blocker duality
+
+**Proved.** On arbitrary seed-feature inputs, each native state has a minimal certificate antichain `C_i` and a minimal absent-feature blocker antichain `B_i`; the least-fixed-point recurrences are De Morgan duals and `B_i=Tr(C_i)`. Output blockers are the transversal family of output certificates. For the consistent table-realizable certificates, cutting an accepting proof at state i gives `C_out^cons=min_i(K_i join P_i)`. Every compatible join is hit by every output blocker. On actual table inputs, this yields sound accepting cubes, low-free rejecting cubes, and a mismatch literal for each low/high pair.
+
+**Limit.** The transversal law only forces a nonempty intersection; it does not limit how many compatible joins one blocker literal can hit, or charge q for the family of joins. It does not improve the `N-o(N)` native lower bound or construct a full-promise near-linear cover. The candidate next invariant is q-sensitive incidence geometry of context/proof joins against the shared blocker grammar. Full proof: `research/C260_NATIVE_PROOF_BLOCKER_DUALITY_2026-09-27.md`.
+
+**Forced-reuse calibration.** For a repeated-block subfamily of size `2^d` with `d log d=O(s1)`, every anchor's minimum-rank active empty root has a predecessor by C-249. Assigning its first predecessor state to that anchor forces some internal state to serve at least `2^d/q` anchors. This is genuine state reuse, but C-258's O(N) equality-fingerprint cover of the same family shows the collision can be safe; no compatible cross-product follows.
