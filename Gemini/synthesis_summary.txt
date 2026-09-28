@@ -1,0 +1,446 @@
+--- ideas.md ---
+File size: 1626188 chars
+Headers:
+# P versus NP: unconventional idea ledger
+## What counts as progress
+## Durable starting point
+## Idea 0 - Split-flat shadows and obstruction geometry
+## Idea 1 - Self-reference as a quantifier pump
+## Idea 2 - ZFC reflection as a resource boundary
+## Idea 3 - Empty-fiber geometry: language for witnesses and anti-witnesses
+## Idea 4 - Topology of the missing witness
+## Idea 5 - Physics-inspired zero-energy witness audit
+## Idea 6 - Modular witness resonance
+## Idea 7 - Bounded consistency as a self-reference mirror
+## Idea 9 - Finite combinatorics as a ZFC barometer
+## Idea 10 - The quine that outruns its own description (23 September 2026)
+## Idea 8 - Minimax violation margin
+## Idea 11 - Semantic evidence, syntax leakage, and the neutral-atom trap (23 September 2026)
+## Idea 12 - Diagonal sampler and the logarithmic input-length wall (23 September 2026)
+## Idea 13 - Lawvere fixed points with resource-indexed evaluation (23 September 2026)
+## Idea 14 - The GÃƒÆ’Ã‚Â¶del numbering may be the hidden resource (Kozen's subrecursive indexings)
+## Idea 15 - Clock entropy and the uniform verifier budget (23 September 2026)
+## Idea 16 - Incompressible strings under a self-referential clock
+## Idea 17 - High nondeterministic-complexity strings as a separation target
+## Idea 18 - Information debt, worst-case symmetry, and an average-to-worst bootstrap
+## Idea 19 - Random-seed collapse under P=NP
+## Idea 20 - Multi-block q_t symmetry, co-selection, and clock debt
+## Idea 21 - Output-spectrum calculus for ambiguous descriptions
+## Idea 22 - The degree ladder in a self-referential SAT instance
+## Idea 23 - Bounded consistency as a nonstandard reflection ladder
+## Idea 24 - SAT as a zero-temperature phase transition
+## Idea 25 - Nonstandard polynomial time from ultraproducts
+## Idea 26 - Anti-predictor diagonalization against universal inductive inference
+... (more headers truncated)
+
+
+--- New Model.MD ---
+File size: 582967 chars
+Headers:
+# A Working Model for P vs NP
+## Current research priority: global sharing in native fusion closure
+## 1. The current model in one sentence
+## 2. Start with the quantifiers
+### 2.1 Work backward from each answer
+### 2.2 What ZFC can and cannot add
+### 2.3 A stronger proof-complexity route
+### 2.4 ZFC status as a separate branch
+### 2.5 Semantic promises survive only certified transformations
+### 2.6 Global unambiguity validity is undecidable
+### 2.7 Proof-certified validity can miss valid descriptions
+### 2.8 The language-level enumeration dichotomy
+### 2.9 A precise unique-SAT target for separating $P$ from $UP$
+### 2.10 Worst-case one-way functions are exactly the $P$ versus $UP$ gap
+### 2.11 Three equivalent faces of unambiguous hardness
+### 2.12 Witness polarity and positive self-reference
+### 2.13 Total permutations supply witnesses on both sides
+### 2.14 The uniform-clock obstruction to diagonalizing inverse algorithms
+### 2.15 Public-input neutrality cannot coexist with a unique message
+### 2.16 Gauge entropy is not quotient hardness
+### 2.17 Clock-specific hardness and the padding rate test
+### 2.18 A class-relative decompressor must be uniform
+### 2.19 A computable map cannot manufacture Kolmogorov-rich outputs from every input
+### 2.20 Random padding turns a high-$K$ promise solver into a BPP solver
+### 2.21 The access channel is part of the randomness claim
+### 2.22 Fixed-clock incompressibility is a direct coNP target
+### 2.23 Random-string lists have a construction clock and a selection clock
+### 2.24 The suffix search is optimal when the decider is a black box
+### 2.25 Self-reference has a formula-size budget
+## 3. The proof-debt ledger
+... (more headers truncated)
+
+
+--- DEPENDENCY_GRAPH.md ---
+File size: 118062 chars
+Headers:
+# Dependency graph
+## Minimum Gap-MCSP route
+## Stronger fusion-cover subroute
+## Current quantitative proof
+## Alternative proof routes (inactive)
+## Adaptive anti-checker alternative
+## Dual anti-approximation formulation (C-40)
+## Minimax, search, and constructive selector
+## Sparse-support audit
+## Independent uniform route from 2025
+## Region-relative sparse-support branch (C-25/C-26)
+## Version-space transversal (C-27)
+## Proof-complexity and quantifier-collapse side route (C-43/C-44)
+## Bounded-degree algebraic closure (C-30)
+## Fourier recovery of secret product regions (C-32)
+## General Fourier-matroid criterion (C-33)
+## Universal selector dependence bound (C-34)
+## Conditional fibers and linear-sketch obstruction (C-35/C-36)
+## Near-$N$ circuit-size consequence (C-38)
+## Linear feedback against constant hypotheses (C-39)
+## Robust puncturing route (C-49)
+## Adjacent implicit-MCSP route (parked)
+## Global marginal selector (C-52)
+## Relative adaptive sampling (C-53)
+## Forced nonempty handoff (C-54)
+## Witness uniformization audit (C-55)
+## External teaching-set length (C-57)
+## Separate selector-lower-bound route
+## Direct reduction to selector search: current transfer obstruction
+## Mandatory-region branch (C-61)
+... (more headers truncated)
+
+
+--- OPEN_OBLIGATIONS.md ---
+File size: 178912 chars
+Headers:
+# Open obligations
+## O-1 ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â Slightly superlinear circuit lower bound for Gap-MCSP (primary)
+## O-2 ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â Superlinear cyclic/cover lower bound (stronger sufficient subroute)
+## O-3 ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â Feasible proof-complexity route
+## Region recovery is not yet a lower-bound reduction
+## Majority-overlap branch closed as a generic shortcut
+## Restriction recursion audit
+## Known-region size dichotomy completed
+## Algebraic-closure stress test
+## Fourier/product-structure audit
+## Fourier-maximizer matroid criterion
+## Universal selector dependence is not enough
+## C-52 - Remaining after the first contraction
+## S-1 ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â Universal anti-checker-selector lower bound (separate sufficient route)
+### Exact adversarial-completion form of S-1
+### C-63 exact adversarial-completion form
+## S-2 ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â Short anti-checker selector lower bound (new preferred sufficient route)
+### O-78 ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â Cyclic-DAG bridge
+### O-79 ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â Residual-rectangle non-shareability for Gap-MCSP
+### O-80 ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â Upgrade a promise cover to the full-domain exact cover
+### O-81 ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â Shared-state lower bound or faster universal construction
+### O-82 ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â Quantify incompatibility of circuit-induced partitions
+### O-83 - Amplify signature constraints beyond row counts
+### O-84 - Compress endpoint-induced loops acyclically
+### O-85 - Lower-bound high-free cylinder covers or charge class transitions
+### O-86 - Turn common-core class pairs into a routing lower bound
+### O-87 - Improve the pattern-profile universal DAG without forgetting history
+### O-88 - Nonlinear or adaptive fingerprint beyond the linear-fiber barrier
+### O-89 - Universal DAG over circuit descriptions
+### O-90 - Prove a strong circuit lower bound for the Gap-MCSP separator
+... (more headers truncated)
+
+
+--- C292_ODDFACTOR_CERTIFICATE_COMPLEMENTARITY_AND_OR_ONLY_FILTER_2026-09-28.md ---
+File size: 6839 chars
+Headers:
+# C-292 - ODDFACTOR certificate complementarity and the OR-only boundary
+## 1. Source and C-125 interface
+## 2. Exact odd-cut characterization of positive certificates
+## 3. Zero-AND corollary
+## 4. What this says about the span-program proposal
+## 5. Scope and status
+
+
+--- IDEA_QUEUE.md ---
+File size: 225845 chars
+Headers:
+# Idea queue
+## Primary target clarification
+## Q32 Ã¢â‚¬â€ Static anchor-distance marginal potential (refuted, 26 September 2026)
+## Q33 Ã¢â‚¬â€ Charge shared intersection states, not anchor savings (active)
+## Q1   Joint anchor-support capacity (stronger subroute; active only if it yields acyclic progress)
+## Q2   Fractional dual over noncanonical semi-filters
+## Q3   Adaptive anti-checker selector lower bound
+## Q4   Time-slice / communication invariant
+## Q5   Logic / proof-system route
+## Q6   Resource-bounded diagonalization
+## Q7   Feasible SAT circuit error witnesses plus Extended Frege lower bounds
+## Q8   Escape the locality barrier with a nonlocal semantic invariant
+### Adversarial check on Q1: one rule can affect many anchors
+## Q9   Quantitative synthesis of a minimax anti-checker
+## Q10   Adversarial sparse supports inside sparse circuit regions
+## Q11   Uniform distinguishers and sparse magnification
+## Q12   Observable-closure stress tests for hidden low-circuit regions
+## Q13   Prove a superlinear routing lower bound for anti-checkers (current primary attack)
+## Q14   Nonlinear fiber shrinkage and query-label feedback
+## Q16   Simultaneous witness routing for all small circuits
+## Q17   Dual anti-approximation margin and witness extraction
+## Q18   Adversarially defeat data-independent witness menus
+## Q15   Audit proof-assistant claims at their axiom interfaces
+## Q19   Search-to-decision collapse does not control the magnification exponent
+## Q20   Flatten KPT witnesses without enumerating satisfying assignments
+## Q21   Deterministically route through the residual circuit version space
+## Q22   Version-space score is a conditional construction, not a universal barrier
+## Q23   Robust puncturing certificates via local correction
+## Q24   Locate heavy-overlap error regions for the full circuit family
+## Q25   Turn dense low-circuit error overlap into a findable transversal
+... (more headers truncated)
+
+
+--- CLAIM_LEDGER.md ---
+File size: 385081 chars
+Headers:
+# Claim ledger
+## C-01   Fusion cover lower-bounds intersection complexity
+## C-02   Promise-ground-set transfer for Gap-MCSP
+## C-03   Near-linear promise-cover lower bound
+## C-04   Gap-MCSP hardness magnification
+## C-05   Conditional cover-to-separation route
+## C-13 Ã¢â‚¬â€ High-anchor interpolation gives only a sublinear complement-side bound
+## C-14 Ã¢â‚¬â€ Acyclic circuit complexity is the minimum sufficient magnification target
+## C-06   Source-plus-tape description floor
+## C-07   Fixed-clock Kolmogorov target
+## C-08   Finite experiments
+## C-09 - One pair can hit many affine-anchor filters
+## C-10 - One pair hits all Hamming-ball threshold semi-filters
+## C-11 - A mass-one full filter cannot lie above a low anchor
+## C-12 - Under P=NP, a wrong SAT circuit has a polynomial-time counterexample finder
+## C-15 Ã¢â‚¬â€ No fixed query set is an anti-checker for all high-complexity truth tables
+## C-16 Ã¢â‚¬â€ A valid anti-checker selector induces a descent to the high-threshold boundary
+## C-17 Ã¢â‚¬â€ Any valid adaptive selector needs a large range of query sets
+## C-18 Ã¢â‚¬â€ Sparse hard tables force exponentially many anti-checker samples
+## C-19 - Sparse-support anti-checking forces positive-point capture, which is cheap
+## C-20 - Anti-checking is an instance-dependent hitting-set problem
+## C-21 - Minimax gives a short, strong anti-checker for each hard table
+## C-22 - Anti-checker generation is a second-level search relation
+## C-23 - Almost every sparse hard support has a near-linear anti-checker circuit
+## C-24 - Sparse supports inside sample-sized subcubes are also easy
+## C-25 - A known region admits a relative-density anti-checker
+## C-26 - Random supports in affine subspaces reveal their region
+## C-27 - Sparse-support anti-checking is exactly a transversal problem
+## C-28 - Majority circuits impose a local overlap condition
+## C-29 - Known-region sparse supports are easy across the sample-size split
+... (more headers truncated)
+
+
+--- CURRENT_STATE.md ---
+File size: 176431 chars
+Headers:
+# Current state - 27 September 2026
+## Primary line: Gap-MCSP fusion/intersection complexity
+## Established ceilings to respect
+## Threshold and balanced-partition audit
+## Exact closure-game formulation
+## Artificial gap calibration
+## Current decision and next work
+## C-77 ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â DAG / cyclic closure frontier
+## C-78/C-79 ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â Shared-DAG continuation (26 September 2026)
+## C-90 promise/full-domain distinction
+## C-91 - SCC-sensitive unrolling
+## C-92/C-93 - Reduce the recursive carrier graph
+## C-94 - Escape supports are the only feedback source
+## C-95 - Empty rules cannot start from seed clauses
+## C-96/C-97 - Terminal cones and shared-DAG audit
+## C-98 - Conditional crypto calibration of shared-DAG hardness
+## C-99 - The cryptographic benchmark is not an independent separation route
+## C-100 - Batched ORs sharpen the escape compiler, but leave the barrier
+## C-101Ã¢â‚¬â€œC-108 Ã¢â‚¬â€ Terminal cones, fiber witnesses, and the live sharing test
+## C-123 Ã¢â‚¬â€ Descriptor-aware shared-DAG audit
+## C-124 Ã¢â‚¬â€ Literature boundary for succinct MCSP and SoS
+## Active continuation - shared-DAG route (2026-09-26)
+## C-162 - Shared-DAG frontier and basis-count falsification
+## C-166 continuation update - 2026-09-26
+## C-198 continuation: colourful-sunflower lifting interface
+## C-199 continuation: high-column restriction is now robust
+## C-200 continuation: the direct CCC clique-colouring embedding is killed
+## C-201 continuation - Corrected lifting exponent
+## C-202 continuation - Unique-output source route is too decoder-expensive
+## C-205 continuation - Raw cPHP flattening creates a source-hard mismatch slab
+... (more headers truncated)
+
+
+--- C293_ODDFACTOR_CERTIFICATE_WIDTH_COHENC_FLOOR_2026-09-28.md ---
+File size: 5304 chars
+Headers:
+# C-293 - Certificate width forces a linear-in-v CohEnc floor
+## 1. Circuit certificate-width lemma
+## 2. Every dual-rail coordinate has a certificate-width tradeoff
+## 3. General certificate-width form
+## 4. ODDFACTOR instantiation
+## 5. What the bound does and does not close
+
+
+--- C288_ODDFACTOR_COHENC_AND_NATIVE_RECONSTRUCTION_BOUNDARY_2026-09-28.md ---
+File size: 8847 chars
+Headers:
+# C-288 - ODDFACTOR exposes the span/reconstruction gap, but not a C-125 encoder
+## 1. ODDFACTOR from the span program
+## 2. Define LowExt reconstruction complexity
+## 3. Direct share-availability rails fail exactly
+## 4. Primal/dual idea and barrier
+## 5. Native C-281 bridge and reversed span-program attack
+## 6. Checkpoint and next mechanism
+## 7. Later source-strength correction (C-291)
+
+
+--- C291_ODDFACTOR_EXPONENTIAL_SOURCE_AND_WITNESS_SIDECAR_NO_GO_2026-09-28.md ---
+File size: 4862 chars
+Headers:
+# C-291 - Updated ODDFACTOR source window and auxiliary-witness sidecar no-go
+## 1. Literature update: ODDFACTOR is exponentially hard for monotone circuits
+## 2. The stronger source also survives cyclic closure
+## 3. Exact failure of the obvious dual-witness sidecar
+## 4. Consequence for the next construction
+
+
+--- C287_CLIQUE_SPREAD_AMPLIFICATION_KILLS_CHEAP_LOWEXT_TRANSFER_2026-09-28.md ---
+File size: 5483 chars
+Headers:
+# C-287 - Clique spread amplification gives a canonical-table map-cost obstruction
+## 1. Source distributions
+## 2. Exact certificate amplification threshold
+## 3. Approximation errors and NO conditioning
+## 4. Canonical table contradiction at the full transfer range
+## 5. What the map obstruction does and does not imply
+## References
+
+
+--- C290_CLIQUE_TRANSFER_AUDIT_AND_REOPENING_2026-09-28.md ---
+File size: 4548 chars
+Headers:
+# C-290 - Audit of the Rao-clique LowExt transfer comparison
+## 1. Make the promise disjoint, then retain the canonical-table obstruction
+## 2. The transfer comparison in C-287 pointed the wrong way
+## 3. A monotone color-coding upper bound leaves the interval unresolved
+## 4. Current bracket and discriminating next steps
+
+
+--- GOAL.md ---
+File size: 36586 chars
+Headers:
+# Goal and standards
+## Active route
+## Current continuation: C-196
+## C-198 continuation note
+## C-199 continuation note
+## C-200 continuation note
+## C-201 continuation note
+## C-202 continuation note
+## C-203 continuation note
+## C-204 continuation note
+## C-210 current frontier
+## C-211 current frontier
+## C-212 continuation
+## C-213 model filter
+## C-214 continuation
+## C-220 continuation
+## C-221 continuation
+## C-222 continuation
+## C-224 continuation
+## C-225 continuation
+## C-226 continuation frontier
+## C-236 continuation — canonical low hybrids and the missing q-charge
+## C-237 continuation — width-only route is closed for typical disagreement profiles
+## C-239 continuation — canonical rank fibers and cross-family charge
+## C-251 continuation
+## C-252 continuation
+## C-253 continuation
+## Literature calibration
+## C-254 continuation
+## C-261–C-265 priority reset and success criterion
+... (more headers truncated)
+
+
+--- C289_SAFE_CYLINDERS_AND_PROMISE_COVER_FACTORING_2026-09-28.md ---
+File size: 9699 chars
+Headers:
+# C-289 - Crosswalk: safe-cylinder terms, C-230, and C-244
+## 1. Correct promise object
+## 2. Safe-cylinder term lemma
+## 3. Exact dimension bounds for a safe cylinder
+## 4. What this says about the attempted universal cover
+## 5. Notation for the existing joint-zone obligation
+## 6. Literature boundary and status
+
+
+--- C286_DIRECTIONAL_SIMULTANEOUS_RAO_AND_POLARITY_THEOREM_2026-09-28.md ---
+File size: 7421 chars
+Headers:
+# C-286 - Shared-DAG Rao approximation gives the needed directional polarity theorem
+## 1. Correct statement
+## 2. Multi-output accounting on a shared DAG
+## 3. Matching amplification threshold
+## 4. Polarity concentration
+## 5. Canonical table and complete contradiction
+## 6. Matching source selection criterion
+## 7. Status
+
+
+--- C285_PROJECTION_OVERLAP_SYNCHRONIZATION_NO_GO_2026-09-28.md ---
+File size: 6322 chars
+Headers:
+# C-285 — Projection-only expander overlap has no independent synchronization rank
+## Question tested
+## Projection-collapse lemma
+## Why this does not prove an O(N) cover
+## Required hostile calibrations
+## Refined live target
+## Literature boundary
+## Checkpoint
+
+
+--- C284_POLYNOMIAL_DIMENSION_MATCHING_TRANSFER_WINDOW_2026-09-28.md ---
+File size: 4050 chars
+Headers:
+# C-284 — Polynomial-dimension matching source window for C-125
+## The source and target parameters
+## YES completion cost
+## High palette count
+## What this removes, and what remains
+## Conclusion
+
+
+--- C283_BOTTOM_BASELINE_HOLES_COUNTEREXAMPLE_AND_REPAIR_2026-09-27.md ---
+File size: 6638 chars
+Headers:
+# C-283 — Bottom-baseline holes defeat the C-282 collision proof
+## Finding
+## Minimal counterexample to the claimed implication
+## Corrected bottom-image decomposition
+## Stronger gap-sensitive hole requirement
+## Hostile check and route consequence
+## Proof audit note
+
+
+--- C282_BOTTOM_NO_RAIL_COLLISION_CAPS_LOWEXT_TRANSFER_2026-09-27.md ---
+File size: 1464 chars
+Headers:
+## Original claim and exact failure
+## Superseding result
+
+
+--- C281_NATIVE_CYLINDER_GRAMMAR_AND_OWNER_MASK_FRONTIER_2026-09-27.md ---
+File size: 11892 chars
+Headers:
+# C-281 — Native certificate reuse as a cylinder grammar and the owner-mask frontier
+## 1. Priority reset and frozen target
+## 2. The cylinder-grammar algebra
+## 3. Exact reuse law, with the table splice made explicit
+## 4. What positive closure does and does not force
+## 5. Hostile checks and the exact failed implication
+## 6. Candidate next invariant: owner-mask product rank
+## 7. Literature boundary
+## 8. Result and continuation
+
+
+--- C280_RAO_PROMISE_RESTRICTION_AND_ENDPOINT_PALETTE_NO_GO_2026-09-27.md ---
+File size: 5080 chars
+Headers:
+# C-280 — Rao's hard matching promise permits an antichain NO palette, but fixed-left two-half support palettes fail
+## A hard promise supported only on perfect matchings and vertex-cover graphs
+## Fixed-left two-half palette tested, including pairing-sensitive families
+## Surviving branch
+
+
