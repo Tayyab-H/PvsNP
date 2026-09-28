@@ -40,7 +40,7 @@ The proof counts how many coordinates must be fixed before a subcube avoids the 
 
 - OPEN: violate the exact time-bounded Kolmogorov chain rule in the needed uniform parameter regime \(\to\) conditional \(\mathrm P\ne\mathrm{NP}\); existing audits find a degree/clock gap.
 - OPEN: a fixed \(R_q\in\mathrm{coNP}\) outside P \(\to\) \(\mathrm P\ne\mathrm{NP}\); existing diagonalization does not beat its own verification clock.
-- OPEN/FORMALIZATION: PichÃ¢â‚¬â€œSanthanam feasible error-witness condition plus the relevant Extended Frege lower-bound premise \(\to\) \(\mathrm P\ne\mathrm{NP}\).
+- OPEN/FORMALIZATION: PichÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“Santhanam feasible error-witness condition plus the relevant Extended Frege lower-bound premise \(\to\) \(\mathrm P\ne\mathrm{NP}\).
 - SELF-REFERENCE: SAT liar reductions fail the ordinary-instance size recurrence or have a two-cycle without a fixed point.
 
 No alternative currently has a proved first open statement easier than O-1.
@@ -93,7 +93,7 @@ C-24 extends the distributional audit to supports inside sample-sized axis-align
 
 ## Independent uniform route from 2025
 
-PROVED CONDITIONAL THEOREM (Atserias-MÃƒÂ¼ller): a near-linear P-uniform circuit lower bound for an approximation of subexponential-threshold MCSP implies $P\ne NP^{\oplus P}$.
+PROVED CONDITIONAL THEOREM (Atserias-MÃƒÆ’Ã‚Â¼ller): a near-linear P-uniform circuit lower bound for an approximation of subexponential-threshold MCSP implies $P\ne NP^{\oplus P}$.
   |
   | no known implication from this separation alone to $P\ne NP$
   v
@@ -121,10 +121,10 @@ OPEN: compute such transversals for every high-complexity table at near-linear c
 Residual version-space view (C-45):
   Q -> V_f(Q)={D in C_s: D agrees with f on Q}
   -> arbitrary counterexample removes at least one surviving circuit (at most |C_s| rounds)
-  -> dual margin gives ÃŽÂ¼(E_D)Ã¢â€°Â¥ÃŽÂ³ for every D
-  -> some point removes a ÃŽÂ³-fraction of every current V_f(Q)
-  -> ideal greedy sequence has O(ÃŽÂ³^{-1} log |C_s|) points; random sampling gives the same order
-  -> OPEN: find a ÃŽÂ³-fraction contraction point efficiently for the explicit circuit class.
+  -> dual margin gives ÃƒÅ½Ã‚Â¼(E_D)ÃƒÂ¢Ã¢â‚¬Â°Ã‚Â¥ÃƒÅ½Ã‚Â³ for every D
+  -> some point removes a ÃƒÅ½Ã‚Â³-fraction of every current V_f(Q)
+  -> ideal greedy sequence has O(ÃƒÅ½Ã‚Â³^{-1} log |C_s|) points; random sampling gives the same order
+  -> OPEN: find a ÃƒÅ½Ã‚Â³-fraction contraction point efficiently for the explicit circuit class.
 
 Potential route: compute the number of surviving circuit descriptions that disagree at each point and choose a maximizer. This is #P-style counting, but no necessity or hardness reduction is established. A successful alternative may bypass this potential entirely.
 
@@ -148,7 +148,7 @@ Crucial reset: neither exact nor approximate score computation is known to be ne
 ## Proof-complexity and quantifier-collapse side route (C-43/C-44)
 
 OPEN: a single $S^1_2$-provable feasible anti-checker generator
-  -> PichÃ¢â‚¬â€œSanthanam Theorem 7 + EF not p-bounded
+  -> PichÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“Santhanam Theorem 7 + EF not p-bounded
   -> SAT circuit lower bound
 
 Replacing the generator by bare existential data gives a $\forall\Sigma^b_2$ claim
@@ -385,7 +385,7 @@ Candidate selector S
   -> OPEN S-1 adversarial completion: find D and high f in \(A_D^S\)
 
 Each fixed fiber has a circuit of size O(|S|+t(N+s1+n)). This exposes the exact object to attack, but a two-constant concept class has a linear selector with singleton fibers. The next theorem must exploit a property of the full small-circuit class; no class-independent fiber bound is valid.
-## Active research state Ã¢â‚¬â€ adaptive fusion closure (26 September 2026)
+## Active research state ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â adaptive fusion closure (26 September 2026)
 
 O-2 is the active sufficient attack. For each partial semantic pair list \(Q\) and low anchor \(w\), the least preserving closure is represented by the q-bit monotone recurrence in C-67. The anchor-dependent inputs are 2q disjunctive clauses of signed truth-table bits (C-68); pair endpoints have no description-cost restriction.
 
@@ -421,8 +421,8 @@ S-2 is narrower than S-1's full OPS output budget and is sufficient because C-48
 \(Q\) with q fusion pairs
 \(\to\) q-state cyclic monotone conjunctive network
 \(\to\) exact full characteristic function of \(Y\)
-\(\to\) \(q=D^\circ_\cap(Y\mid\mathcal B)=\rho(Y,\mathcal B)\) [CavalarÃ¢â‚¬â€œOliveira exact theorem]
-\(\to\) acyclic AND count at most qÃ‚Â² / full binary rect-DAG size \(O(q^3)\)
+\(\to\) \(q=D^\circ_\cap(Y\mid\mathcal B)=\rho(Y,\mathcal B)\) [CavalarÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“Oliveira exact theorem]
+\(\to\) acyclic AND count at most qÃƒâ€šÃ‚Â² / full binary rect-DAG size \(O(q^3)\)
 \(\to\) hypothetical separator lower bound \(>N^{2+2\epsilon}\) AND gates / rect-DAG lower bound \(>N^{3+3\epsilon}\)
 \(\to\) \(q>N^{1+\epsilon}\)
 \(\to\) existing OPS magnification bridge
@@ -538,7 +538,7 @@ Mismatch rect-DAG of size L
 -> \(\rho_{\rm prom}\le O(L)\) [C-02].
 
 A promise cover/DAG does not directly yield \(\rho_{\rm full}\): C-79's medium-generated semi-filter avoids every pair with endpoints restricted to Z. This gap is only for promise-to-full upgrade, not DAG-to-active-promise-cover.
-## C-91 Ã¢â‚¬â€ SCC refinement of the q-to-DAG edge
+## C-91 ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â SCC refinement of the q-to-DAG edge
 
 A successful q-pair promise cover has q recursive states. Delete the automatic self-support incidences first; this preserves the least fixed point because any state that first activates must already have both non-self support predicates true. In the resulting loop-free containment-dependency graph, if SCC sizes are r_C and internal side-support incidences are e_C, SCC-wise evaluation yields an ordinary binary-fanin separator of size O(qN+q^2+sum_C(r_C e_C+r_C^2)). Thus the q-to-DAG edge is O(q^2+q d^2) for maximum SCC size d; it is O(q^2) for acyclic dependency, sparse SCCs, and d<=sqrt(q). The lower-bound branch now splits: exploit large dense SCC geometry directly, or use a strong separator lower bound against the improved compiler for small/sparse-SCC covers. Neither branch currently proves q>N^(1+epsilon).
 
@@ -711,7 +711,7 @@ For lambda=p/q>1, dimensions n=pt,n'=qt, and (beta',c')=(lambda beta,lambda c), 
 
 ## C-120 dependency: gate-signature mass has a one-cell extremizer
 
-For kâ‰ˆ(1/2)log s2 selected wires, a largest signature cell has |F|â‰¥N/sqrt(s2). If beta<2/3, this exceeds log|SIZE(s2)|=O(s2 n). Among the 2^|F| completions agreeing with w off F, at least one is high and nonconstant on F because the two constant completions have size s1+O(k). Patching forces Omega(s2/n) disagreements, all inside F. This disproves any strengthening of C-115 to many mixed cells, so multiplicity alone cannot be a lower-bound charge. It does not rule out a count-state router with a new Alice/Bob-local encoding. The adaptive cost of identifying F across circuit-dependent partitions remains open.
+For kÃ¢â€°Ë†(1/2)log s2 selected wires, a largest signature cell has |F|Ã¢â€°Â¥N/sqrt(s2). If beta<2/3, this exceeds log|SIZE(s2)|=O(s2 n). Among the 2^|F| completions agreeing with w off F, at least one is high and nonconstant on F because the two constant completions have size s1+O(k). Patching forces Omega(s2/n) disagreements, all inside F. This disproves any strengthening of C-115 to many mixed cells, so multiplicity alone cannot be a lower-bound charge. It does not rule out a count-state router with a new Alice/Bob-local encoding. The adaptive cost of identifying F across circuit-dependent partitions remains open.
 
 ## C-121 dependency: common partition is an O(N) escape only for structured rows
 
@@ -720,10 +720,10 @@ If all low tables are constant on a fixed partition with m cells and its label m
 ## C-122 dependency: small row sets are jointly easy
 
 For r<=eta n fixed low rows, their r-bit output signature has at most 2^r fibers. A high table constant on all fibers would have size r s1+O(r2^r)<s2. Thus every high column is mixed on a fiber common to all r rows. Applying C-121 yields an O(N)-vertex rect-DAG on that row family. This rules out O(n)-row incompatibility as a direct lower-bound source. Extending the suffix to rows outside the fixed family is the unproved global-sharing step; separate grouping costs O(N|Y|/n).
-## C-123 â€” Description syntax does not lower DAG size
+## C-123 Ã¢â‚¬â€ Description syntax does not lower DAG size
 
-Circuit-description inputs and truth-table inputs have exactly the same minimum mismatch rect-DAG size by pullback and section. S_rect is Î˜ of the minimum Boolean promise-separator circuit size C_sep. Direct enumeration yields O(NÂ·2^ell), ell=O(s1 log(s1+n)); a universal evaluator does not remove the existential description quantifier. This closes the syntax-only universal-DAG idea but gives no lower bound. A rect-DAG lower bound transfers to rho with constant loss in the reverse direction; a q-pair list only yields the known O(q^3/log q) DAG upper bound.
-## C-124 â€” No current transfer from adjacent MCSP results
+Circuit-description inputs and truth-table inputs have exactly the same minimum mismatch rect-DAG size by pullback and section. S_rect is ÃŽËœ of the minimum Boolean promise-separator circuit size C_sep. Direct enumeration yields O(NÃ‚Â·2^ell), ell=O(s1 log(s1+n)); a universal evaluator does not remove the existential description quantifier. This closes the syntax-only universal-DAG idea but gives no lower bound. A rect-DAG lower bound transfers to rho with constant loss in the reverse direction; a q-pair list only yields the known O(q^3/log q) DAG upper bound.
+## C-124 Ã¢â‚¬â€ No current transfer from adjacent MCSP results
 
 The 2026 conditional Gap-ImpMCSP result changes the input representation to a succinct sampler; the project's S_rect is on explicit truth tables. Austrin-Risse SoS bounds concern per-table refutation degree. Neither maps to a lower bound on C_sep, S_rect, or rho_prom without a new quantitative reduction.
 
@@ -817,11 +817,11 @@ In C-142, the rectangle {wA,wB} x {p1,p2} has c=1 on every low and c=0 on every 
 
 ## C-154 dependency: lifted CSP DAG lower bounds need an output-preserving embedding
 
-The CCC 2025 colourful-sunflower lifting theorem gives rect-DAG size at least (m/(A|Sigma|w(S)log(mn)))^w(S) for Sâˆ˜Ind_m^n. Pulling back rectangles under separate Alice/Bob maps preserves rectangle geometry, so the missing bridge is semantic: every mismatch leaf must decode to a constraint violated throughout its pulled-back rectangle, with quantified refinement overhead. The low table must lie in SIZE(s1), the high table outside SIZE(s2), and source cardinalities must fit length N. No maps are known. To imply q>N^(1+epsilon), the transferred S_rect lower bound must exceed N^(3+3epsilon)/log N under the present compiler. This literature result is a promising template, not an OPS bound.
+The CCC 2025 colourful-sunflower lifting theorem gives rect-DAG size at least (m/(A|Sigma|w(S)log(mn)))^w(S) for SÃ¢Ë†ËœInd_m^n. Pulling back rectangles under separate Alice/Bob maps preserves rectangle geometry, so the missing bridge is semantic: every mismatch leaf must decode to a constraint violated throughout its pulled-back rectangle, with quantified refinement overhead. The low table must lie in SIZE(s1), the high table outside SIZE(s2), and source cardinalities must fit length N. No maps are known. To imply q>N^(1+epsilon), the transferred S_rect lower bound must exceed N^(3+3epsilon)/log N under the present compiler. This literature result is a promising template, not an OPS bound.
 
 ## C-155 RETRACTED: partial Index inputs void the claimed no-go
 
-**Retraction.** SearchORâˆ˜Index is partial: pairs with y_x=0 are outside its legal domain, so the reduction imposes no constraint on their codewords. On legal pairs, a(x)=0^m and b(y)=y works, since y_x=1 guarantees a mismatch and the sole source output is 1. The false no-go has been withdrawn; the replacement criterion is C-156.
+**Retraction.** SearchORÃ¢Ë†ËœIndex is partial: pairs with y_x=0 are outside its legal domain, so the reduction imposes no constraint on their codewords. On legal pairs, a(x)=0^m and b(y)=y works, since y_x=1 guarantees a mismatch and the sole source output is 1. The false no-go has been withdrawn; the replacement criterion is C-156.
 
 **C-156 criterion.** For a total source relation, fixed-decoder partywise codes are exactly paired cuts: each coordinate's mismatches are X_t^0 x Y_t^1 and X_t^1 x Y_t^0, each with a fixed valid output label, and all pairs must be covered. This is an exact characterization of coordinatewise embeddings, not a lower bound on their number or a transfer to OPS.
 
@@ -945,7 +945,7 @@ CSP incidence expansion + local Boolean substitutions --proved by Austrin-Risse 
 
 possible expander-overlap block construction --?--> global fusion endpoint-mixing charge
 
-missing edges: hard monotone slice instance --?--> actual `SIZE(s1)`/`CC>s2` truth-table restriction; q-state fusion closure --?--> their monotone circuit or SoS measure with controlled loss. Do not infer the target lower bound from the paper. Source: [Austrin–Risse, CCC 2023](https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.CCC.2023.31).
+missing edges: hard monotone slice instance --?--> actual `SIZE(s1)`/`CC>s2` truth-table restriction; q-state fusion closure --?--> their monotone circuit or SoS measure with controlled loss. Do not infer the target lower bound from the paper. Source: [Austrinâ€“Risse, CCC 2023](https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.CCC.2023.31).
 
 ## C-236 dependency: disagreement-selector profile cap
 
@@ -976,7 +976,7 @@ q-rule recurrence --?--> structural limit on skeleton fibers --?--> a high compa
 raw count fails: at most `2^(O(q log q))` topologies, too many relative to the `2^(Theta(s2))` diagonal anchors when q>=N. See `research/C238_GLOBAL_WITNESS_SKELETON_MIXING_2026-09-27.md`.
 ## C-239 dependency: canonical ranks and exact state obligation
 
-C-233 min–max activation ranks --activation rank alone loses the nonmaximal-side witness choice--> endpoint-realizable counterexample in C-239
+C-233 minâ€“max activation ranks --activation rank alone loses the nonmaximal-side witness choice--> endpoint-realizable counterexample in C-239
 
 both side-support minima at each state --deterministic seed/predecessor selection--> one canonical skeleton per side-rank profile --equal profile fiber--> global E/H cross-product (C-238)
 
@@ -997,7 +997,7 @@ For every onto truth-table map G:D->Y: S_rect(Mis_G)=S_rect(Mis_(Y,Z)) (pullback
 rho_prom <= O(S_rect) <= O(rho_prom^3/log rho_prom); D_cap<=rho_prom^2; rho_prom=D_cap^circ. Therefore the generic rect-DAG lower bound needed to infer rho_prom>N^(1+epsilon) is S_rect>cN^(3+3epsilon)/logN. The rule-SCC compiler gives O(qN+q^2+q d^2) and improves to O(q^2) only under d<=sqrt(q); carrier/escape compilers are also instance-sensitive. No worst-case near-lossless q-to-DAG compiler is proved. O-152 is active at global product-hull-safe sharing or a near-linear separator. See research/C241_SHARED_DAG_DESCRIPTION_INVARIANCE_2026-09-27.md.
 
 
-## C-242 — Native certificate/blocker interaction
+## C-242 â€” Native certificate/blocker interaction
 
 q-state positive recurrence --least finite proof semantics--> antichain certificate grammar C_i (height <=q)
 
@@ -1063,25 +1063,25 @@ Nesting/rail conflicts shrink the compatible product; diagonal equality supplies
 
 
 C-242 blocker map + state-local activation/inactivation
-  --factor pair semantics into A_i × B_i-->
+  --factor pair semantics into A_i Ã— B_i-->
 C-248 native state rectangles R_i
   --high-blocked side + low witness-->
 signed mismatch seed rectangle M_lambda OR predecessor rectangle R_j
   --low activation rank decreases-->
-terminating recursive rectangle route for every (w,z) in Y × Z
+terminating recursive rectangle route for every (w,z) in Y Ã— Z
 
 Consequence: sharing a state forces its full cross-product of low/high pairs to share the same recursive exits. Missing edge: quantitative lower bound on two-sided route sharing for actual Gap-MCSP; ordinary mismatch cover has only 2N seed rectangles and defeats area/counting alone.
 
 Hostile example: Y={0,1}^N minus {0^N,1^N}, Z={0^N,1^N}
   --one rule E={1^N}, H={0^N}-->
-q=1 and R_1=Y×Z, with different coordinate exits for different pairs
+q=1 and R_1=YÃ—Z, with different coordinate exits for different pairs
 
 Therefore pair-space product-hull mixing does not imply a truth-table splice; the actual O-153 charge must connect recursive routing to a common table-space ownership profile.
 
 C-75 q-state least fixed point --unroll q rounds, unbounded fan-in, gate count only-->
 C-248 monotone promise-separator extension of size <= 3q^2+1
 
-Wire-sensitive cost is O(q^2(N+q)), cubic at q≈N; no improved standard compiler. Any useful lower bound must target the exact monotone extension promise or the native recursive rectangle system. See C-248.
+Wire-sensitive cost is O(q^2(N+q)), cubic at qâ‰ˆN; no improved standard compiler. Any useful lower bound must target the exact monotone extension promise or the native recursive rectangle system. See C-248.
 
 
 C-242 dense high side: every signed literal slice is nonempty
@@ -1169,7 +1169,7 @@ C-255 common-translate source reduction + full-domain BPHP Search
   --a mismatch label's preimage is a product rectangle and its fixed answer names one collision pair--> each side lies in that pair's row-equality set
   --both signs at one active coordinate partition the Alice domain into two such equality sets--> impossible, since no two fixed pair-equalities cover all full Alice assignments (C-256).
 
-Therefore the static-label route is closed for these rich KW and full-domain BPHP sources. It does not imply a target-DAG lower bound: terminal-specific sink labels may refine source rectangles. If each pulled-back sink rectangle admits a source-search DAG of at most T vertices, sink substitution gives a source triangle-DAG of size at most S_rect(1+T), so the Beame–Whitmeyer source lower bound forces S_rect>=L_source/(1+T). Missing edge: bound T for the actual sink preimages strongly enough to retain S_rect>N^(3+3epsilon)/log N, or pursue the direct C-75 bottleneck-capacity theorem / near-linear construction. See C-256.
+Therefore the static-label route is closed for these rich KW and full-domain BPHP sources. It does not imply a target-DAG lower bound: terminal-specific sink labels may refine source rectangles. If each pulled-back sink rectangle admits a source-search DAG of at most T vertices, sink substitution gives a source triangle-DAG of size at most S_rect(1+T), so the Beameâ€“Whitmeyer source lower bound forces S_rect>=L_source/(1+T). Missing edge: bound T for the actual sink preimages strongly enough to retain S_rect>N^(3+3epsilon)/log N, or pursue the direct C-75 bottleneck-capacity theorem / near-linear construction. See C-256.
 
 ## C-258 restricted native upper-bound edge
 
@@ -1196,7 +1196,7 @@ These are concrete safe-fingerprint constructions. The missing O-153 edge is to 
 
 C-116 gives the matching hard-cofactor direction. The precise missing arrow is q-state grammar -> Omega(n) compatible private slots or a hard ownership selector, followed by a superlinear q charge for suppressing that structure. C-259 establishes no q bound.
 
-## C-260 proof–blocker incidence graph
+## C-260 proofâ€“blocker incidence graph
 
 Native q-rule grammar
   --least-fixed-point antichain recurrence--> minimal present certificates `C_i`
@@ -1388,3 +1388,67 @@ An edge-set certificate `H` is contained in an odd-cut NO input iff it has an od
 A fan-in-two monotone map with `a` paid AND nodes has a positive certificate of at most `a+1` inputs for each nonzero rail. C-292 forces opposite-rail certificate unions to be ODDFACTOR-YES graphs, each containing an odd-factor subgraph of at least `v` edges. Any doubly supported coordinate therefore implies `a>=ceil(v/2)-1`; if no coordinate is doubly supported, the fixed low code yields a separator of size `a+N-1`, excluded by C-291's source lower bound at the chosen `v=polylog N`. Thus `CohEnc>=ceil(v/2)-1`, a real but only polylogarithmic floor. No superpolynomial transfer follows. See C-293 and O-171.
 
 The proof generalizes to any monotone source `f`: with minimum positive-certificate width `W(f)` and `L=CycAnd(f)`, `CohEnc>=min(ceil(W(f)/2)-1,L-N+1)`. ODDFACTOR's minimum width is exactly `v` (a perfect matching gives the upper bound; every YES graph contains a subgraph with all `2v` degrees odd, so the lower bound follows), and C-291 makes `L-N+1` larger at the selected scale.
+
+## C-294 dependency: odd-cut NO-extension labels -> consensus map -> affine hard-rail restriction
+
+A high table can be assigned to every odd-cut NO extension. The map that pins all unanimous bits over compatible cuts is monotone and satisfies both C-125 order conditions. For affine cut labels R_j xor |S intersect A_j|, the component parity condition says unanimity occurs exactly for coefficient vector q=0 or q=p. Restricting to an arbitrary ODDFACTOR instance on the larger of A_j,A_j^c plus a fixed matching on the other block makes one polarity equal to ODDFACTOR_h, h>=v/2. Thus this cut-consensus map is not polynomial-AND at the polylog source scale. The theorem does not cover strict submaps that omit unanimous bits or nonlinear label families; O-172 tracks those. Actual q remains N-o(N).
+
+## C-295 dependency: coherent two-code envelope -> one-AND conflict decoder -> hard submaps
+
+One balanced cut subset reused across all table coordinates produces only two complementary high labels. NO consensus outputs lie under one of those labels or are zero. Complete low-code coverage on YES forces conflict with each label; two ORs aggregate those conflicts, and one AND separates ODDFACTOR. The exponential-in-a-power monotone lower bound then forces superpolynomial AND cost for any pointwise submap. This closes the submap branch for coherent affine labels but leaves larger/nonlinear label envelopes and maps outside the pointwise order open. See C-295 and O-172.
+
+A general finite-envelope decoder applies beyond the two-code construction: if each NO image is below some code in a fixed high family H of size k, then each code has a conflict OR that is 1 on every YES image; AND all k conflicts to obtain the source. This adds k-1 paid AND gates. The exact tradeoff is g >= A(f)-k+1 for map cost g and source AND-count A(f); if k <= A(f)/2, the map still needs at least A(f)/2 gates. Larger envelopes require analyzing whether their structured conflict test is cheaper than the naive k-1 conjunction. Odd-cut label cardinality alone is too large to compare with the known ODDFACTOR lower bound.
+
+## C-296 dependency: cut-family blockers -> valid high completion -> fixed-code decoder
+
+For each coordinate choose a family U_j of odd cuts; output its zero rail iff every cut in U_j is crossed. YES graphs cross all odd cuts; on NO choose a compatible odd component cut T, and each active rail agrees with the incidence label z_T. Random incidence labels can all be high. However, all YES images contain e(0), while high completion makes every NO image exclude it. The N-rail conjunction therefore computes ODDFACTOR, forcing source-level AND cost. This shows that variable NO labels alone do not evade the fixed-code decoder; the low code must also vary. See C-296 and O-173.
+
+## C-297 dependency: low YES envelope + high NO envelope -> dual source decoders
+
+A high completion family H gives the conflict decoder of C-295, with k-1 extra AND gates. A low witness family W gives a codeword containment decoder with r(N-1) extra AND gates; no NO output can contain a low code because it lies below a high complete code. Therefore a map of cost g satisfies g>=A(f)-min(k-1,r(N-1)). This identifies two separate entropy/readout obstacles; it does not bound either full class-size envelope. See C-297 and O-173.
+
+## C-298 dependency: subgraph consensus -> matching-boundary cones -> affine obstruction
+
+The lifted rail exists iff a subgraph preserves one label-b cut while crossing every opposite-labelled cut. NO soundness follows from C(G) subseteq C(H) for H subseteq G. On perfect matchings this becomes a monochromatic lower-cone condition in the poset of odd matching-boundary sets. Affine labels fail whenever a matching pairs across their support A; across all perfect matchings only A=empty or V survives, collapsing all NO labels to one fixed table. The fixed-high-table decoder then blocks any NO-vanishing witness sidecar. C-298 kills this affine lift only. O-174 contains the nonlinear classification target; actual q remains N-o(N).
+
+## C-299 dependency: mono-fiber criterion -> alternating-cycle intersection -> fixed low code
+
+C-298 reduces each matching-input rail to a monochromatic singleton-boundary fiber. Neighboring perfect matchings with one alternating cycle have all such fibers pairwise intersecting through an odd cut, so their mono-fiber colors agree. For even v>=6, relative v-cycles connect S_v; hence each coordinate has one global polarity. Complete YES coverage forces one low code on every matching input. Its N-rail AND decoder separates the exact Rao/Cavalar matching-versus-odd-cut distributions, whose lower bound only requires correctness on their support. Therefore the pure lifted-consensus map needs superpolynomial AND cost for the project source scale. Does not cover arbitrary YES-sidecar rails; see O-176.
+
+## C-300 dependency: withdrawn Rao/odd-cut sidecar route
+
+The proposed chain from Rao spread to a sparse exceptional matching set is invalid: C-286's NO error is on Rao's `G(W)` distribution, whereas the sidecar premise is about Cavalar's odd-cut distribution. The alternating-cycle expansion/deletion implication is conditional on an independently proved sparse set and does not itself establish that premise. Do not treat C-300 as resolving O-176. See its correction report and C-301 for the valid direct odd-cut route.
+
+## C-301 dependency: short-term compatible-NO mass -> unique rail polarity -> general CohEnc lower bound
+
+Use Cavalar's gatewise odd-cut approximation on the shared DAG. For `w=floor(v^(1/3)/log v)`, its per-gate DNF smallness `r=O(w^3 log^2v)=O(v/logv)` is `o(v)`, and the simultaneous NO error is `o(2^(-2w))`. Two opposite-polarity width-w terms have compatible odd-cut mass at least `2^(-2w)`, so no coordinate can carry both polarities. The YES direction fixes a low table on all but `o(1)` of perfect matchings. Its rail conjunction is a distributional separator; applying the same approximation to it contradicts the DNF agreement cap unless its size exceeds `2^w`. Thus `a+N+v^2+1 >= Omega(2^(v^(1/3)/(2logv)))`. This applies to every C-125 map and rules out polynomial cost for `v=(logN)^K`, K>3, but gives no positive transfer margin to true cyclic complexity. See C-301.
+
+## C-302 dependency: owner-mask rank -> dimension ceiling -> route filter
+
+Each individual owner mask lies in `GF(2)^N`, so raw rank is at most N. C-257 additionally realizes all even tables as safe diagonal hybrids, giving affine dimension N-1 under a `4N-4`-rule cover. This defeats generic arguments from high mask/hybrid dimension to superlinear q. Any surviving algebraic measure must charge mask selection/synchronization through actual low-circuit descriptions and the native grammar; no such compiler or bound is known. See C-302.
+
+## C-303 dependency: promise separator -> invalid SoS bridge -> medium-band obligation
+
+A Gap-MCSP separator is specified only on `SIZE(s1)` and `CC>s2`; its value on the medium band is free. Thus `h_Q(e(z))=0` for a high z does not refute the satisfiable formula `Circuit_s2(u)` for a medium u that the separator may also reject. Native evaluation is not an SoS certificate. A valid bridge must soundly totalize the medium band and beat the linear q floor quantitatively; neither is available. O-168 (full-promise cover/global description coherence) remains active. See C-303.
+
+## C-304 dependency: compatible-support semiring -> monomial ideals -> scalar valuation no-go
+
+Upward-closed consistent supports map faithfully to monomial ideals in the `3^N`-dimensional algebra whose product unions compatible supports and annihilates conflicts. Ideal sum/product preserve C-281 alternative and join operations; acceptance is membership of the input-dependent full-table monomial. Idempotence rules out a nontrivial unital scalar field valuation, while the full-table target and exponential dimension prevent an immediate classical span-program transfer. C-257 shows top-degree rank cannot charge q. A surviving Route M must compress ideals/tensors using actual low-circuit description structure; otherwise O-168 remains primary. See C-304.
+
+## C-305 dependency: alternating game -> gate-address product -> support-context compression obligation
+
+The native recurrence is the winning-region equation of a reachability game: universal choice of one side, existential choice of a matching seed or predecessor. A positional strategy verifies one fixed circuit only if it retains the challenged truth-table address. Explicit states `(gate,address)` cost `Theta(Ns1)=N^(1+beta-o(1))`; sharing gate state loses address conditioning, while duplicating positions can make gate choices address-dependent. A near-linear cover must carry address context in proof supports and preserve all compatible splices inside SIZE(s2). This is a construction filter, not a general q lower bound; C-257/C-258 prohibit raw state-product arguments. See C-305.
+
+## C-306 dependency: same-anchor splice compatibility -> support-control no-go
+
+For a fixed table w, all matching contexts and replacement proofs are subsets of `ell(w)`, hence every pair is compatible. C-281 substitution makes every cross-pair an accepted safe proof; downstream activation uses only state bits and does not inspect its support. Therefore support annotations cannot serve as an address-conditioned control register for a shared gate state. This kills the support-only repair to C-305, but not state-level selectors or arbitrary semantic quotients. Actual q is unchanged. See C-306.
+
+## C-311 dependency: dual witness set -> monotone consensus map -> fixed-polarity decoder
+
+For an MSP, the dual separator set `Y_X` shrinks under input inclusion, is empty on YES, and is nonempty on NO. Universal consensus labels therefore give monotone rails, low completion on YES, and high completion on NO. But emptiness activates both output polarities at every coordinate, so one fixed rail pair AND is an exact source separator. This kills the universal-dual-consensus branch of C-288 independent of codebook complexity. O-179 remains for non-vacuous mixed primal/dual reconstruction; O-168 and O-177 remain the independent native-cover and compatible-product targets. Actual q stays `N-o(N)`. See C-311.
+
+## C-312 dependency: literal guard -> two cofactor decoders -> factor-two bound
+
+A source literal can mask the universal dual-consensus rails while primal rails carry YES codes. On the zero cofactor, NO images vanish and an OR of outputs decides the source; on the one cofactor, YES has both polarities and a fixed pair AND decides it. Monotone Shannon decomposition yields `CycAnd(f)<=2a+2`. This narrows, but does not close, O-179: a factor-two CohEnc gap may still matter. Actual q remains `N-o(N)`. See C-312.
+
+C-312's ODDFACTOR specialization adds a hard-slice obstruction: fixing one edge absent still embeds the smaller odd-factor source by padding with a fixed odd-degree star forest. Thus a literal guard cannot place all source hardness on its dual-consensus branch. The map-cost lower is `A_ac(ODDFACTOR_(v-4))`; the additive comparison to full cyclic decision remains open. See C-312.
