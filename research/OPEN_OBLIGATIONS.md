@@ -824,3 +824,44 @@ C-281 translates the C-260 grammar into compatible joins of partial truth-table 
 ### O-168 - Continue the native near-linear full-promise cover attack
 
 Seek an explicit `N polylog N` or `N^(1+o(1))` fusion cover for the full `SIZE(s1)` versus outside-`SIZE(s2)` promise. The key constraint is global circuit-description coherence across all N table coordinates. Resume from C-271/C-265: direct enumeration, local block quotients, one-state-per-subfunction, and independent-cofactor recursion fail for their stated costs or soundness loss, but these do not rule out every semantic quotient. A construction must specify all native endpoints and prove soundness on every high anchor. Keep this attack active alongside O-167; if it succeeds, it kills the lower-bound route.
+
+### O-169 - [MERGED] Gap-safe cylinder factorization (duplicate of O-153/O-168/O-244)
+
+This proposed item duplicates existing active work: O-153/C-244 asks for a q-sensitive bound on the low-circuit mass of native proof/context zones; O-168/O-156 asks for a near-linear full-promise cover; C-230 already proves the `Theta_beta(N^beta logN)` safe-cylinder dimension. C-289 adds only the corollary that one maximal safe cylinder can exceed the cardinality of `SIZE(s1)` because it contains medium tables. Do not track a separate obligation here; continue under O-153/O-168 and preserve C-257/C-258/C-281 counterchecks.
+
+### Route A correction (C-283)
+
+The C-282 closure is withdrawn. A bottom NO partial vector `P=phi(0)` can be compatible with low tables `w` satisfying `P<=e(w)`. If P has d holes and K such low completions, pinned-coordinate collisions plus K tests on the holes give a source separator costing at most `a+(N-d)+K max(d-1,0)`, with `K<=2^d`. Any map with K>0 also needs `d=Omega_beta(s2)`: a low completion and the high completion of P differ only on those holes, so sparse-support interpolation would otherwise make the high completion low. This is necessary but not sufficient; C-279 has P empty and a cheap decoder. Do not close O-107/O-154/O-157/O-163/O-164/O-165/O-166 on the basis of C-282. O-167/O-168 stay active. Full correction: `research/C283_BOTTOM_BASELINE_HOLES_COUNTEREXAMPLE_AND_REPAIR_2026-09-27.md`.
+
+### C-284 parameter region for the matching transfer
+
+For `v=N^delta`, `0<delta<min(beta,1-beta)`, matching incidence witness tables fit `SIZE(s1)`, Rao's cyclic source lower bound is superpolynomial in N, and `N^delta` high balanced-class codes exist simultaneously by counting. Therefore source size is no longer the limiting parameter: any polynomial-AND monotone C-125 map with high NO completions and no short decoder would give a strong q bound. Build such a map or prove a route obstruction that accounts for the large bottom-compatible family. C-279's scalar-rank palette remains a no-go for this purpose because its activation profile decodes the source in O(v) AND gates.
+
+### C-285: nonprojection synchronization with a native cost
+
+Projection-only overlapping views collapse to a partial assignment on raw truth-table coordinates, so expander degree and edge count cannot serve as synchronization cost. Find local views related by genuinely different Boolean transformations, show how a C-74 grammar enforces their coherence, and prove each independent relation consumes a paid fusion resource despite arbitrary endpoint reuse. Any proposal must pass the C-258 equality-fingerprint cover. No superlinear q bound follows from C-285.
+
+### C-286: retain directional error semantics
+
+Rao's gate construction does not give two-sided vector disagreement bounds. Follow-ups must use the proven directions `Phi<=tilde(Phi)` on YES and `tilde(Phi)<=Phi` on NO, with errors charged to shared AND nodes. The matching certificate threshold is exact, but direct matching witness tables require `v` small while canonical patchability requires `v` polynomially large at small beta. Only a substantially different witness family could revive matching.
+
+### C-287/C-290: resolve the Rao-clique C-125 transfer interval
+
+On the valid gap promise use `k=2ell`, `ell=Theta(log^2m)`, `m=N^2`. The canonical-table argument rules out C-125 maps of cost `a<=A_map=L0/4`. This does not retire the route: unrolling gives the lower bound `CycAnd>=sqrt(L0/C)`, not the upper bound needed to infer `CycAnd<=A_map`. A color-coding upper bound is `exp(O(k))*poly(m)` and sits above the current floor. Resolve whether `CycAnd>A_map`, and either construct a valid map with `A_map<a<CycAnd` or prove no such map can be useful. Do not claim a q gain until the difference is quantified. See `research/C290_CLIQUE_TRANSFER_AUDIT_AND_REOPENING_2026-09-28.md`.
+### C-288: CohEnc and span-program bridge
+
+Prove or refute `CohEnc_{s1,s2}(f) << CycAnd(f)` for an explicit monotone source. ODDFACTOR's direct share rails fail by C-278 because NO rails vanish and ORing YES-share rails decides the source. A useful variant needs varying monotone NO decoys and must exclude all low circuit completions, not just invalid span witnesses. Separately, define a semantics-preserving translation from C-281 compatible-support grammar to a span program or prove no low-cost translation for a hard access structure. Continue the full-promise `N^(1+o(1))` cover search in parallel.
+
+### C-290 - Corrected clique transfer checkpoint
+
+The C-287 canonical-map obstruction survives after setting `k=2ell` to ensure disjoint promise sides. Its original route-kill conclusion is withdrawn: cyclic unrolling proves a lower bound on source cyclic complexity, while the desired conclusion needed an upper bound. Keep the clique transfer open only for exact resolution of `A_map<a<CycAnd` and a complete C-125 map. The overall q bound remains `N-o(N)`.
+
+### O-170 - Use ODDFACTOR's exponential monotone gap without a witness side-channel
+
+C-291 upgrades the ODDFACTOR source to `CycAnd>=2^(v^Omega(1))`. With `v=(log N)^K` for sufficiently large fixed K, any polynomial-cost C-125 map would transfer a superpolynomial lower bound, and sparse odd-factor witness tables fit `SIZE(s1)` for every fixed beta. The linear GF(2) span program is not itself a LowExt encoder. Do not append a visible dual-witness block with YES=all auxiliary rails and NO=consistent one-hot codes: an AND of the auxiliary rails separates those promises in `O(v)` (or `O(N)`) gates. Construct NO-side partial rails monotonically from the original graph while ensuring each NO image has a high completion and each YES image contains a low code, or prove a comparable-cost source decoder. Preserve C-278's fixed-scaffold test, C-274/C-275 broad-conflict requirement, and the C-258 equality calibration. Actual q remains `N-o(N)`.
+
+### O-171 - Charge ODDFACTOR cross-polarity certificate assembly
+
+For each table bit `j`, let `A_j^0,A_j^1` be positive edge-set certificates of its two monotone rails. C-292 proves that every cross-union `A union B` (`A in A_j^0`, `B in A_j^1`) must be a YES graph containing a spanning odd-factor witness; otherwise the union is contained in an odd-cut NO graph and violates C-125. Find a quantitative theorem connecting the size of a shared AND DAG to the number/diversity of such paired certificate families needed to cover every YES graph with a complete `SIZE(s1)` code. The bound must account for DAG reuse across coordinates, not charge each pair independently, and must still ensure every NO image has a `SIZE(s2)`-hard completion. First test the direct span-program availability map: it fails YES totality because omitted edges have no zero rail. Preserve C-258, C-278, and C-281 as hostile checks. C-292 gives no lower bound for positive AND cost; actual q remains `N-o(N)`.
+
+**O-171 progress from C-293:** a certificate of any nonzero rail can be chosen with width `<=a+1` for a shared DAG with `a` binary AND nodes. Since an ODDFACTOR-YES union contains an odd-factor subgraph with at least `v` edges, any coordinate with both rails nonzero costs `a>=ceil(v/2)-1`. If no coordinate has both, composing the fixed low table costs `a+N-1`, which contradicts C-291 at the polylogarithmic source scale below that threshold. Therefore `CohEnc>=ceil(v/2)-1`. This proves a positive-AND floor only; O-171 remains open for a superpolynomial cost bound or an explicit low-cost encoder, including the charge for certificate-pair diversity and reuse across coordinates.

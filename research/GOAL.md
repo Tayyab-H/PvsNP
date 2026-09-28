@@ -200,3 +200,29 @@ C-279 verifies that the C-125 asymmetric order conditions can be met with variab
 ## Priority reset after C-280/C-281
 
 The active research priority is the global sharing/readout problem in the native cyclic fusion closure. The antichain grammar and exact context/proof splice law are already established (C-260); C-281 expresses their table-space consequence through owner masks. Work on a q-sensitive owner-mask product rank and, in parallel, a full-promise N^(1+o(1)) cover. Route A matching maps, ordinary DAGs, and local-width refinements are secondary unless they produce a global theorem or near-lossless transfer. The actual q bound is still N-o(N); no proof of P versus NP has been found.
+
+## C-282 correction (C-283)
+
+C-282's proposed N-gate rail-collision source separator is invalid when the bottom NO image is partial: its differing coordinate can be unset. With d bottom holes and K compatible low codes, the corrected separator costs `a+(N-d)+K max(d-1,0)`, with `K<=2^d`. If `K>0`, sparse-support interpolation against the high bottom completion further forces `d=Omega_beta(s2)` in the OPS gap. C-279 has empty baseline and still fails through a short decoder, so this condition is not sufficient. Route A and native routes O-167/O-168 remain active. Actual `q=N-o(N)`; no P-vs-NP proof has been obtained.
+
+## C-284 parameter update
+
+The matching source dimension can be raised to `v=N^delta` for any fixed `0<delta<min(beta,1-beta)`: sparse matching-incidence witnesses still fit `SIZE(s1)`, while counting still supplies `N^delta` high balanced-class tables. The cyclic source lower bound then beats every polynomial map cost. This removes the polylog source-size restriction but not the map problem; the scaled rank palette still has a short decoder. The active research objective is unchanged and the goal remains unresolved.
+
+## C-285 route update
+
+A direct expander-overlap of raw table projections does not force multiple synchronization costs. Compatibility is coordinatewise equality and factors through one partial assignment; edge expansion adds redundant equalities. Retire overlap-edge count as an invariant. A live Route B construction must use nonprojection coherence and provide a native rule charge for enforcing it. This is not a breakthrough; q remains `N-o(N)` and the full-promise cover search remains open.
+
+## Priority reset after C-286-C-288
+
+C-286 establishes the correct shared-DAG theorem in directional form; Rao's literal two-sided approximation claim is unsupported, but the one-sided errors suffice to prove the entire canonical-table contradiction. The matching source threshold misses the patchable radius at small beta under direct witness coding, so retire that main route. C-287 gives a canonical-table cost floor for Rao clique, but C-290 corrects its route-kill inference: unrolling gives a lower, not upper, bound on `CycAnd`, and a useful map interval remains unresolved. C-288 defines `CohEnc` and proves `rho_GapMCSP>=CycAnd(f)-CohEnc(f)`, but the ODDFACTOR span program has not been converted to LowExt; direct solution-share rails reveal the source decision at equal AND cost. The actual q bound remains `N-o(N)`.
+
+Next work changes mechanism: investigate whether a monotone two-sided primal/dual code can realize a genuine `CohEnc << CycAnd` separation; otherwise prove comparable-decision cost for this reconstruction model. In parallel, resume the near-linear full-promise cover as the falsification branch. C-257 parity and C-258 equality remain mandatory native counterchecks. The goal remains active and unresolved.
+
+## C-289 priority update - 28 September 2026
+
+This pass's C-289 note is a crosswalk, not a new theorem: its proof-term cylinders are already covered by C-244's state zones, and the `Theta_beta(N^beta logN)` maximum dimension is C-230. The low-set versus cylinder-volume comparison is a corollary and gives no q bound. Continue the existing O-153/O-244 low-mass/readout attack and O-168 near-linear cover search; do not track O-169 separately. Preserve C-257/C-258. No q change; actual `q=N-o(N)`. The goal remains active.
+
+## C-290 proof-audit checkpoint
+
+The Rao-clique canonical-table obstruction is retained after choosing `k=2ell` so the promise is disjoint. The claim that it rules out every transfer was unsupported: `CycAnd>=sqrt(L0/C)` cannot show `CycAnd<=L0/4`. A color-coding upper bound `exp(O(k))*poly(m)` remains above the current map-cost floor. Continue the exact transfer-window audit only if it can yield a valid map or close the comparison; otherwise maintain primary focus on O-153/O-168. Actual `q=N-o(N)`; no P-vs-NP proof.

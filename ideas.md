@@ -8696,3 +8696,52 @@ For two disjoint matching instances, threshold predicates `R_t=[nu(G1)>=t AND nu
 ### Idea 399 - Owner masks are the global consistency witness for a splice (C-281)
 
 Cut an accepting native derivation at a shared state into a context support K and replacement support P. If K matches low table w and P matches low table w', then compatibility gives a canonical owner mask `mu=Var(P)\Var(K)`: the hybrid takes w' on coordinates mentioned only by P and w elsewhere. It completes the joined support, so it must be in SIZE(s2). For fixed w,w', distinct mask restrictions on their disagreement set give distinct low hybrids. The project target is now a q-dependent bound on these state-indexed compatible mask products, not another certificate-width bound. Parity and repeated-block equality are mandatory safe-splice tests. No q improvement follows yet; the actual bound remains N-o(N). See research/C281_NATIVE_CYLINDER_GRAMMAR_AND_OWNER_MASK_FRONTIER_2026-09-27.md.
+
+### Idea 400 - Bottom-NO collision attempt corrected by compatible completions (C-283)
+
+C-282 incorrectly inferred a two-rail collision at a coordinate where the bottom partial image may be blank. For `P=phi(0)` with d holes and K compatible low tables, collisions on pinned coordinates plus tests on the hole bits give `CycAnd(f)<=a+(N-d)+K max(d-1,0)`. A nonempty K plus a high bottom completion forces `d=Omega_beta(s2)` by sparse-support interpolation. This is not sufficient: C-279 has empty P and a large K but exposes a short source decoder. The exact C-125 interface remains open. See C-283.
+
+### Idea 401 - Scale matching source dimension polynomially, then attack only the map (C-284)
+
+For `v=N^delta`, choose `0<delta<min(beta,1-beta)`. Matching-incidence witness tables cost `O(v logN/logv)=O(v/delta)<=s1`; Rao's cyclic lower bound grows as `exp(Omega(N^(delta/2)))`; and counting permits `N^delta` balanced address classes all to be high. Therefore any polynomial-AND C-125 map would force a superpolynomial fusion lower bound. This removes source-size arithmetic as a bottleneck but leaves the actual hard part: monotone rail-map validity, high NO completions, and no short decoder. Scaling the C-279 rank palette still fails. See C-284.
+
+### Idea 402 - Expander overlap of raw projections collapses to coordinate classes (C-285)
+
+Let each local view be a restriction to S_v?[N]. A compatible tuple of views agrees on every shared coordinate and therefore glues to one unique assignment on the union of the S_v. For each coordinate, a spanning tree over its occurrences generates every equality constraint; adding expander edges does not create new degrees of freedom. Thus edge count/expansion is not a native synchronization cost. Any surviving overlap construction must use nonprojection relations and prove that the closure pays for enforcing them. This kills only the raw-projection proposal; it gives no q bound or full cover. See C-285.
+
+### Idea 403 - Shared Rao approximation has no output multiplier, but only directionally (C-286)
+
+Rao's gatewise matching-DNF construction bounds missed true rails on YES and invented rails on NO. OR gates propagate these events without adding errors; each distinct AND node contributes once even if many output rails reuse it. The requested full two-sided disagreement statement is unsupported, but the directional sandwich suffices for the proof. See C-286.
+
+### Idea 404 - Matching source spread misses the patch radius (C-286)
+
+For `v` source vertices, `theta_M=Theta(v^-1/2)+O(logN/v)`. At `v=Theta(log^2N)`, the expected canonical disagreement radius is `Theta(N/logN)`, far beyond `N^beta`. Raising `v` to meet patchability conflicts with fitting direct matching-indicator witness tables into `SIZE(s1)` for small beta. Retire this route unless a different witness encoding changes both inequalities.
+
+### Idea 405 - Rao clique map-cost floor, transfer interval unresolved (C-287/C-290)
+
+The canonical-table argument excludes C-125 maps below `A_map=L0/4`, after repairing the promise to `k=2ell>ell`. The earlier claim that this closes the transfer reversed the unrolling inequality: `CycAnd>=sqrt(L0/C)` is only a lower bound. Color coding supplies an upper `exp(O(k))*poly(m)` but does not put it below `A_map`. A useful map could still exist in `A_map<a<CycAnd`; the clique route remains open at this quantitative comparison. No q change.
+### Idea 406 - ODDFACTOR span witnesses need coherent NO decoys (C-288)
+
+ODDFACTOR has a GF(2) span program of size linear in its edge variables, while monotone decision needs `m^(Omega(logm))`. A sparse solution is a low candidate table, but solution-use rail predicates vanish on all NO inputs; ORing them recovers the source with the same AND budget. Availability rails admit the zero code on NO. The open gap is `CohEnc`, not span-program size: any useful map must expose varying monotone NO decoys and exclude every low circuit completion. See C-288.
+
+### Idea 407 - [Crosswalk] Robust completion cylinders are already in C-244 (C-289)
+
+The proof-term view is a direct DNF expansion of C-244's state-zone factorization. C-230 already pins the maximum safe-cube dimension at `Theta_beta(N^beta logN)` via Lupanov synthesis and counting. C-289 only makes explicit that such a cylinder can exceed the whole low class because of medium completions. Keep the active effort on C-244's low-mass/readout charge and O-168; this is not a new branch.
+
+Learning: C-289 repeated established C-230/C-244 structure. The useful corollary is only that total cylinder volume cannot stand in for its intersection with `SIZE(s1)`; future arguments must directly control low mass and shared readout.
+
+### Idea 408 - ODDFACTOR now has an exponential source gap, but dual sidecars are visible shortcuts (C-291)
+
+Cavalar et al. give an exponential monotone circuit lower bound for ODDFACTOR while its monotone GF(2) span program remains linear. Cyclic unrolling preserves an exponential-in-a-power-of-v source lower bound. Taking `v=(log N)^K` for large enough fixed K makes this exceed all polynomial encoder costs, and an odd-factor edge-set witness is still a polylog-size table. This removes source hardness and witness size as the bottlenecks; C-125 map validity remains the bottleneck.
+
+The tempting repair “put a dual witness in extra input bits” fails if yes instances set all those rails and no instances set a consistent one-hot code. `AND` of all auxiliary rails distinguishes those promises cheaply, even if the selected no code is a high-complexity table. Learning: never count a high completion as a hard decoy until checking whether the source input exposes an easy monotone selector for which side supplied it. The decoy must be generated from the hard graph or the augmented promise needs its own lower bound. See `research/C291_ODDFACTOR_EXPONENTIAL_SOURCE_AND_WITNESS_SIDECAR_NO_GO_2026-09-28.md`.
+
+### Idea 409 - Opposite ODDFACTOR rails need YES certificate unions (C-292)
+
+An edge set is contained in an odd-cut NO graph iff it has an odd-order connected component. Hence any positive certificate for a table bit's 0 rail, united with any positive certificate for its 1 rail, must be ODDFACTOR-YES and contain an odd-factor subgraph. This turns NO consistency into a concrete span-witness condition. It also sharpens the issue with a linear GF(2) span program: the selected edge support is a candidate table's 1-set, but a total one-hot code needs monotone evidence for its omitted edges too. OR-only maps cannot supply the complementary certificate pairs; positive-AND sharing must build them globally without an easy NO-side shortcut. This is a structural target, not a CohEnc lower bound. See `research/C292_ODDFACTOR_CERTIFICATE_COMPLEMENTARITY_AND_OR_ONLY_FILTER_2026-09-28.md`.
+
+### Idea 410 - Every ODDFACTOR bit with two possible polarities costs width (C-293)
+
+With `a` fan-in-two AND gates, any nonzero monotone output rail has some positive certificate using at most `a+1` edge variables; extract a connected proof DAG and count its binary AND branching. C-292 requires a pair of opposite-rail certificates to union into an ODDFACTOR-YES graph containing a witness of at least `v` edges. Thus any table coordinate whose two rails are both nonzero forces `a>=ceil(v/2)-1`. If no coordinate has both rails, the same fixed low table is present on every YES input, yielding an ODDFACTOR separator of size `a+N-1`; C-291 excludes this below the threshold at `v=(log N)^K`. This establishes `CohEnc>=ceil(v/2)-1`, but that is only polylog N. The useful next target is pair-family diversity and shared-gate reuse. See `research/C293_ODDFACTOR_CERTIFICATE_WIDTH_COHENC_FLOOR_2026-09-28.md`.
+
+Generalization: for any monotone source `f`, writing `W(f)` for minimum positive-certificate width and `L` for cyclic AND complexity gives `CohEnc>=min(ceil(W(f)/2)-1,L-N+1)`. This is a general C-125 tradeoff between polarity variation and direct source recovery, not an ODDFACTOR-specific coincidence. ODDFACTOR realizes `W=v` while C-291 makes `L` much larger than `N+v`.

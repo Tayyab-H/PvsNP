@@ -1332,3 +1332,59 @@ Native least-fixed-point proof grammar --cut at reused state--> context K plus r
   --missing--> q-sensitive product-rank theorem across all low circuits
 
 C-257 parity lock and C-258 equality fingerprints show generic splice width/count/reuse charges fail. C-281 does not improve q; actual `q=N-o(N)`. Parallel counter-program: construct a full-promise `N^(1+o(1))` native cover. See `research/C281_NATIVE_CYLINDER_GRAMMAR_AND_OWNER_MASK_FRONTIER_2026-09-27.md`.
+
+## C-282 / C-283 - Bottom-NO collision correction
+
+Bottom NO partial vector `P=phi(0)` has a high completion `e(z0)`, but may leave blank a coordinate where a YES low `w` differs from `z0`; no opposite rail is forced there. The compatible bypass family is `K(P)={w in SIZE(s1):P<=e(w)}`. Pinned-coordinate collisions plus K code tests restricted to the d blank coordinates separate at cost `a+(N-d)+K max(d-1,0)`. If K>0, sparse-support interpolation between `w in K` and `z0` forces `d=Omega_beta(s2)` in the OPS gap. C-279 shows this is insufficient: its empty P yields large K but a cheap source decoder.
+
+C-282's universal `a+N` claim and Route-A closure are withdrawn by C-283. The transfer is capped by N only if the compatible bottom family is empty or separately controlled. Active branches remain O-167 (global owner-mask product rank), O-168 (full-promise near-linear cover), and the unresolved C-125 map obligations. Actual `q=N-o(N)`.
+
+## C-284 - Polynomial-dimension matching transfer window
+
+Choose `v=N^delta`, `0<delta<min(beta,1-beta)`:
+
+  sparse matching witness table --> `O(v logN/logv)=O(v/delta)<=s1`
+  Rao + cyclic unrolling --> `CycAnd(MATCH_v)>=exp(Omega(N^(delta/2)))`
+  `N^delta` balanced table classes --> all can be selected outside `SIZE(s2)` by counting
+  polynomial AND map cost --> transfer would force `q>N^(1+epsilon)` for every fixed epsilon
+
+This opens a much larger conditional source-parameter region but does not construct the C-125 map. The scaled C-279 palette still collapses to a short decoder. Actual `q=N-o(N)`.
+
+## C-285 - Projection-overlap quotient
+
+`local views = restrictions to S_v` + `splice compatibility` ? one compatible assignment on `union S_v` ? at most `2^|union S_v|` tuples, independent of expander-edge multiplicity.
+
+Per-coordinate equality edges ? spanning forest generates all equalities; expansion alone yields no state charge. A safe cylinder with f free coordinates still has `f <= log2 |SIZE(s2)|`. Therefore a Route B proof must move beyond projection overlap to explicit nonprojection coherence, and charge the native derivation that enforces it. No such charge is known; actual q=`N-o(N)`.
+
+## C-286 dependency: shared directional approximation -> canonical table
+
+For one Rao approximant per distinct DAG node, a missed true rail on `X1` or an invented rail on `X0` propagates to an AND node's new-error event. OR nodes add no new event. Thus vector directional errors are `a*2^-t` and `a*4^t*epsilon`, with no `2N` multiplier. Spread amplification gives `theta_M=alpha_M*(t+log2(1/xi))/(gamma^2 R)`. If `N*(theta_M+delta1)` is patchable by C-275, YES witnesses force a low canonical table; dominant rails force that same table below a high NO code. For matching, `theta_M=Theta(v^-1/2)+O(logN/v)`, outside the small-beta patch window for polylog v.
+
+## C-287 dependency: clique spread -> a map-cost floor; transfer unresolved
+
+Use `k=2ell` so the YES `k`-clique and NO no-`ell`-clique promise is disjoint. With `m=N^2`, `ell=Theta(log^2m)`, Rao's threshold is `theta_C=Theta(log^3N/N^2)`. Directional errors vanish for map costs `a<=L0/4`, and one-bit patching contradicts the high NO completion. Hence valid C-125 maps cost `a>L0/4`. Cyclic unrolling yields only `CycAnd>=sqrt(L0/C)`; this is the wrong direction for retiring the route. Color coding gives an upper bound `exp(O(k))*poly(m)`, which does not fit below the map floor. The exact interval remains open; see C-290.
+## C-288 dependency: span programs vs CohEnc
+
+`CohEnc` is the AND cost of a monotone multi-output map satisfying both LowExt orders. Composition yields `rho>=CycAnd-CohEnc`. ODDFACTOR's GF(2) span program gives sparse primal witnesses and monotone-circuit hardness, but the direct availability/solution-rail map either admits the zero low table on NO or makes NO rails vanish so their OR computes the source. A native-to-span-program bridge would need a valuation from C-281's compatible-support semiring to field-linear operations; no such map is known.
+
+## C-289 crosswalk: safe terms -> C-230 cylinder scale and C-244 state zones
+
+The direct term expansion is already encompassed by C-244: `q` native states factor acceptance into q safe proof/context zones. C-230 already pins the largest safe cylinder dimension at `Theta_beta(N^beta logN)`. Since `log|SIZE(s1)|=O_beta(N^beta)`, one maximal cylinder can exceed the low class, with excess medium tables; this is only a volume corollary. The actual missing edge remains the joint low-mass/readout charge O-153/O-244 or the near-linear cover O-168. O-169 is merged as a duplicate; C-289 adds no q-sensitive theorem.
+
+## C-290 dependency: repair promise parameters and preserve transfer direction
+
+`k=2ell` ensures a disjoint clique gap and preserves the C-287 spread/patch estimates. Every C-125 map has cost above `L0/4`; a useful transfer still requires a map cheaper than `CycAnd(f)`. The unrolling inequality is `CycAnd>=sqrt(L0/C)`, not an upper bound. A monotone color-coding upper bound `exp(O(k))*poly(m)` is above the obstruction floor and leaves the needed comparison unresolved. No actual q bound changes.
+
+## C-291 dependency: stronger ODDFACTOR source -> same LowExt map bottleneck
+
+Cavalar et al.'s matching-sunflower theorem gives `Match_v>=2^(v^(1/3-o(1)))`; their odd-cut distribution transfers an exponential monotone lower bound to ODDFACTOR. C-266's `O(q^2(v^2+q))` unrolling preserves `CycAnd(ODDFACTOR_v)>=2^(v^Omega(1))`. At `v=(log N)^K`, K sufficiently large, this dominates polynomial encoder cost, while sparse odd-factor witnesses fit `s1`. A top-versus-one-hot explicit auxiliary dual witness is an easy monotone side-channel (`AND` all rails), so cannot preserve that source hardness. No C-125 map is built.
+
+## C-292 dependency: odd-cut certificate pairs -> positive-AND CohEnc target
+
+An edge-set certificate `H` is contained in an odd-cut NO input iff it has an odd-order connected component. Thus opposite-rail C-125 certificates at any table bit must union to an ODDFACTOR-YES graph containing an odd-factor witness. This gives the exact source-side meaning of NO rail consistency and rules out OR-only maps, but that corollary was already implied by C-125. The new target is a cost bound for a shared AND DAG that supplies complementary certificate families and complete low tables while preserving high NO completions. Linear span-program witnesses supply edge supports, not the required zero-rail completion. See C-292 and O-171.
+
+## C-293 dependency: certificate width -> linear-in-v CohEnc floor
+
+A fan-in-two monotone map with `a` paid AND nodes has a positive certificate of at most `a+1` inputs for each nonzero rail. C-292 forces opposite-rail certificate unions to be ODDFACTOR-YES graphs, each containing an odd-factor subgraph of at least `v` edges. Any doubly supported coordinate therefore implies `a>=ceil(v/2)-1`; if no coordinate is doubly supported, the fixed low code yields a separator of size `a+N-1`, excluded by C-291's source lower bound at the chosen `v=polylog N`. Thus `CohEnc>=ceil(v/2)-1`, a real but only polylogarithmic floor. No superpolynomial transfer follows. See C-293 and O-171.
+
+The proof generalizes to any monotone source `f`: with minimum positive-certificate width `W(f)` and `L=CycAnd(f)`, `CohEnc>=min(ceil(W(f)/2)-1,L-N+1)`. ODDFACTOR's minimum width is exactly `v` (a perfect matching gives the upper bound; every YES graph contains a subgraph with all `2v` degrees odd, so the lower bound follows), and C-291 makes `L-N+1` larger at the selected scale.
