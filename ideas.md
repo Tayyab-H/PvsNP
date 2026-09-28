@@ -8864,3 +8864,43 @@ The two cofactors decode the source. On x_r=0, OR all rails; on x_r=1, AND one f
 For any fixed forbidden edge e in K_(v,v), the source cofactor with x_e=0 contains ODDFACTOR_(v-4) as a monotone projection: reserve four vertices on each side including the endpoints of e, place them as leaves in opposite K_(1,3) and K_(3,1) stars that omit e, and isolate this fixed odd-factor forest from the remaining graph. The cofactor is therefore at least `2^((v-4)^Omega(1))` in ordinary monotone AND complexity.
 
 Learning: a literal-guarded dual construction cannot hide the hard computation entirely in the dual-active branch; its zero-decoy/primal branch already contains essentially the same superpolynomial source. This still does not compare the encoder to the full cyclic source with an additive margin. See C-312 and C-291.
+
+### Idea 432 - A semantic guard does not inherit literal Shannon decoding (C-313)
+
+C-312 works because the guard is a source literal and gives exact decoders on both literal cofactors. For a general monotone guard `g`, decoding the guard-zero region requires selecting with `not g`; monotone composition cannot do that automatically. In the universal-dual pattern, aggregate signals `D=OR(all rails)`, one pair `R`, and `g` may take `(1,0,0)` on a YES input and `(1,0,1)` on a NO input. Since the YES vector is coordinatewise below the NO vector, no monotone decoder using only those aggregates can distinguish them.
+
+This does not rule out a full-rail decoder or a bounded literal-cofactor family. It rules out treating a one-bit semantic guard as if it were a Shannon variable. Next work must charge the guard's false-positive NO profiles or recover a global selector from the full rail vector. See `research/C313_ARBITRARY_GUARD_IS_NOT_A_LITERAL_COFACTOR_2026-09-28.md`.
+
+### Idea 433 - Cover the prefix-block safe envelope (C-314)
+
+Partition truth-table inputs into k=Theta(log N) prefix blocks. Every size-s1 table restricts to a size-s1 circuit on each block. Conversely, independent block circuits of size s1 synthesize to a whole table of size k*s1+O(k loglogN)<=s2. This gives a safe superset `A_k(s1)` containing all low tables, and every high table has at least one block restriction of size above s1.
+
+The obstacle is locating such a block inside the native closure without a free circuit-complexity oracle. Explicit block/gate/address evaluation still costs Theta(N*s1); support tags have already failed as address registers in C-306. This is an interface for a global selector argument, not a cover or lower bound. Preserve the C-257/C-258/C-281 checks. See C-314.
+
+### Idea 434 - Turn prefix blocks into a local constant-gap/direct-sum problem (C-315)
+
+For k=Theta(log N) blocks, a blockwise separator for `SIZE(s1)` versus block complexity above `s2/k` combines by AND: all restrictions of a global low table pass, and a global high table must have one block above `s2/k`. The local gap is only a constant factor, and copying the local circuit k times yields the straightforward upper bound. This isolates what a near-linear construction would need to compress: a shared selector for the blockwise local gap.
+
+Counting shows this regime is real, not just a formal reduction. There are globally high tables with every block restriction between `B*s1` and `A*s1` for fixed constants: use a Lupanov-sized family of arbitrary functions on a fixed small address subcube in each block, remove functions of complexity at most `B*s1`, and compare product-family cardinality against all global size-`s2` circuits. Learning: the safe envelope cannot be strengthened to say a high table has a block with a growing complexity ratio over s1. A viable route must exploit exact `>s1` block detection and cross-block sharing. No q lower bound follows. See `research/C315_PREFIX_BLOCK_CONSTANT_GAP_AND_DISTRIBUTED_HARDNESS_2026-09-28.md`.
+
+### Idea 435 - Exact algebraic fingerprints collapse to address evaluation (C-316)
+
+Model the entire truth table as the pointwise algebra `F_2^N`. Its N address indicators are pairwise orthogonal idempotents. If unital algebra homomorphisms collectively detect every table difference, their product is injective and their total target dimension is at least N; a field-valued homomorphism selects exactly one address. A linear sketch used to test equality with some low witness also needs rank `N-O(s2 log(s2+n))`, since its kernel must contain only size-s2 tables and the zero table is low.
+
+The explicit gate-by-address evaluation cost is `O(N*s1)`, outside the `N^(1+o(1))` target. Learning: exact algebraic fingerprints and linear equality sketches do not compress the address dimension. This is a scoped route filter only; it says nothing about nonlinear promise-specific summaries or general fusion covers. Do not revisit without an interface that avoids exact difference detection and the equality-sketch form. See `research/C316_ALGEBRAIC_FINGERPRINT_ROUTE_FILTER_2026-09-28.md`.
+
+### Idea 436 - Separate independent block entropy from global circuit coherence (C-317)
+
+For `k=Theta(log N)` prefix blocks, a product family of locally moderate-hard functions is globally high with overwhelming probability once its cardinality beats `|SIZE(s2)|` by an exponential margin. But a product safe cylinder of dimension `Theta(s2 log s2)` can vary independently in every block and still have all completions in `SIZE(s2)`, while repeated identical blocks share one small global circuit. Therefore neither local hardness nor the number of blockwise owner switches measures the separator's cost. The missing object is the global circuit-description correlation among the restrictions. A useful invariant must charge how the native grammar excludes independent tuples while permitting compatible shared-description tuples; count-free coordinates only up to the `Theta(s2 log s2)` ceiling. This is a calibration and next-question refinement, not a q lower bound. See `research/C317_BLOCKWISE_SAFE_CYLINDER_TENSORIZATION_2026-09-28.md`.
+
+### Idea 437 - Treat block restrictions as a shared cofactor ensemble (C-318)
+
+For a global function `f(a,y)`, its k prefix restrictions form `F(y)=(f_a(y))_a`. In a k-lane circuit whose AND/OR/NOT gates act coordinatewise, suffix inputs are diagonal and prefix inputs are fixed masks. Scalar circuits lift to this cofactor vector gate-for-gate; vector wires scalarize by selecting the lane indexed by the scalar prefix. Therefore global circuit size equals this structured ensemble-circuit size. The native grammar has its own lane-wide operation on support vectors, with conflict filtering. Direct-sum is consequently a comparison of two SIMD algebras, not a sum of k unrelated local costs. Seek a bridge/lower bound for the compatible-support SIMD grammar and preserve C-257/C-258; this is a model reformulation, not a q lower bound. See `research/C318_COFACTOR_ENSEMBLE_AND_NATIVE_SIMD_MODEL_2026-09-28.md`.
+
+In promise terms, every proof support is a product box over block lanes; low ensembles must be covered by generated boxes and every box must stay inside the high circuit-size ceiling. This gives the exact compatible-box interpolation problem. The box language remains globally coupled through arbitrary endpoints, so a tensor theorem still needs a transfer argument.
+
+### Idea 438 — Analyze the native system as an alternating state graph (C-319)
+
+Each fusion state i obeys the exact two-obligation recurrence `x_i=(A_i OR predecessors_E) AND (B_i OR predecessors_H)`, where each seed is a consistent signed-literal disjunction and predecessor edges are fixed by endpoint containment. The least fixed point is an input-labelled alternating reachability game; one state can query literals in every cofactor lane. This identifies the object a direct-sum theorem must handle and explains why lanewise circuit additivity is not automatic.
+
+Two natural state surrogates fail before reaching q: the minimum safe-box cover of `SIZE(s1)` has a singleton cover of size `|SIZE(s1)|`, so its log is only `N^(beta+o(1))`; and the acceptance indicator has rank at most `|SIZE(s2)|`, whose log is also sublinear. Free-coordinate entropy is capped separately by C-317. The surviving target is a q-sensitive synchronization invariant of the transition graph and signed seed clauses that distinguishes independent cofactor descriptions from shared ones, while passing the C-257 parity and C-258 equality covers. This is a route refinement, not a lower bound. See `research/C319_NATIVE_CLOSURE_AS_ALTERNATING_COFACTOR_GAME_2026-09-28.md`.

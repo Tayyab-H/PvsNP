@@ -3418,3 +3418,58 @@ A guarded construction can avoid C-311's global saturation: on `x_r=0`, use NO-v
 The source can still be decided from the two cofactors. On the zero slice, OR all output rails; on the one slice, AND a fixed opposite-polarity pair. Monotone Shannon decomposition gives `CycAnd(f)<=2a+2` for a map of AND cost a. Thus a one-input guard limits any decision/reconstruction separation to a constant factor, but does not rule out a constant-factor margin. For ODDFACTOR the primal rail family is still the cost bottleneck. Generalize only if the guard has a controlled cofactor cover; do not claim a full route-kill. Actual q remains `N-o(N)`.
 
 **C-312 ODDFACTOR cofactor sharpening:** for any fixed graph edge e, the restriction `x_e=0` contains `ODDFACTOR_(v-4)` by padding it with a fixed disjoint pair of opposite odd stars on the four reserved vertices per side, with the endpoints of e chosen as leaves so e is unused. Thus a guarded map whose zero slice vanishes on NO must pay at least the ordinary monotone complexity of `ODDFACTOR_(v-4)` on that slice. This leaves the guarded branch hard at the source's superpolynomial scale, though it still does not prove an additive comparison to full `CycAnd(ODDFACTOR_v)`.
+
+## C-313 - Arbitrary monotone guards are not literal cofactors
+
+C-312's factor-two source compiler depends on a literal variable: the zero-slice decoder is recombined with the one-slice decoder using positive Shannon expansion. Replacing the literal by an arbitrary monotone guard does not preserve this step because the guard-zero region is selected by `not g`, which is unavailable to monotone composition. The aggregate signals `D=OR(all rails)`, a fixed pair `R`, and `g` can even order a yes case `(1,0,0)` below a no case `(1,0,1)` whenever the no-side decoys make D true; no monotone function of these three aggregates can distinguish them.
+
+This is only a boundary for the aggregate decoder, not a no-go for the full rail vector. A viable guarded MSP route needs either a quantified literal-cofactor cover, a decision procedure for false-positive NO guard profiles, or genuinely global output-profile information. A cheap monotone guard alone is insufficient. Thus the live target is again O-168/O-179's global selector/reconstruction problem. The attachment's requested shared-DAG Rao and canonical-table analyses are already recorded in C-286/C-287, with later ODDFACTOR updates in C-288/C-310/C-311/C-312. Actual `q=N-o(N)`.
+
+## C-314 - Prefix-block safe envelope (candidate only)
+
+Every low table can be viewed as k=Theta(log N) prefix-block restrictions, each of circuit size at most s1. Conversely, any table whose k block restrictions each have size at most s1 can be synthesized using k separate circuits plus a prefix selector, costing `k*s1+O(k loglogN)<=s2` for a sufficiently small constant in k. Thus `SIZE(s1) subseteq A_k(s1) subseteq SIZE(s2)`. A high table must have at least one block restriction above s1.
+
+This creates a compositional safe envelope that may help the native cover route. It does not identify the hard block inside the C-75 closure: testing its circuit complexity is exactly the selector/address problem, and the explicit gate-address evaluator still costs Theta(N*s1). See `research/C314_PREFIX_BLOCK_SAFE_ENVELOPE_AND_SELECTOR_BOTTLENECK_2026-09-28.md`.
+
+## C-315 - Prefix decomposition is a local constant-gap problem plus a coherence problem
+
+For k=Theta(log N) blocks, any local separator between block functions of size at most s1 and those above t0≈s2/k composes by AND into a valid global separator. The local ratio t0/s1 is only a constant; the construction uses k copies, and C-307 then compiles the acyclic monotone circuit to a native cover. This is a conditional upper reduction, not a cover because the local separator is itself unknown.
+
+Counting sharpens the envelope calibration: for every fixed 0<beta<1 there are globally high tables whose every block has circuit complexity in `(B*s1,A*s1]` for fixed constants B>1 and A>B. Build many functions on a fixed subcube of each block, discard the size-`B*s1` functions, and compare the product-family count to the count of size-`s2` global circuits. Therefore no high table must contain a block with a superconstant-factor gap over s1. The model's live hinge is a native direct-sum/coherence theorem for these disjoint local gap instances, or a shared block selector cheaper than k independent copies. Block counting alone supplies no q charge; keep C-257 parity, C-258 equality, and C-281 compatible-splice checks. Actual `rho=N-o(N)`. Full proof and limits: `research/C315_PREFIX_BLOCK_CONSTANT_GAP_AND_DISTRIBUTED_HARDNESS_2026-09-28.md`.
+
+## C-316 - Exact algebraic fingerprints retain essentially all addresses
+
+For the pointwise algebra `F_2^N`, the N coordinate indicators are orthogonal idempotents. Any family of unital algebra homomorphisms that detects every table difference is injective and must have total target dimension at least N; scalar homomorphisms are exactly address evaluations. Separately, if a linear sketch is used only by equality against a low witness, its kernel must lie inside `SIZE(s2)` because the zero table is low, forcing sketch rank at least `N-O(s2 log(s2+n))=N-o(N)`. Explicitly evaluating a size-s1 circuit at those coordinates costs `O(N*s1)`.
+
+This retires only exact-difference multiplicative fingerprints, linear equality sketches, and their explicit gate-by-address evaluator. The claims do not constrain nonlinear promise-specific selectors or arbitrary fusion covers. The current target remains C-315/Q177's blockwise coherence problem; actual `rho=N-o(N)`. Details: `research/C316_ALGEBRAIC_FINGERPRINT_ROUTE_FILTER_2026-09-28.md`.
+
+## C-317 - Blockwise safe cylinders saturate the splice-entropy ceiling
+
+For k=Theta(log N) prefix blocks, choose in every block a fixed u-dimensional suffix-address subcube with `2^u=Theta((s2/k) log(s2/k))` free truth-table entries. Each completion is computed by one local Lupanov circuit per block plus a prefix selector, with total size at most s2. Thus one sound cylinder can contain `Theta(s2 log s2)` independent switches spread across all k blocks, matching the global upper bound `log |SIZE(s2)|=O(s2 log s2)`. This retires block-count, free-coordinate count, and raw owner-mask entropy as ways to improve the splice contradiction.
+
+C-315's local counting family has a sharper distributional corollary: with constants giving an exponent margin, a uniform independent tuple of moderately hard blocks is globally high except with probability `2^(-Omega(s2 log N))`. Yet the diagonal tuple family obtained by repeating one local function can be globally small because one circuit ignores the prefix. Local hardness and global independence must therefore be kept distinct. The live Q177 target is to measure **description incoherence** between independent block choices and correlated restrictions of one global circuit, inside the compatible-support grammar. No direct-sum law, q improvement, or P-vs-NP result is established. Full calibration: `research/C317_BLOCKWISE_SAFE_CYLINDER_TENSORIZATION_2026-09-28.md`.
+
+Direct-sum theorems for tensor-product Boolean matrices are only a source of techniques: native endpoints can couple blocks globally, as C-257's parity carriers demonstrate. A tensor argument needs a valid factorization theorem or a q-sensitive cost for such global couplings; endpoint factorization cannot be assumed.
+
+## C-318 - Prefix restrictions are a cofactor ensemble
+
+Split address inputs into a prefix selecting one of `k` blocks and a suffix. The block restrictions `(f_a(y))_a` form a vector-valued cofactor ensemble. In the exact SIMD model where each gate acts coordinatewise on k-bit wires, suffix inputs are diagonal vectors and prefix inputs are fixed lane masks, the scalar circuit size of the global function is **exactly** the vector-circuit gate count: scalar gates lift lane-wise, and conversely each vector wire is scalarized by selecting the lane indexed by the prefix inputs. Repeated identical blocks share a single cofactor circuit, while C-315's independent moderate-hard blocks are globally high with overwhelming probability by counting.
+
+The C-281 grammar is also SIMD over blocks: supports split into k partial-assignment lanes, and one paid state performs a compatibility-filtered union across the whole lane vector. This is not the same algebra as Boolean SIMD circuits. The sharpened target is a bridge or a direct q lower bound between these two ensemble models. Generic matrix tensor direct-sum theorems do not apply because native endpoints can couple lanes globally (C-257). This exact reformulation gives no q bound or P-vs-NP result. Details: `research/C318_COFACTOR_ENSEMBLE_AND_NATIVE_SIMD_MODEL_2026-09-28.md`.
+
+Equivalently, let `E_s` be the k-lane ensembles of global circuit complexity at most s. Each proof support is a product box across blocks; soundness requires each box inside `E_s2`, and completeness requires the generated box family to cover `E_s1`. The q-state system is therefore a **cofactor-SIMD interpolation cover** over a compatibility-filtered box algebra. This is only a coordinate reindexing of the original problem, but it cleanly states what a q-sensitive bridge must analyze.
+
+## C-319 — The native SIMD object is an alternating state game
+
+For a q-pair fusion list, each state i has two seed clauses `A_i(w),B_i(w)`, each a consistent disjunction of signed truth-table bits (or the constant true), and two fixed predecessor sets. Its exact recurrence is
+
+```text
+x_i^(t+1) = ( A_i OR OR_(j in P_i^E) x_j^t )
+            AND ( B_i OR OR_(j in P_i^H) x_j^t ).
+```
+
+The output is the OR of active empty-consequence states. This is an input-labelled alternating reachability game: the universal move chooses one of two endpoint obligations; the existential move supplies a matching literal or follows an active predecessor; cycles count only when the least fixed point reaches a true seed. A state clause can read literals from every cofactor lane, so lane count cannot be charged independently without a theorem controlling global coupling.
+
+Unrolling q rounds gives at most q^2 paid AND gates. An ordinary monotone-interpolant lower bound therefore transfers only through a square-root loss; q>N^(1+epsilon) would require a lower bound above N^(2+2epsilon) by this route. The count-only variants do not bridge that loss: a singleton safe-box cover has at most `|SIZE(s1)|` boxes, whose logarithm is `N^(beta+o(1))=o(N)`, and any sound separator's accepted set lies inside `SIZE(s2)`, so the logarithm of its matrix rank is also sublinear. C-317 separately saturates the safe-box free-coordinate budget. None of these ceilings applies to a genuinely state-sensitive invariant.
+
+The next model upgrade is a **state-graph synchronization measure**: it must quantify how a q-state alternating graph synchronizes independent block descriptions while preserving every compatible context/proof splice, and allow the linear-cost parity and repeated-equality constructions. Avoid endpoint-description arguments, box counts, log-rank, and free-coordinate entropy. Exact derivation and literature boundaries are in [C-319](research/C319_NATIVE_CLOSURE_AS_ALTERNATING_COFACTOR_GAME_2026-09-28.md). The actual lower bound remains `rho_GapMCSP=N-o(N)`.

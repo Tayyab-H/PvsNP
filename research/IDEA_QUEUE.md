@@ -1571,3 +1571,41 @@ A universal consensus over a shrinking dual-witness family is monotone and gives
 ## Q174 - Audit bounded-cofactor guarded reconstruction maps (C-312)
 
 A single input-variable guard around dual-consensus rails yields two cofactor decoders and `CycAnd(f)<=2a+2`. For a guard controlled by r input bits, determine the least monotone decomposition cost from the active guard patterns, then ask whether any low-description guard permits an encoder meaningfully below exact decision. Do not infer a route-kill from the factor-two bound. Any construction must preserve all-input C-125 completions and avoid the fixed-pair test. See C-312/O-179.
+
+## Q175 - Charge arbitrary guard false-positive profiles (C-313)
+
+The literal Shannon compiler cannot be lifted to one arbitrary monotone guard: the zero-guard branch has no positive selector, and universal dual rails can leave NO decoys active when g=1. Either exhibit a quantified family of literal cofactors that separates all YES/NO pairs at controlled AND cost, or prove a decoder using the full rail vector. Test against C-257/C-258 and the all-input C-125 promise. Do not count a cheap guard circuit as a source decision compiler. See C-313/O-179.
+
+## Q176 - Route the locally hard prefix block without gate-address states (C-314)
+
+The safe envelope A_k contains every low table and lies inside SIZE(s2) for k=small Theta(log N). A high table must have a block restriction above s1. Find a native closure that locates such a block using only literal seeds and compatible support joins, or prove state synchronization requires superlinear q. Explicit gate×address evaluation costs Theta(N*s1); support-carried addresses fail C-306. Stress-test with parity, equality, and owner-mask hybrids. See C-314/O-168.
+
+## Q177 - Prove or refute a native direct-sum law for blockwise constant-gap MCSP (C-315)
+
+The k-copy upper composition assumes a monotone local separator over signed block literals.
+
+For k=Theta(log N), a local separator for `SIZE(s1)` versus block complexity above `t0≈s2/k` yields the global separator by k-fold AND, at cost `k*a+(k-1)`. The local gap is constant factor. Counting gives globally high tables with every block complexity in `(B*s1,A*s1]` for fixed constants, so no growing local margin is forced. Determine whether a global native q-cover must pay a direct-sum cost across these disjoint local gaps, or whether a shared selector can beat k copies while preserving all C-281 compatible joins. A proof must survive parity and repeated-equality calibrations. C-315 gives no q bound; actual `q=N-o(N)`.
+
+## Q178 - Exact algebraic fingerprints cannot compress every truth-table difference (C-316)
+
+The pointwise algebra `F_2^N` has N primitive orthogonal idempotents, so exact-difference unital homomorphism fingerprints need total target dimension N; scalar homomorphisms are address evaluations. Linear equality sketches against low witnesses need rank `N-o(N)` because the kernel must be contained in `SIZE(s2)`. Retire these exact interfaces and the explicit `N*s1` evaluator. Reopen only for nonlinear promise-specific summaries that do not need to detect every difference; C-316 is not a general cover or q lower bound.
+
+**Q177 update after C-317:** retire the block-count/free-coordinate entropy implementation of the direct-sum route. `Theta(s2 log s2)` independent switches across all prefix blocks fit inside one sound cylinder. Independent moderate-hard block tuples are globally high with overwhelming probability, but repeated blocks can share one small circuit. A surviving Q177 proof must measure global-description incoherence inside the compatible-product grammar and cannot rely on local hardness or raw owner-mask counts.
+
+## Q179 - Charge independent block-description incoherence under native reuse (C-317)
+
+C-317 separates two block regimes with the same local complexity range: independent local truth tables are globally high with overwhelming probability by circuit counting, while identical repeated blocks may be globally small because one circuit ignores the prefix. A product safe cylinder can expose `Theta(s2 log s2)` independent bits across all `Theta(log N)` blocks without leaving `SIZE(s2)`. Therefore local hardness, high probability, or owner-mask entropy alone does not charge q. Seek a relation between the number/structure of independent global circuit descriptions represented by block restrictions and the q-state compatible-product grammar. The target must separate the independent product ensemble from all shared-description correlations, preserve every C-281 splice, and survive parity/equality calibrations. No q change follows from C-317.
+
+**Tensor literature filter:** monotone direct-sum results for tensor-product matrices cannot be imported while C-281 endpoints remain arbitrary globally coupled subsets. C-257's prefix-parity carriers show the native grammar can exploit such coupling at linear cost. A tensor route needs a proved factorization/reduction or an explicit charge for nonfactorizing endpoints; imposing factorization on the target grammar would only prove a restricted result.
+
+## Q180 - Prove a separation between cofactor-ensemble circuits and native support SIMD (C-318)
+
+C-318 gives an exact scalar/vector identity: a global Boolean function on prefix-plus-suffix inputs has the same gate complexity as a k-lane coordinatewise circuit for its entire cofactor vector, where prefix input bits become fixed lane masks and suffix inputs are diagonal. The native C-281 grammar also acts lane-wide, but on antichains of partial assignments with conflict-filtered multiplication. This reframes Q177 as a comparison between two SIMD algebras. Find either (i) a lower-bound-preserving bridge from native support SIMD to cofactor-ensemble circuit complexity, or (ii) a direct q lower bound for the high-vs-low cofactor ensemble. Any proposed bridge must account for globally coupled arbitrary endpoints and pass C-257/C-258. No q change follows from the reformulation.
+
+Exact promise form: `E_s={F:V_k(F)<=s}`. The q-state system must generate product boxes covering `E_s1`, with every generated box contained in `E_s2`; one compatible-product gate acts on all lanes simultaneously. This is the cofactor-SIMD interpolation-cover formulation, not a simplification or lower bound.
+
+**Q180 update after C-319:** each native state is an AND of two ORs over signed-literal seeds and fixed predecessor states, interpreted by least-fixed-point alternating reachability. Since clauses can span every lane, independent lane charging is invalid without a synchronization theorem. The ordinary acyclic compilation costs q^2 AND gates. Minimum box-cover log and accepted-set log-rank are `o(N)`; safe-box free-coordinate entropy is capped by C-317. Retire these as standalone lower-bound measures; retain only genuinely state-sensitive synchronization complexity.
+
+## Q181 - Lower-bound state synchronization in the native cofactor game (C-319)
+
+Represent each fusion list as the exact q-state alternating game: universal selection of one of two endpoint obligations, followed by an existential true-literal or predecessor witness, with cycles interpreted by the least fixed point. The seed clauses can mix all prefix lanes, and endpoints are arbitrary semantic sets. Find a transition-graph invariant whose total cost is q, not q^2, and which charges the synchronization needed to distinguish independent moderate-hard cofactor descriptions from repeated/shared descriptions. It must allow C-257's parity automaton and C-258's equality fingerprint at linear cost while forcing a superlinear cost for the full `SIZE(s1)` class, or yield a valid near-linear cover instead. Do not use endpoint-description length, minimum box-cover count, log-rank, or raw safe-cylinder entropy as the invariant. Actual q remains `N-o(N)`. See `research/C319_NATIVE_CLOSURE_AS_ALTERNATING_COFACTOR_GAME_2026-09-28.md`.

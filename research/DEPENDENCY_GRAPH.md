@@ -1452,3 +1452,33 @@ For an MSP, the dual separator set `Y_X` shrinks under input inclusion, is empty
 A source literal can mask the universal dual-consensus rails while primal rails carry YES codes. On the zero cofactor, NO images vanish and an OR of outputs decides the source; on the one cofactor, YES has both polarities and a fixed pair AND decides it. Monotone Shannon decomposition yields `CycAnd(f)<=2a+2`. This narrows, but does not close, O-179: a factor-two CohEnc gap may still matter. Actual q remains `N-o(N)`. See C-312.
 
 C-312's ODDFACTOR specialization adds a hard-slice obstruction: fixing one edge absent still embeds the smaller odd-factor source by padding with a fixed odd-degree star forest. Thus a literal guard cannot place all source hardness on its dual-consensus branch. The map-cost lower is `A_ac(ODDFACTOR_(v-4))`; the additive comparison to full cyclic decision remains open. See C-312.
+
+## C-313 dependency: semantic guard -> no monotone cofactor selector
+
+C-312's source compiler relies on the literal Shannon identity. An arbitrary monotone guard g does not supply a monotone way to isolate g=0; with universal dual decoys, the aggregate rail-OR, fixed pair, and g can be ordered the same way on a YES g=0 input and a NO g=1 input. Thus the single-guard factor-two proof does not extend just by making the guard a small monotone circuit. Any useful extension must quantify literal-cofactor covers or use more of the output profile. This is a boundary result, not an O-179 route-kill. Actual q stays `N-o(N)`. See C-313.
+
+## C-314 dependency: low circuits -> piecewise safe envelope -> hard-block selector
+
+A `SIZE(s1)` table restricts to a size-s1 circuit on every prefix block. Conversely, k=O(log N) such restrictions combine into a `SIZE(s2)` table, so the piecewise class is a safe envelope containing all low tables. Thus any high table has a locally hard block. The missing edge is from this existential hard block to a native closure witness; a q-state rule cannot use local circuit complexity as a free predicate, and explicit address×gate evaluation remains too costly. C-314 creates a target interface for O-168, not a q bound.
+
+## C-315 dependency: safe envelope -> local constant gap -> global block coherence
+
+The composed local separator must be monotone over signed block literals; without this restriction, the C-307 native-cover compilation does not follow.
+
+Taking the block threshold `t0≈s2/k` gives the exact implication `all blocks <=t0 => whole table <=s2`; therefore one local `SIZE(s1)` versus `CC>t0` separator, copied on each block and ANDed, separates the global promise. With k=Theta(log N), `t0/s1=Theta(1)`, and the generic implementation costs k copies. Counting shows high tables can have every block in a fixed interval `(B*s1,A*s1]`; the promise does not supply a superconstant local gap. The missing theorem is a q-sensitive direct-sum/coherence bound or a shared state-level selector. No q change; C-257/C-258/C-281 remain counterchecks.
+
+## C-316 dependency: exact table algebra -> address dimension -> evaluator cost
+
+The pointwise algebra `F_2^N` has N primitive coordinate idempotents. Any exact-difference algebra-homomorphic fingerprint family must preserve all N independent idempotents; field-valued homomorphisms are address evaluations. For the separate linear equality-sketch interface, the kernel must lie in `SIZE(s2)`, giving rank `N-o(N)`. Explicit gate-by-address evaluation is `O(N*s1)`. The first two are exact/algebraic interface limits, and the last is architecture-specific; none implies a general fusion q lower bound. The branch is retired for those interfaces only.
+## C-317 dependency: product safe cylinders -> entropy saturation -> description coherence
+
+Choose `Theta((s2/k) log(s2/k))` free coordinates in each of k prefix blocks, placed on a fixed local address subcube. Lupanov synthesis block-by-block and a prefix selector compute every completion in `SIZE(s2)`. Their total free dimension is `Theta(s2 log s2)`, matching the global safe-cylinder ceiling from C-230. Thus independent owner switches across blocks do not by themselves force an unsafe C-281 splice. Meanwhile, C-315's independent moderate-hard family is almost entirely globally high by counting, but diagonal repeated restrictions can be globally small by circuit reuse. The unresolved information is correlation among block descriptions, not local hardness or entropy. A useful next theorem must charge how q-state compatible products distinguish independent descriptions from restrictions sharing one global circuit; C-257/C-258 remain hostile checks.
+## C-318 dependency: global circuit -> cofactor SIMD -> native support SIMD
+
+Fixing each prefix value of `f(a,y)` produces a k-output cofactor vector. Under coordinatewise Boolean gates, diagonal suffix inputs, and prefix-bit lane masks, this ensemble circuit has exactly the gate count of a scalar circuit for f: lift gates in one direction and scalarize each vector wire by the variable prefix in the other. Thus a blockwise MCSP direct sum is a lower bound for shared cofactor computation, not for k independent circuits. C-281 support families also split into k lanes, and one fusion product performs compatible union across every lane, but in a distinct idempotent semiring. The live bridge is between ordinary cofactor SIMD complexity and native compatible-support SIMD; arbitrary global endpoints and C-257 parity coupling prevent assuming tensor factorization. No q improvement follows.
+
+Equivalently, define `E_s={F:V_k(F)<=s}`. A sound proof cylinder is a lane-product box inside `E_s2`, and the grammar must cover `E_s1` by such boxes. This is a compatible-box interpolation cover; the exact reindexing adds no lower bound until its q-state product complexity is controlled.
+
+## C-319 dependency: closure recurrence -> alternating graph -> state-synchronization target
+
+Every q-pair list induces q least-fixed-point state equations, each an AND of two ORs of consistent seed literals and fixed predecessor states. This is exactly an input-labelled alternating reachability game; its clauses can span all cofactor lanes. Unrolling gives at most q^2 AND gates, which quantifies the ordinary monotone-circuit transfer loss. The singleton safe-box cover and the sound accepted-set rank both have logarithms `o(N)`, while C-317 saturates free-coordinate entropy, so these statistics cannot yield q>N. C-257 parity and C-258 equality show global synchronization can remain linear. The remaining open edge is a state-sensitive q lower bound for synchronization of independent cofactor descriptions; see C-319 and Q181.
