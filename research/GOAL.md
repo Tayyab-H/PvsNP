@@ -299,3 +299,33 @@ A fixed description C can be verified by N signed table literals, so its selecto
 ## C-384 novelty correction and next subproblem
 
 C-349/C-342/C-367 already cover representation instability, observable selector channels, and search-versus-all-address verification. C-384 synthesizes those results and adds the fixed-table native bracket `N-o(N) <= rho <= N+O(1)`; it is not a new route. Continue with the activation-code branch: prove an arbitrary C-319 cover yields a coherent low-circuit decoder from its input-derived signature/activation profile, or show why no such decoder/readout can be obtained at near-linear q. Do not count raw profile bits, since q=Theta(N) can expose all table bits. Keep the goal active; q remains N-o(N).
+
+## C-385 continuation note - exact seed-order characterization
+
+A fixed seed signature map admits some monotone promise decoder iff no low signature is coordinatewise below any high signature; equivalently, the seed-feature rectangles cover every low/high pair. The full 2N signed singleton features satisfy this condition for every disjoint promise, and their paired signature can be injective at linear scale, but the paired recurrence may still fail to decode anything. Therefore all seed-order, fiber, and pairwise-feature arguments have a universal linear ceiling. The active cost is the constrained least-fixed-point readout (O(q^2) monotone-gate unrolling); no superlinear native bound or near-linear full-promise cover follows. See research/C385_MONOTONE_SEED_ORDER_ISOLATES_READOUT_COST_2026-09-29.md.
+
+
+## C-386 through C-388 continuation
+
+C-386 rechecked the strategy-as-description idea: positional actions may store bits, but a merged state-side has no caller-address register; this closes only that architecture, not the input-derived activation-profile channel or arbitrary C-319 covers.
+
+C-387 rigorously proves the Reed-Muller narrow-seed localization candidate. For each fixed epsilon>0 and any fixed polynomial state exponent a, every valid q<=N^a cover has at least (1-epsilon)N-o(N) global seed slots of width C(a,epsilon,delta) log N. The proof combines C-370's sparse certificate count with a 2r-th moment tail for the (D-1)-wise independent RM probe. This is a structural linear-scale theorem only: q remains N-o(N). Wide seed tests may still be essential to the readout, so the localization does not yet imply a local-only LFP.
+
+C-388 formalizes the C-346 hard-core sample relation R(f,Q). A proposed sample is coNP-verifiable, and existence of one is a Sigma_2^P promise separator. The minimax/LP construction uses an NP best-response task, and no efficient selector, all-selector lower bound, or q-preserving bridge to arbitrary native covers is known.
+
+Active work items are O-229 (prove or refute wide-feature dispensability in the localized certificate core while preserving all-high rejection) and O-230 (construct or lower-bound selector synthesis with the NP optimization cost charged and prove an explicit bridge before transferring conclusions). The project goal remains active. No superlinear Gap-MCSP bound, full-promise near-linear cover, or P-vs-NP proof has been obtained.
+
+
+## C-389 continuation
+
+C-389 tests O-229 with an explicit monotone feature-map countermodel: near-full narrow sparse certificate support can coexist with an essential wide readout coordinate. Thus the deletion inference is false from monotonicity and incidence data alone. The countermodel is not endpoint-realizable as far as established, so the native question remains open. Keep the goal active; q remains N-o(N), with no full-promise cover or P-vs-NP proof.
+
+## C-390 continuation and mandatory checkpoint
+
+C-390 closes the remaining endpoint-realization gap for the *subpromise* form of O-229. A masked Reed-Muller membership circuit and one wide root give a valid q=O(N log N) C-319 cover of the RM probe against the actual high set; deleting every globally wide seed makes it reject every RM anchor. This is a route-kill for the universal wide-feature deletion inference, not a full-promise result. The low probe remains easy to recognize in O(N log N), and the cover does not accept all SIZE(s1).
+
+Checkpoint: the native quantitative bound did not move beyond N-o(N); selector synthesis has neither a near-linear construction nor an all-selector N^(1+epsilon) lower bound; there is no q-preserving bridge; no collectively hard low subclass was found; and no lower bound for the general C-319 local-seed LFP readout was proved. C-390 is the one concrete outcome: endpoint-realizable wide features can be indispensable at near-linear subpromise cost. Continue with the two computational fronts—full LFP readout work and hard-core selector synthesis—and charge every optimization/separation oracle. The project goal remains active; no P-vs-NP proof or breakthrough claim is made.
+
+## C-391 continuation
+
+C-391 makes the selector search-to-decision gap precise. The canonical fixed-length sample encoding can be found by O(L log N) prefix-extension queries, each in Sigma2^P because candidate validity is coNP. Thus the canonical selector is in FP^Sigma2, but this does not give Boolean circuits of near-linear size. The unconditioned existence predicate answers only the empty-prefix query; it does not automatically answer the conditioned queries needed to extract the witness. Continue both fronts in parallel: attack the complexity of these prefix queries/selector relation, and independently seek a state-sensitive bound or near-linear construction for the full C-319 LFP. No quantitative Gap-MCSP bound changed; goal remains active.

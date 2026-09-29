@@ -1,4 +1,4 @@
-﻿# P versus NP: unconventional idea ledger
+# P versus NP: unconventional idea ledger
 
 Started: 23 September 2026  
 Working rule: Re-read this file at the start of each research continuation. After every serious attempt, record what was formalized, what was tested, what failed, and the next proof obligation. Keep theorem, experiment, conjecture, and speculation separate. Imaginative language is welcome; an idea advances only when its definitions and proof obligations survive scrutiny.
@@ -9239,3 +9239,37 @@ A q-state system has 2q predecessor sets on q vertices, hence O(q^2) adjacency b
 For fixed C, verifying `w=tt(C)` only requires the N signed literals dictated by C's output table; its native complexity is linear. Moreover, `C_f AND (H OR NOT H)` computes the same function but adds a selector whose forced witness changes with H(x). Therefore a hard lane-selector matrix for one implementation cannot lower-bound the native separator. The viable selector target is representation-independent and must be induced from arbitrary C-319 covers, while keeping `exists one C forall x`; local choices `forall x exists C_x` accept every table. C-320 is useful only after a high owner pattern is forced, since compatible products are safe. Continue on a joint-description/address residual theorem or explicit near-linear graph; q remains N-o(N). See research/C384_FIXED_CIRCUITS_HAVE_ONLY_LINEAR_SELECTOR_RESIDUALS_2026-09-29.md.
 
 **Audit correction for Idea 499:** the representation-dependence argument is already in C-349; C-342/C-367 also cover activation-code and all-address-readout gaps. C-384's only increment is the fixed-singleton `N-o(N)` to `O(N)` bracket. Do not count this as a new route; continue at the activation-code readout frontier.
+
+## C-385 model update - a monotone order channel, then constrained readout
+
+The seed vector is not merely an information channel: the transition recurrence reads it monotonically. A fixed signature map can support some monotone separator exactly when no low signature is coordinatewise below a high one. Signed singleton features satisfy this for every distinct table pair using only 2N features, so raw order separation cannot beat linear. The remaining object is the specific paired least fixed point that must decode those features. The standard unrolling uses O(q^2) monotone gates, but no lower bound for this promise/readout class is available here. Medium inputs are unconstrained, so exact MCSP lower bounds require an extension-preserving transfer. See C-385.
+
+### Idea 500 - Positional strategy choices do not form a readable description register (C-386)
+
+Rechecked whether the existential positional strategy could encode one small circuit and make its bits available to all later address checks. A strategy can store choices, but a shared state-side has the same action and continuation after every incoming history; its successor does not inherit the caller address. This repeats and confirms C-341/C-342's architecture-specific obstruction, without strengthening it. It does not rule out an input-derived activation code, and it gives no lower bound for arbitrary covers, which need not verify a supplied circuit. Retire path-only strategy-register variants unless they provide an explicit, sound activation-profile readout. The generic (q^2) LFP-to-monotone-circuit compilation remains only an upper bound; Pauly's Open Question 11 leaves generic succinctness unresolved. Current q remains N-o(N); see `research/C386_POSITIONAL_STRATEGY_REGISTER_RECHECK_2026-09-29.md`.
+
+
+### Idea 501 - Bounded independence forces narrow seed slots, not a local decoder (C-387)
+
+For the RM probe F=RM(floor(delta n),n), the dual distance D=N^(delta+o(1)) makes coordinate literals (D-1)-wise independent. C-370 gives each low anchor nearly N certificate clauses with only O(log N) true literals. A limited-independence moment bound shows any globally C log N-wide clause has probability at most N^(-A) of being that sparse, for any requested fixed A after choosing C. Double counting forces at least (1-epsilon)N-o(N) globally narrow seed slots for every fixed epsilon, with width constant depending on epsilon. This proves the candidate C-387 lemma and changes no q bound.
+
+**Limit:** sparse certificate clauses need not be a sufficient set for the LFP by themselves. Other selected wide clauses may be essential to G_Q(1_{S_f})=1. Establish wide-feature dispensability or an endpoint-valid simulation before replacing the graph by a local-seed decoder. RM is a probe family with a linear membership test, not a hard low subclass.
+
+### Idea 502 - Hard-core witnesses form a second-level search relation (C-388)
+
+Define R(f,Q) by requiring every size-T circuit to disagree with f on at least 0.259 of a short labelled list Q. Verifying a proposed Q is coNP (a bad predictor circuit refutes it); existence of Q is a Sigma_2^P predicate. C-346 proves witnesses exist for high tables and no witness exists for low tables. The minimax distribution and empirical sample are existential; direct optimization needs an NP best-response circuit. A canonical witness or oracle-based multiplicative-weights run is not an all-selector lower bound or a near-linear Boolean implementation.
+
+**Bridge gap:** seed certificates constrain which whole tables satisfy a CNF, while Q must hit every predictor's address disagreement set. No q-preserving conversion between them and arbitrary C-319 covers is known. Next attack either the NP optimization cost for a selector or a recurrence-derived selector theorem; keep this route distinct from O-229 local-seed readout.
+
+
+### Idea 503 - Minimal feature certificates can require a wide bit (C-389)
+
+Take A_i(w)=w_i for N coordinates, B(w)=OR_i w_i, and G(a,b)=b AND all_i a_i. The low anchor 1^N is accepted and all other tables rejected. Its certificate contains N narrow unit clauses with one true literal each plus a width-N seed. The wide clause is redundant in the truth-table CNF but essential in the abstract seed decoder; hardwiring that seed to zero destroys completeness while preserving soundness. Therefore C-387 localization does not itself yield a local-only LFP. This is an abstract signature countermodel only. The mathematical next step is to realize such behavior under actual C-319 endpoint constraints or prove it impossible.
+
+### Idea 504 - Endpoint-realizable wide-root calibration closes the universal truncation route (C-390)
+
+Mask an O(N log N) Reed-Muller membership circuit by a subcube S disjoint from the RM family, so every lifted gate carrier contains S_H=S intersect HIGH and the output carrier is exactly S_H. A single empty-consequence root with endpoints S_H and HIGH minus S_H has a false E seed and a wide H mismatch clause for the defining coordinates of S. The circuit output activates the root on every RM anchor; the root self-loop and carrier invariant reject every high table. Erasing all wide seeds disables the only H-side entry and loses every anchor. This is a native, endpoint-realizable counterexample at q=O(N log N), but only for a subpromise whose membership already has an O(N log N) circuit. It kills the blanket C-387-to-local-readout inference; it does not improve the full-promise q bound. Move effort to computational work in the full LFP and to the selector relation, not another RM certificate variant. See research/C390_ENDPOINT_REALIZABLE_WIDE_SEED_REQUIRED_SUBPROMISE_2026-09-29.md.
+
+### Idea 505 - Hard-core boosting inherits its weak-learner oracle (literature audit)
+
+Feldman's distribution-specific agnostic boosting connects hard-core-set construction with repeated calls to a weak learner on changing distributions ([Feldman 2009](https://arxiv.org/abs/0909.2927)). Here that oracle must find a size-T circuit with low weighted error on the explicit truth table. Existence of a violating circuit is NP-verifiable; returning one is NP search. Thus “run boosting” does not synthesize Q in near-linear circuit size unless this optimization task is itself implemented or bypassed. This literature gives an algorithmic framework and confirms the cost that C-388 identified; it supplies no unconditional selector or lower bound.

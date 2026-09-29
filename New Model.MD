@@ -1,4 +1,4 @@
-﻿# A Working Model for P vs NP
+# A Working Model for P vs NP
 
 **Last updated:** 28 September 2026
 **Status:** research framework; no proof of $P\ne NP$ or $P=NP$ has been found.  
@@ -3825,3 +3825,51 @@ The real quantifier is `exists one C, for every x`. Per-address descriptions mak
 C-281/C-320 must be used in the right order: a genuinely compatible support product is safe by soundness; a high owner pattern must be forced before the robust-splice lemma can contradict anything. Current q remains N-o(N). C-384 is a route correction, not a breakthrough.
 
 **Novelty correction:** the selector-representation obstruction here was already proved in C-349, and the activation-code/search gap was already isolated in C-342/C-367. C-384 adds only the fixed-singleton linear bracket; it is a synthesis, not a breakthrough. The next phase should continue from the activation-code readout question and avoid re-running matrix-padding arguments.
+
+## C-385 model update - a monotone order channel, then constrained readout
+
+The seed vector is not merely an information channel: the transition recurrence reads it monotonically. A fixed signature map can support some monotone separator exactly when no low signature is coordinatewise below a high one. Signed singleton features satisfy this for every distinct table pair using only 2N features, so raw order separation cannot beat linear. The remaining object is the specific paired least fixed point that must decode those features. The standard unrolling uses O(q^2) monotone gates, but no lower bound for this promise/readout class is available here. Medium inputs are unconstrained, so exact MCSP lower bounds require an extension-preserving transfer. See C-385.
+
+## C-385 game-form correspondence update
+
+The exact C-319 recurrence is an alternating reachability graph game: each rule state is universal over its two sides, each side existentially chooses a predecessor or its seed terminal, true terminals win, false terminals lose, and seedless cycles lose. Thus Q has O(q) game vertices, O(q^2) possible edges, and 2q terminal inputs whose values are endpoint-selected ORs of table literals. Pauly's graph-game form framework is the right general language; it proves monotonicity and LFP closure but leaves circuit-size succinctness questions, with no Gap-MCSP-specific lower bound. Our O(q^2) round unrolling is the known upper compiler, not a lower bound. See the addendum in C-385 and [Pauly](https://arxiv.org/abs/1809.03093).
+
+Endpoint constraint: every native cover maps to a paired reachability game form, but the converse is not established. The predecessor edges and seed predicates arise from the same endpoint sets, with forced self-loops from `T_i subseteq E_i,H_i`; the self-loops are redundant in the least fixed point. A lower bound for the relaxed game-form class transfers, while an upper construction needs a realization theorem. This is part of the remaining semantic-access problem, not a free wiring assumption.
+
+## C-386 update - strategy storage versus readable state
+
+A positional strategy may encode a circuit description in its actions, but that does not give a later verifier state a readable description bit together with the address that requested it. If two histories merge at the same state-side pair, the continuation and action are identical; a successor state carries its own identity, not the incoming caller. This closes only the path-only strategy-register architecture already isolated in C-341/C-342. The activation vector is still an input-derived channel, and its coherent readout has not been proved impossible or constructed.
+
+The generic LFP/game-form route has a real gap: q states unroll to an O(q^2) monotone circuit, but this direction alone cannot turn known circuit lower bounds into q lower bounds. Pauly's Open Question 11 asks about the size of monotone circuits for graph-game least fixed points, and gives no general lower-bound transfer. Thus the mathematical target remains either a Gap-MCSP-specific readout lower bound for arbitrary endpoint-realizable games, or an explicit endpoint-valid near-linear full-promise game. Current q remains N-o(N); no breakthrough is claimed. See `research/C386_POSITIONAL_STRATEGY_REGISTER_RECHECK_2026-09-29.md`.
+
+
+## C-387 model update - localization is proved, local readout is not
+
+On the C-372 Reed-Muller probe, the dual distance makes every logarithmic-size subset of table coordinates exactly uniform. A 2r-th moment argument with r=Theta(log N) extends the useful lower-tail bound to clauses much wider than the code's independence order: any globally C log N-wide clause is almost never true on only O(log N) of its literals. C-370 demands nearly N sparse-support certificate clauses at each anchor, so averaging forces at least (1-epsilon)N-o(N) globally narrow seed slots for each fixed epsilon and an epsilon-dependent width constant.
+
+The structural interpretation is precise: the proof system cannot route all safe-certificate burden through wide seed tests. But certificate sparsity is not readout sparsity. The monotone LFP may require additional wide seed bits to activate a certificate, even when that certificate also contains many narrow clauses. Replacing wide seed values by zero can only remove accepts, so high rejection is preserved by monotonicity. The unproved part is whether enough low anchors remain accepted. This missing low-side implication is the exact obstacle to reducing arbitrary covers to a local-seed LFP. C-387 does not move q beyond N-o(N).
+
+## C-388 model update - selector synthesis exposes an NP optimization oracle
+
+The hard-core sample is a list Q of O(N^beta) addresses such that every size-T predictor disagrees with the high table on at least 0.259 of Q. A candidate Q has a succinct counterexample to validity: one small circuit with too few disagreements. Thus witness verification is coNP, and asking whether any valid Q exists is a Sigma_2^P search/decision predicate. C-346 proves existence on high tables and impossibility on low tables, but not efficient selection.
+
+The minimax LP and finite sampling proof are exact existence arguments. Their natural best-response step asks for a size-T circuit minimizing weighted prediction error, an NP search task. Charging that oracle is essential: multiplicative weights, boosting, or ellipsoid methods do not by themselves produce a near-linear Boolean circuit. A one-bit native separator does not output Q, and Q alone does not decide the promise without its coNP verification. C-388 therefore identifies a concrete synthesis bottleneck but proves neither a selector bound nor a transfer to C-319.
+
+The next work should keep two objects separate until a reduction joins them: a narrow-certificate core plus the full endpoint-realizable LFP readout (O-229), and the set-valued high-table selector relation with its optimization cost (O-230).
+
+
+## C-389 update - feature-space minimality is not clause-space minimality
+
+The countermodel has features A_i(w)=w_i and B(w)=OR_i w_i, with G(a,b)=b AND all_i a_i. On f=1^N, the minimal signature certificate includes every feature, although the table-space clause B is redundant after the unit clauses. Setting b=0 rejects f. Thus a certificate can have the exact narrow sparse structure C-387 finds while the monotone decoder still needs an additional wide seed bit.
+
+This only refutes an inference from feature monotonicity and certificate incidence. C-319's shared endpoint sets constrain the seed tests and predecessor graph together, and this example has not been realized by such endpoints. The next theorem must exploit or overcome that coupling directly.
+
+## C-390 update - endpoints couple the wide root to a narrow certificate core
+
+C-390 closes the endpoint-realization gap on the Reed-Muller probe. A masked membership circuit has a high carrier S_H in every internal state, and one empty root asks for both the active circuit output and a wide mismatch clause defining the mask subcube. On low RM anchors the output supplies one side and the mismatch clause supplies the other. On high tables the carrier invariant blocks the root. Deleting the wide root seed leaves only its seedless self-loop, so no low anchor enters the least fixed point. This is an endpoint-valid subpromise construction of q=O(N log N), not a full-promise cover or a quantitative lower bound.
+
+The model update is a precise limitation: global localization of sparse certificate slots does not imply their readout sufficiency, even when the complete graph is endpoint-realizable and near-linear on a simple low family. Therefore stop treating “wide-feature deletion” as a general consequence of C-387. A full-promise-specific theorem could still exist, but the active proof target shifts to the computational work of the full LFP and the set-valued hard-core selector. For the selector, existence is not synthesis: candidate verification is coNP and min-max best response is an NP search task. No reduction between selector synthesis and arbitrary native covers is currently known.
+
+### Selector literature update
+
+Hard-core construction via boosting is algorithmic only relative to its weak learner. Feldman's distribution-specific agnostic boosting explicitly connects boosting and hard-core sets; in this project its best-response subroutine is weighted circuit approximation and has an NP search witness. This makes oracle accounting a mathematical barrier in the construction, not an implementation detail. The next construction attempt must either exploit special structure to solve weighted circuit approximation on the required distributions, or replace the boosting route with a selector whose validity can be established by a different proof. See the literature note in C-388 and Idea 505.
