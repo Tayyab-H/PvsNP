@@ -8904,3 +8904,144 @@ In promise terms, every proof support is a product box over block lanes; low ens
 Each fusion state i obeys the exact two-obligation recurrence `x_i=(A_i OR predecessors_E) AND (B_i OR predecessors_H)`, where each seed is a consistent signed-literal disjunction and predecessor edges are fixed by endpoint containment. The least fixed point is an input-labelled alternating reachability game; one state can query literals in every cofactor lane. This identifies the object a direct-sum theorem must handle and explains why lanewise circuit additivity is not automatic.
 
 Two natural state surrogates fail before reaching q: the minimum safe-box cover of `SIZE(s1)` has a singleton cover of size `|SIZE(s1)|`, so its log is only `N^(beta+o(1))`; and the acceptance indicator has rank at most `|SIZE(s2)|`, whose log is also sublinear. Free-coordinate entropy is capped separately by C-317. The surviving target is a q-sensitive synchronization invariant of the transition graph and signed seed clauses that distinguishes independent cofactor descriptions from shared ones, while passing the C-257 parity and C-258 equality covers. This is a route refinement, not a lower bound. See `research/C319_NATIVE_CLOSURE_AS_ALTERNATING_COFACTOR_GAME_2026-09-28.md`.
+
+### Idea 439 — Robustly forbid owner-mask neighborhoods (C-320)
+
+For a constant-distance code of low tables, a random coordinate split simultaneously makes every off-diagonal splice above `N^gamma`, robust to `Theta(N^gamma/n)` owner-mask edits. This strengthens the old single-split statement but does not force the state graph to produce a forbidden mask; the balls have exponentially tiny density. Learning: a better forbidden region does not yield q unless a separate state-dispersion theorem forces a product into it. See C-320.
+
+### Idea 440 — Profile separation cannot exceed the linear barrier (C-321; re-audit)
+
+The exact game factors as `G_Q(phi_Q(w))`, with a monotone transition readout of 2q seed-clause bits. Every low/high pair must be separated by one seed feature, but the 2N signed unit-literal tests already separate all distinct tables. Thus profile count, injectivity, and pairwise feature separation alone cannot force more than q=N. The remaining candidate is a lower bound on the restricted alternating readout *jointly* with endpoint incidence; arbitrary monotone readout or raw feature information discards the relevant structure. No q gain follows. See C-321.
+
+**Novelty audit:** this repeats C-76/C-221/C-260 and should not be counted as a new result. Q182 is closed as redundant.
+
+### Idea 441 — Root broadcast kills final accepted activation profiles (C-322)
+
+An empty-consequence root is a predecessor on both obligations of every state. Once any root activates, every state activates one round later; before that first activation, the nonroot coordinates follow an exact root-deleted least fixed point. This makes final accepted profiles constant and removes final-profile VC/shattering from consideration. The terminal-root readout is exact, but this output-root normalization gives no state charge and is closed as a route. The next effort remains the joint context/proof reuse geometry in O-180, not another profile statistic. See C-322.
+
+### Idea 442 — Compile by root-free SCC size (C-323)
+
+After the exact C-322 root deletion, let the nonroot dependency SCCs have sizes `r_C` and let m be the root count. Topological SCC evaluation computes the least fixed point with at most `sum_C r_C^2` AND gates; the m terminal root tests add m. This can beat q² if the pre-root components are small. The full graph's artificial root-to-all-state edges hide this structure by merging proof-relevant states into a root SCC. No small-SCC theorem is known for minimum OPS covers; the large-component case remains the synchronization target. See C-323.
+
+
+### Idea 442 - Replace SCC size by feedback-core iteration (C-324)
+
+In each root-free SCC, find a feedback vertex set F. With F fixed, all other states are a DAG and their least-fixed-point values are computed once topologically. The map on F stabilizes in at most |F| strict rounds; each round costs one AND per SCC state. Hence an SCC with r states and feedback number k compiles with at most `r+k(r-1)` AND gates, and the sharper bound uses actual seed-labelled core iteration depth. A long directed cycle or a hub SCC has k=1, so a large SCC is not automatically expensive.
+
+Learning: the C-323 SCC-size target was too coarse. Any successful state-graph argument must address feedback density/iteration and still explain how the grammar synchronizes the independent `SIZE(s1)` descriptions. C-257 parity, C-258 equality, C-307 LDPC, C-317 safe cylinders, and C-281 owner-mask joins remain checks. No OPS feedback-core theorem or q improvement is known. See `research/C324_FEEDBACK_CORE_COMPILER_2026-09-28.md`.
+
+
+### Idea 443 - Factor common predecessors before measuring feedback (C-325)
+
+C-258 reveals that a linear native subcover can have many graph cycles: every adjacent nested-prefix state pair has edges both ways, because the deeper carrier lies in both endpoints of the earlier rule. Raw feedback vertex number is therefore too coarse. For each equation, factor out states that occur in both predecessor sets: `(common OR left) AND (common OR right) = common OR (left AND right)`. The full least fixed point is the static common-edge closure of the residual seed-labelled AND map. Learning: distinguish free implication propagation from genuinely new two-obligation work. The closure identity is exact, but no bound on the residual dynamics is known. See C-325/Q185.
+
+### Idea 444 - Solve the repeated-equality feedback system exactly (C-326)
+
+On each C-258 block/value branch, common-edge closure gives `x_t=OR_(s>=t)G_s`, while the residual transitions are prefix-gated: `G_1=b_1`, `G_2=(b_1 OR x_1) AND b_2`, and `G_t=x_(t-1) AND b_t` thereafter. The least fixed point is `x_t=AND_(u<=t)b_u`; the merge states have the same prefix-product solution over block indicators. Therefore this exact C-258 output is repeated-block membership with `2N-d-1` AND gates even though the state graph has Omega(N) feedback vertices.
+
+Learning: common-edge cycles can disappear algebraically when paid transitions follow a nested seed order. This closes the equality hostile check and explains why raw cycle/FVS counts are not costs. The cylinder-richness assumption supplies the containment witnesses. No full-promise q bound or general compiler follows; do not extrapolate beyond nested prefix systems without proving a transfer. See `research/C326_NESTED_COMMON_CLOSURE_COMPILER_FOR_C258_2026-09-28.md`.
+
+### Idea 445 - Match pseudorandomness order to sunflower term width (C-327; side route closed)
+
+Kaplan-Naor-Reingold provide succinct almost-k-wise independent permutations, but the useful C-310 sunflower width at `v=(log N)^K`, K>3, is `w=Theta(v^(1/3)/(log v)^(2/3))=omega(log N)`. Thus an O(log N)-wise family cannot preserve the individual matching-term containment probabilities needed at a source scale that could exceed `N^(1+epsilon)`. A larger `k=Theta(w)` still has polylogarithmic description length, but individual term control does not fool the full DNF union and no C-125 map exists.
+
+Learning: seed length is not the operative parameter; the proof's term width and the union's accumulated approximation error are. Close the specified O(log N)-wise experiment and return the main effort to a full-promise synchronization theorem or cover. See `research/C327_SUCCINCT_MATCHING_AUDIT_AND_WIDTH_BARRIER_2026-09-28.md`.
+
+### Idea 446 - Secret-sharing hardness needs an address-scale lift (C-328; direct route closed)
+
+Applebaum-Nir construct size-`Theta(t)` monotone circuits on `Theta(t)` variables with total share complexity `Omega(t^2/log t)`. Under a direct truth-table encoding, `N=2^(Theta(t))`, so this becomes only `polylog(N)`, below the native `q=N-o(N)` floor. GapSS coNP-hardness is hardness of recognizing share complexity, not a native cover lower bound. C-304's exact native ideal algebra has dimension `3^N`, and no compact q-to-share translation is available.
+
+Learning: a superlinear source measure can vanish when translated from circuit-description length to the truth-table parameter. The only plausible reopening is an address-lift that preserves the access-structure lower bound while mapping native state reuse to share cost; it must pass C-257/C-258 and give explicit parameters. Do not treat the existing theorem as q progress. See `research/C328_SECRET_SHARING_LOWER_BOUNDS_DO_NOT_SCALE_TO_NATIVE_Q_2026-09-28.md`.
+
+### Idea 447 - Test a shared universal-circuit policy against lane-specific OR witnesses (C-329)
+
+An accepted table has a positional reachability-game policy. Fixing its choices gives a sound subcube, and all accepted tables are covered by these policy cubes. Counting policies gives at most `q(q+2N+1)^(2q)` choices, which is far too many to improve q beyond N using the `2^(o(N))` low-description count. Reject policy counting as a superlinear mechanism.
+
+The proposed `N+s1` universal verifier, with one shared native state per guessed circuit gate plus one state per output address, fails on an OR gate with two address lanes: if child u is true only on lane 1 and child v only on lane 2, a shared positional state cannot pick a different child for each lane. Duplicating gate states by address restores correctness but returns to the `N*s1` direct cost. Learning: lane-wide constraints are not the same as lane-indexed control; compatible support joins do not automatically implement pointwise vector operations. This closes one construction architecture only. Next seek a genuine support-level lane selector or a q-sensitive proof that none can exist for the full promise. See `research/C329_POSITIONAL_POLICIES_AND_LANE_SELECTOR_OBSTRUCTION_2026-09-28.md`.
+
+
+### Idea 448 — Apply TR26-220 only after checking the marginal model (C-330; transfer closed)
+
+The new robust-sunflower theorem allows local marginals that are mixtures of nearly unbiased product distributions. The C-310 odd-cut edge bits fail this on any cycle, and perfect-matching edge bits fail it already on two incident edges. Recasting matching terms as endpoint-set DNFs over vertex colors is valid, but doubles the width and gives a weaker sunflower threshold; the required k is O(w^2 log v), not O(log N). This does not improve the matching lower bound or yield an encoder.
+
+Learning: matching support is not the same as product-style pseudorandomness. Audit the joint law on the variables used by a theorem, not just individual term probabilities.
+
+### Idea 449 — PCP randomness does not supply native witness memory (C-331; direct transfer closed)
+
+A PCP's proof can be committed before universal random challenges, so logically exists pi forall r V(w,pi,r) is exact when completeness is perfect and soundness is below one. But C-319 states reveal only activation bits; action choices and attractor ranks are not readable proof data. A shared query state loses the verifier context on return, while per-context copies permit inconsistent proof bits.
+
+Learning: a verifier-to-cover translation needs an explicit global commitment/readout gadget and a q-cost proof. Interactive proof syntax alone does not supply it.
+
+
+### Idea 450 — Transfer local-PRG lower bounds through alternation only with a size theorem (C-332)
+
+Exact MCSP has an almost-quadratic lower bound against ordinary branching programs from local PRGs. The proof's two-distribution argument can be stated for a low/high promise, but the known local outputs have circuit size S^(1/2+o(1)); at small beta this is above s1 for the entire stated range S>=N. Also, C-319 is an alternating cyclic system, not an ordinary BP, and q^2 unrolling loses too much.
+
+Learning: a strong lower bound for a nearby model does not transfer until both the promise thresholds and the computation model line up. A direct alternation-sensitive local-PRG theorem is the only remaining version worth pursuing here, with C-257 parity as a required countercheck.
+
+
+### Idea 451 — Low-degree polynomial tables are too algebraically visible to the native game (C-333)
+
+Choose a random degree-<K polynomial over GF(2^n), evaluate at every address, and take trace. The output bits are K-wise independent, and a fixed output table has a circuit of size O(Kn^2). With K=Theta(s1/n^2), every output is low-complexity, but the table distribution is a binary linear code of dimension at most Kn<N. Its dual contains a nonzero parity check, so an abstract C-319 equation system distinguishes the source from uniform using O(N) states. C-257 realizes related parity only on an artificial parity promise, not over the actual high-table universe.
+
+This kills the explicit polynomial generator as a PRG against all abstract readouts. It does not kill PRGs tailored to actual sound covers because the parity game is not sound for Gap-MCSP and C-257 uses a different high universe. Separately, matching each of 2q seed clauses marginally is insufficient: an acyclic q-state chain can conjoin q seed features, and all short clauses together can inspect min(N,O(q log q)) coordinates. Learning: distinguish generic abstract-game fooling from fooling the endpoint-realizable sound separators. See `research/C333_LOW_DEGREE_POLYNOMIAL_PRG_PARITY_OBSTRUCTION_2026-09-29.md`.
+
+
+### Idea 452 — Keep seed clauses intact in winning policies (C-334)
+
+For an accepted input, freeze a rank-decreasing positional policy but do not freeze which literal witnesses each seed action. Require the whole seed clause to remain true. A policy then accepts a CNF region with at most 2q clauses; there are at most q(q+2)^(2q) raw strategies but at most 2^(2q) distinct regions, because a region is determined by the subset of fixed seed clauses used at stops. Every region is sound and therefore has at most |SIZE(s2)| tables. The basic CNF count gives q>=(N-o(N))/2, weaker than the existing linear lower bound, but it removes the unnecessary N factor from the policy count in C-329.
+
+Naor-Naor epsilon-biased distributions have low-circuit outputs and avoid C-333's parity witness. Bazzi's CNF fooling theorem, applied separately to at most 2^(2q) distinct regions, requires k=O(q^2) independence after the union bound. Learning: keep whole existential seed disjunctions when fixing strategies; then attack shared policy overlap or soundness directly. See research/C334_POLICY_CNF_NORMAL_FORM_AND_SMALL_BIAS_LIMIT_2026-09-29.md. Sources: Naor-Naor, https://www.wisdom.weizmann.ac.il/~naor/PAPERS/bias.pdf; Bazzi, https://doi.org/10.1137/070691954.
+
+### Idea 453 — GEN is an explicit abstract-game/MSP separation (C-335)
+
+Give each possible triple in GEN_n two recurrence states: one computes edge-present AND the first antecedent, the next ANDs the second antecedent. Point states OR the incoming triple witnesses under least-fixed-point semantics. This uses O(n^3) states and computes GEN_n, but every-field monotone span programs for GEN_n require 2^{n^{Omega(1)}} size. So a q-to-MSP translation is false for unrestricted recurrences. Actual endpoint-induced pairs can realize GEN internally, but every consequence is nonempty and the empty-root output stays false; the full-promise separator step remains unresolved. See research/C335_NATIVE_TO_SPAN_PROGRAM_COMPILER_AND_MODEL_BOUNDARY_2026-09-29.md and ECCC TR26-070, Theorem 12.
+
+
+### Idea 454 — Use multi-hole splices to test blockwise description coherence (C-336)
+
+If one accepting context has holes for `K log N` block-local proof families, and every independent choice is compatible, substitution makes every product tuple a low table. Each single-block anchor can be `s1`-small, but for sufficiently large fixed K the product family is larger than `SIZE(s2)`, so such a context cannot exist. This is stronger than a one-hole owner-mask cap and directly targets global synchronization.
+
+The missing step is decisive: a q-small native game has not been shown to contain such a multi-hole context. Proof supports may conflict, contexts may be block-specific, and a shared selector may correlate choices. C-257 parity and C-258 equality are consistent with those evasions. Treat this as a constrained product theorem, not a q lower bound; continue only by charging how the game avoids the forbidden product or constructing a selector that yields a cover. See C-336.
+
+
+### Idea 455 — Activity-threshold selector defeats the product-only charge (C-337)
+
+Take `k=K log N` hard subcubes, each with `M=Theta(s1 log s1)` coordinates. A table supported on any one block is in `SIZE(s1)`; enough independent block choices produce a family larger than `SIZE(s2)`. Yet a signed monotone circuit checks zero outside the subcubes and accepts only when at most `r=R log N` blocks are active. Every accepted table is in `SIZE(s2)`, and a sorting network tests the activity threshold with `O(k log^2 k)` AND gates. The coordinate checks cost `N-k+O(1)`, so C-307 yields a restricted native cover with `q=N+O(log N log^2 log N)` that accepts every one-block menu and rejects the full product.
+
+This is not the full Gap-MCSP cover: it omits many low tables, including parity-like and repeated-equality tables. It teaches that multi-hole product entropy does not price its own avoidance; the missing q-sensitive fact must use the requirement to cover every low circuit. Also correct C-336''s single-block synthesis overhead: testing the whole fixed subcube costs `O(n)` in general, still negligible relative to `s1`.
+
+
+
+### Idea 456 — Prototype-count selectors still miss shared relational cofactors (C-337)
+
+A selector can test whether the k block rows use at most d=R log N distinct truth tables. Compute pairwise equality flags in O(k^2*M) AND gates, then enumerate d representative rows, costing O(k*binom(k,d)); for k=K log N and small R/K this is o(N). Tables with at most d row patterns are in SIZE(s2), because d arbitrary local patterns cost O(d*s1) and the block-to-pattern assignment costs polylog N. C-307 turns this into another restricted N+o(N) native cover, and it captures repeated-equality rows while rejecting the high independent product.
+
+The immediate hostile low table has row b equal to the minterm [the first log k suffix bits equal b]. It has k distinct rows, so the selector rejects it, but one O(n)-size circuit generates the entire table by testing block-prefix = suffix-prefix. Learning: a shared small circuit may generate many distinct cofactors through a simple relation. The needed coherence parameter must charge the relation itself, not support count, activity count, or distinct-pattern count. This remains restricted and is not a full-promise cover; see C-337.
+
+
+### Idea 457 — Turn sample-based monotone hardness into an asymmetric rail map (C-338; direct route closed)
+
+The 2026 monotone circuit-formula gap learning paper gives rETH-hard partial monotone circuit-size instances on labelled examples. The natural sample rail vector P is below every fitting low code, but C-125 requires a low code below the YES image. Filling unknown positions with both rails repairs YES domination but prevents any consistent high NO completion. Encoding omitted examples makes the consistency property monotone, but computing the retained sample list then needs negated source bits.
+
+Learning: example-list hardness and a full-table LowExt reduction require opposite rail orders. Reopen this only with a witness-dependent monotone rail map that is conflict-rich on YES, consistent on NO, and has a measured AND-cost advantage. The new theorem does not supply that map and does not change the unconditional q bound. See research/C338_2026_MONOTONE_LEARNING_COHENC_ORDER_AUDIT_2026-09-29.md and https://arxiv.org/abs/2607.12331.
+
+
+### Idea 458 - Respect the shared-DAG and cyclic-alternation boundary (C-339)
+
+The C-319 game compiles to at most q^2 binary AND gates, so known MCSP bounds would need to exceed N^2 just to move q above N. The best formula bound is stronger numerically but can collapse under sharing; the general branching-program result is for the wrong computation model; SoS degree is not separator circuit size; and the CNF theorem does not cover shared AND-DAGs.
+
+Learning: a lower bound in a nearby model is useful only with a compiler that preserves the required exponent. The direct target is either a lower bound on the signed monotone shared-DAG separator beyond N^2 or a state-sensitive theorem for the exact alternating lfp. No change to q; keep O-167/O-168 primary. See research/C339_MCSP_LOWER_BOUND_MODEL_TRANSFER_AUDIT_2026-09-29.md.
+
+### Idea 459 - Separate verifier size from selector size (C-340)
+
+C-305's N*s1 gate-address count evaluates one supplied circuit description. The OPS target has one fixed epsilon for all sufficiently small beta, so an actual all-low/full-high cover of this size would refute the desired rho lower bound for beta<epsilon. But separate verifiers Q_C do not combine into one cover. One fixed Q must encode a globally consistent description in its winning strategy; per-address wiring breaks consistency, while shared gate states forget the address.
+
+Learning: distinguish verifying a guessed object from implementing the existential quantifier over all objects in one fixed system. This does not produce the cover, but it identifies the exact missing selector and rules out the apparent parameter contradiction. See research/C340_NS1_EVALUATOR_IS_NOT_FULL_COVER_2026-09-29.md and C-305/C-306.
+
+
+### Idea 460 - A selector must preserve both the chosen gate and the caller address (C-341; this sketch fails)
+
+A shared positional configuration state can choose one gate operation/wiring globally, but the residual game after that state does not know which address-specific verifier entered it. Even if a route state remembers the chosen configuration, two lanes reaching the same OR-state side-obligation need different witnesses: for `u=x_1`, `v=not x_1`, the OR is true on every address but the winning child changes with `x_1`.
+
+Learning: global choice consistency is only half of universal circuit evaluation; the verifier must also retain and read the challenge context. The obvious route-state repair carries both configuration and address and restores a product count. This rejects the proposed `O(N+s^3)` architecture, not every native cover and not a general q lower bound. Continue Q199 only with a concrete communication/readout mechanism and C-281 splice proof. See `research/C341_SHARED_CONFIGURATION_SELECTOR_LOSES_ADDRESS_CONTEXT_2026-09-29.md`.

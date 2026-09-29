@@ -2584,3 +2584,147 @@ x_i^(t+1)=(A_i OR OR_(j in P_i^E)x_j^t) AND
 The output ORs the active empty-consequence states. This is a least-fixed-point, input-labelled alternating reachability game with q states; each universal move chooses an endpoint obligation and each existential response supplies a true literal seed or a predecessor state. An endpoint's seed is a consistent disjunction of signed table bits unless the endpoint is all of U, in which case it is true. Clauses can mix every prefix lane. Unrolling q rounds gives at most q^2 AND gates, so ordinary monotone-circuit lower bounds transfer with a square-root loss only.
 
 **Invariant ceilings.** A sound-box cover of `SIZE(s1)` has a singleton-box cover with at most `|SIZE(s1)|` boxes, so its log is `O(s1 log(s1+n))=N^(beta+o(1))=o(N)`. Any sound separator accepts only tables in `SIZE(s2)`, so its indicator rank under any flattening is at most `|SIZE(s2)|`, again with sublinear logarithm. Together with C-317's `Theta(s2 log s2)` safe-box dimension construction, these retire box-count/log-rank/free-coordinate entropy as standalone routes beyond q=N. They do not constrain state-sensitive invariants. C-257 and C-258 remain the parity/equality counterchecks. No q improvement follows. Full proof: `research/C319_NATIVE_CLOSURE_AS_ALTERNATING_COFACTOR_GAME_2026-09-28.md`.
+
+## C-320 - Robust code-splice balls constrain compatible owner masks (28 September 2026)
+
+For a low constant-distance code `C` of size K and distance d, a uniformly random coordinate split P makes every off-diagonal splice high with positive probability whenever `d>2 log K+log |SIZE(T)|`; union-bound failure is at most `K^2 |SIZE(T)|/2^d`. If patching r coordinates costs at most `c0*n*r`, the same conclusion holds for every owner mask within radius r of P or its complement whenever `T>s2+c0*n*r`. On the C-80 code at OPS parameters, for any fixed `beta<gamma<1` there is a common split and radius `r=Theta(N^gamma/n)` that forbid all off-diagonal low-code owner masks in those two balls. The radius exceeds `s1`, but the two balls occupy an exponentially tiny fraction of masks and the state graph is not forced to generate one. This strengthens C-112 without improving q. Full proof: `research/C320_ROBUST_CODE_SPLICE_BALLS_AND_STATE_LIMIT_2026-09-28.md`.
+
+## C-321 - Seed-feature separation re-audit; feature-only ceiling is linear (28 September 2026)
+
+For a fixed C-319 game Q, its acceptance function factors as `G_Q(phi_Q(w))`, where `phi_Q` is the vector of 2q seed-clause truth values and `G_Q` is the monotone least-fixed-point readout of the transition graph. Every low/high pair must have `phi_Q(low) not<=phi_Q(high)`, so some seed clause separates that pair. But the 2N unit signed-literal tests already separate every pair of distinct tables. Therefore any lower bound using only first-layer pair distinguishability, seed-profile count, or profile injectivity cannot force `q>N`; the missing charge must use the restricted transition readout and the endpoint-incidence constraints. The readout has positive seed-certificate width at most 2q and negative width at most q, which is structural description, not a q improvement. Full proof and scope: `research/C321_ACTIVATION_PROFILE_CEILING_AND_TRANSITION_READOUT_2026-09-28.md`.
+
+**Novelty audit:** C-76 already has the seed-vector factorization and low-side CNF traps; C-221 proves the pair-separation condition and the `2N` signed-literal ceiling; C-260 gives the certificate/blocker duality. C-321 is an independent re-derivation, not a new claim. Q182 is closed as redundant.
+
+## C-322 - Empty roots broadcast; exact pre-root closure (28 September 2026)
+
+Let `T_i=E_i intersect H_i` and `R={r:T_r=empty}`. For every state i and every root r, `T_r` is contained in both `E_i` and `H_i`, so r belongs to both predecessor sets of i. Thus `x_r^t=1` forces `x_i^(t+1)=1` for every i. If any root activates, all states activate in one further round; all roots have the same final Boolean activation predicate, and every accepted table has the all-ones final activation profile. This rules out final accepted activation-profile VC/shattering as a synchronization measure.
+
+There is also an exact temporal reduction. On the nonroot state set `V=[q]` with `R` removed, run the least-fixed-point recurrence after deleting all root predecessors. Before the first root activates, the full nonroot iteration agrees with this root-free system. For each root r, test its two seed-or-root-free-predecessor factors against the root-free closure. The original list accepts exactly when at least one such terminal test succeeds: a first activated root has no active root predecessor, and conversely any successful root-free terminal test is preserved by monotonicity in the full system. This is an exact output-root normalization only. It gives no q bound, does not shrink the nonroot graph, and does not control endpoint incidence or compatible context/proof reuse. Do not pursue further root-normalization variants; keep O-180 on a genuine state-sensitive synchronization theorem. Full proof: `research/C322_ROOT_BROADCAST_AND_PREROOT_NORMAL_FORM_2026-09-28.md`.
+
+**Checkpoint after C-320–C-322:** actual Gap-MCSP lower bound beyond `N-o(N)`—**no**; valid near-linear full-promise cover—**no**; new state-sensitive synchronization theorem—**no**; positive CohEnc transfer—**no**; general reconstruction-to-decision compiler—**no**. C-321 is a duplicate audit; C-322 is structural only. Continue O-180 on compatible context/proof products, not feature counts or final activation profiles. No P-vs-NP conclusion follows.
+
+## C-323 - Root-free SCC profile refines the AND-count compiler (28 September 2026)
+
+For a valid q-pair list with m empty-consequence roots, delete the roots using C-322 and let `r_1,...,r_c` be the SCC sizes of the remaining predecessor graph. The exact separator has a monotone circuit with arbitrary-fan-in OR gates and at most
+
+```text
+m + sum_a r_a^2
+```
+
+AND gates. Process root-free SCCs in condensation order; with external predecessors fixed, an SCC of r states stabilizes from zero after at most r strict rounds, using at most r AND gates per round. Each root's final two-factor test costs one additional AND. Thus if the maximum root-free SCC size is d, `A_cap(Q)<=m+d(q-m)<=d q` (and if there are no nonroots, `A_cap(Q)<=q`).
+
+This improves the q² compiler on covers with small root-free SCCs. It also explains why applying the older full-graph SCC compiler directly can miss this structure: each empty root is a predecessor of every state, so the post-acceptance broadcast merges every proof-relevant state into a root SCC. The C-322 deletion removes those irrelevant edges before SCC analysis. No bound on d is known for minimum OPS covers, and one large root-free SCC restores the quadratic loss. This is a parameterized compiler, not a q lower bound or a near-linear cover. Full proof and limitations: `research/C323_PREROOT_SCC_COMPILER_2026-09-28.md`.
+
+
+## C-324 - Feedback-core compiler sharpens root-free SCC accounting (28 September 2026)
+
+Delete root-free self-dependencies, which do not change the least fixed point. In each root-free SCC C of size r_C, choose a feedback vertex set F_C of size k_C. For fixed core values, the remaining r_C-k_C states are uniquely evaluated in topological order. The reduced k_C-dimensional core map is monotone and stabilizes from zero in at most k_C strict rounds. Evaluating one round costs r_C AND gates; one final acyclic pass costs r_C-k_C. Including m terminal roots gives
+
+```text
+A_cap(Q) <= m + sum_C [ r_C + k_C (r_C-1) ].
+```
+
+More sharply, for a chosen F_C let lambda_C be the maximum number of strict core iterations over seed-clause and incoming-boundary assignments. Then `A_cap(Q)<=m+sum_C[(r_C-k_C)+lambda_C*r_C]`, with lambda_C<=k_C. A directed-cycle SCC or a hub-dominated SCC has k_C=1 and compiles to at most `2r_C-1` AND gates; an acyclic root-free graph compiles with at most q gates. Dense feedback cores still incur quadratic cost. C-258 is a hostile countercheck: its nested prefix carriers create directed 2-cycles between adjacent states in each block/value branch, hence feedback vertex number at least `floor((r-1)/2)` for an r-state branch, while the repeated-block subpromise still has an O(N)-pair cover. Thus the feedback-set compiler is loose on this known easy subpromise and k_C alone is not a q-sensitive synchronization invariant. The C-257 prefix construction is acyclic; neither it nor C-307's acyclic separator compiler implies small feedback cores for arbitrary covers. This does not constrain C-281 compatible context/proof products or prove an OPS feedback-core bound. Pauly 2018 explicitly leaves general circuit-size extraction from reachability graph-game forms open (Open Question 11.2); the present theorem supplies a structural parameter, not a general resolution. Full proof and boundaries: `research/C324_FEEDBACK_CORE_COMPILER_2026-09-28.md`. The actual OPS native lower bound remains `N-o(N)`.
+
+
+## C-325 - C-258 defeats raw feedback size; factor common predecessors (28 September 2026)
+
+In C-258, for each block/value branch with nonempty nested carriers `P_t`, adjacent states have both directed edges: `P_t subseteq E_(t+1)=P_t`, and `P_(t+1) subseteq E_t=P_(t-1)` and `H_t`. In the repeated-block OPS regime `r=o(N)`, every such cylinder has more completions than `|SIZE(s2)|`, so all P_t are nonempty. Each branch therefore contains a bidirected path and requires at least `floor(r/2)` feedback vertices; across the disjoint value/block branches this is `Omega(N)`, even though the C-258 subpromise has an O(N)-pair cover. C-324 remains a correct compiler but is loose on this hostile example; low feedback vertex number is not a necessary property of a linear cover.
+
+For any root-free recurrence, let `C_i=P_i^E intersect P_i^H` be common predecessors and remove them from both sides to define residual `G_i`. The Boolean identity `(c_i OR u_i) AND (c_i OR v_i)=c_i OR (u_i AND v_i)` gives `F_i(x)=c_i(x) OR G_i(x)`. Let `cl_C` be closure under common-predecessor implications. Then `mu F=mu(x -> cl_C(G(x)))`: every F-fixed point is a pre-fixed point of this map, and every fixed point of the map is F-fixed. This isolates free two-sided OR propagation from residual seed-labelled AND transitions, but does not bound the iteration depth after closure. Full proof and limits: `research/C325_COMMON_PREDECESSOR_CLOSURE_AND_C258_FEEDBACK_AUDIT_2026-09-28.md`. No q improvement or P-vs-NP result follows; the actual lower bound remains `N-o(N)`.
+
+## C-326 - Exact nested-closure compiler for C-258 (28 September 2026)
+
+Assume `N=dr`, `d>=2`, `r>=4`, `U` is the high set, `U intersect Rep_(d,r)=empty`, and `2^(r-3)>2^N-|U|`. The last condition implies every cylinder with at least `r-3` free coordinates meets U, supplying the witnesses for the endpoint-containment audit. For each fixed block/value prefix branch, common-predecessor closure yields
+
+```text
+G_1=b_1
+G_2=(b_1 OR x_1) AND b_2
+G_t=x_(t-1) AND b_t                       (t>=3)
+x_t=OR_(s>=t) G_s.
+```
+
+Its least fixed point is `x_t=AND_(u<=t)b_u`: the candidate is fixed because these prefix products decrease with t, and every fixed point is forced to contain each prefix product by induction. Hence a terminal branch is active exactly when its block is constant in that value. The C-j/A-k merge equations have the same nested absorption and yield `c_j=B_j`, `a_k=AND_(j<=k)B_j`; the final root test is exactly the repeated-block predicate. Two prefix chains per block plus the final block conjunction use `2N-d-1` AND gates, despite `Omega(N)` raw feedback vertices in the pair list.
+
+The derivation is exact for this subpromise under the richness condition, and a prior ephemeral exhaustive evaluator found no mismatch for six parameter pairs through N=9. It gives no general common-closure compiler, full-promise cover, or q improvement. This resolves C-258 as a required hostile calibration only. Full endpoint audit and proof: `research/C326_NESTED_COMMON_CLOSURE_COMPILER_FOR_C258_2026-09-28.md`.
+
+## C-327 - Logarithmic-wise matching pseudorandomness misses the useful width (28 September 2026)
+
+Kaplan-Naor-Reingold give `k`-wise almost independent permutations with description length `O(k log v + log(1/delta))`, so for `v=polylog(N)`, `k=O(log N)` is succinct. However C-310's matching-sunflower width is `w=Theta(v^(1/3)/(log v)^(2/3))`. The source lower bound can exceed `N^(1+epsilon)` only for `v=(log N)^K` with K>3; then `w=omega(log N)`. At K=3, `w=o(log N)` and `exp(Omega(w))=N^(o(1))`. Thus the prescribed O(log N)-wise experiment does not preserve the individual term-containment probabilities needed at a transfer-capable scale. Raising k to Theta(w) still gives a polylogarithmic seed, but controlling each term probability alone does not control a large DNF union, and there is still no C-125 encoder with positive margin. The requested secondary route is closed without affecting the primary target. Sources and parameter audit: `research/C327_SUCCINCT_MATCHING_AUDIT_AND_WIDTH_BARRIER_2026-09-28.md`.
+
+**Checkpoint after C-324-C-327:** actual Gap-MCSP lower bound beyond `N-o(N)`—**no**; full-promise `N^(1+o(1))` cover—**no**; q-sensitive synchronization theorem—**no**; positive CohEnc transfer—**no**; general reconstruction-to-decision compiler—**no**. Do not relabel either calibration as a breakthrough.
+
+## C-328 - Secret-sharing lower bounds do not reach the native q scale directly (28 September 2026)
+
+Applebaum-Nir give a uniform family of monotone circuits of size `Theta(t)` over `Theta(t)` variables with total secret-share size `Omega(t^2/log t)`. In a direct truth-table embedding, `N=2^(Theta(t))`, so this becomes only `Omega(log^2 N/loglog N)`, below `q>=N-o(N)`. Their coNP-hardness of recognizing cheap versus expensive sharing is a meta-complexity theorem and does not lower-bound the fixed Gap-MCSP fusion parameter. C-304's exact native algebra is ideal-valued in dimension `3^N`, and no q-to-share translation is established. Close only the direct parameter substitution; leave the broader access-structure bridge open pending a semantics-preserving, parameter-explicit conversion. Full note: `research/C328_SECRET_SHARING_LOWER_BOUNDS_DO_NOT_SCALE_TO_NATIVE_Q_2026-09-28.md`.
+
+## C-329 - Positional policies and lane-selector obstruction (28 September 2026)
+
+The exact C-319 game is a finite reachability game. For every accepted table, a rank-decreasing positional strategy from an empty root selects one predecessor or one true seed literal for each state-side obligation. Fixing the strategy yields a coordinate subcube contained in `SIZE(s2)`, and acceptance is the union of these policy cubes. The crude policy count is at most `q(q+2N+1)^(2q)` and gives only `q=Omega(s1/log N)` on a distance-`Omega(N)` low code, weaker than `N-o(N)`. A direct near-linear universal-circuit construction with one shared state per gate also fails: at a two-lane OR gate with child values (1,0) and (0,1), one positional choice cannot witness both lanes. This closes that specific construction and count method, not arbitrary q-state covers. Full derivation: `research/C329_POSITIONAL_POLICIES_AND_LANE_SELECTOR_OBSTRUCTION_2026-09-28.md`.
+
+
+## C-330/C-331 — Local research results only
+
+C-330: TR26-220 does not directly apply to D0/D1 over edges; the vertex-color lift is parameter-weaker than the matching-specific C-310 sunflower argument and leaves the encoder gap untouched.
+
+C-331: adversarial universalization of PCP randomness yields an exact exists-proof/for-all-challenge relation, but no transfer into C-319's activation equations because proof commitments are not observable after state merging. This closes only the direct PCP compilation attempt.
+
+Neither claim changes rho_GapMCSP=N-o(N), yields a near-linear cover, proves a state-sensitive theorem, constructs a positive CohEnc margin, or proves P != NP.
+
+
+## C-332 — Ordinary BP lower bounds do not yet transfer to q
+
+Known local-PRG lower bounds for exact MCSP give an almost-quadratic branching-program lower bound. Their proof's yes/no distribution argument is compatible with low/high promises, but the known generator's local output complexity is S^(1/2+o(1)); at small beta this is above s1 for all S in the theorem's range S>=N. Separately, C-319 is an alternating least-fixed-point system, not a standard BP, and q^2 unrolling is not a near-linear BP simulation. No native lower bound follows.
+
+
+## C-333 — Polynomial-source PRG parity obstruction
+
+Let K<N and choose a random degree-<K polynomial over GF(2^n), outputting its trace at all N=2^n addresses. The table distribution is K-wise independent, is supported on a binary linear code of dimension at most Kn, and every output has circuit size O(Kn^2). Since Kn<N in the small-beta parameter choice, a nonzero dual codeword defines a parity test with source acceptance 1 and uniform acceptance 1/2. The abstract C-319 equation syntax computes this parity with O(N) states. C-257 separately realizes parity on r>=2 selected coordinates with 4r-4 actual pairs for an artificial parity promise; it does not establish those endpoints over the actual high-table universe. Hence this source fails as a PRG for generic abstract readouts, but no no-go for actual sound Gap-MCSP pair systems follows.
+
+For a generic abstract C-319 readout, after discarding clauses wider than R=Theta(log(q/epsilon)), the 2q remaining clauses can jointly inspect at most min(N,2qR) coordinates. Exact independence sufficient for their joint vector by the generic k-wise argument therefore has order min(N,O(q log(q/epsilon))); the polynomial construction then costs O(min(N,q log(q/epsilon))n^2)=O(Nn^2) at q≈N, too large for s1. An acyclic abstract chain can read the conjunction of q seed features, confirming that marginal clause statistics alone do not fool arbitrary readouts. C-257's pair realization is for an artificial parity universe, so this is not a restriction on legal endpoints over the actual high-table universe. Full scope: `research/C333_LOW_DEGREE_POLYNOMIAL_PRG_PARITY_OBSTRUCTION_2026-09-29.md`.
+
+
+## C-334 — Positional policies form a union of sound CNF regions
+
+For every accepted table of a C-319 game, choose a rank-decreasing positional strategy. At each state-side where it stops, retain the full seed clause rather than a particular true literal. The resulting region R_sigma is the conjunction of at most 2q seed clauses. Fixed predecessor edges are unchanged and well-founded, so the same strategy wins on every table in R_sigma. There are at most q(q+2)^(2q) raw strategies, but at most 2^(2q) distinct regions because the CNF depends only on the subset of the fixed 2q seed clauses used at stops. Conversely every accepted input has a policy; therefore Accept_Q is a union of at most 2^(2q) distinct CNF regions. For a sound cover each nonempty region is contained in SIZE(s2). A satisfying anchor for an m-clause CNF yields at least 2^(N-m) satisfying assignments, so m>=N-log2|SIZE(s2)|=N-o(N), giving only q>=(N-o(N))/2. This exact normal form does not beat the existing q>=N-o(N) bound.
+
+Naor-Naor small-bias spaces provide low-circuit truth tables with inverse-polynomial bias, removing C-333's source-specific parity distinguisher. Bazzi's k-wise-independence bound applied separately to each distinct policy CNF and union-bounded over M<=2^(2q) regions requires k=O(q^2), useless at q≈N. This closes only the generic small-bias-plus-policy-union estimate. Sources and derivation: C-334.
+
+## C-335 — GEN refutes a generic abstract recurrence-to-MSP compiler
+
+The abstract q-state least-fixed-point equations can compute GEN_n with O(n^3) states: each potential triple gets two states computing its input bit AND the two antecedent point states; each point state ORs the incoming triple witnesses, and point 1 is seeded true. The designated output is the state for point n. Robere–Pitassi–Rossman–Cook's GEN lower bound, restated in ECCC TR26-070 Theorem 12, requires monotone span-program size 2^{n^{Omega(1)}} over every field. Hence no polynomial-size MSP compiler applies to arbitrary abstract recurrences with a designated output, even nonuniformly. The generic q-round formula expansion gives only 2^{O(q log q)} MSP size and at best q=Omega(N/log N) from maximal N-variable MSP lower bounds. This is not a result for the actual C-319 separator output: although endpoint-incidence pairs can realize GEN internally, every constructed consequence is nonempty, so the output is false. No native q change follows. See C-335.
+
+## C-336 — Multiple-hole substitution forbids independent block menus in one context
+
+The C-281 substitution law extends to a context with labeled holes at any states: plugging a finite proof into each hole preserves acceptance whenever the union of all signed supports is consistent. Thus the whole completion cylinder of the union lies in `SIZE(s2)` for a sound separator. At OPS scale, let `k=K log N` address blocks and choose in each block a truth table supported on a fixed subcube of size `2^u=Theta(s1 log s1)` with local circuit size at most `alpha s1`. A table supported on just one block has global size `<=s1`, but the independent product across k blocks has `2^(Theta(K*s2 log N))` members. For K large, this exceeds `|SIZE(s2)|`, so at least one tuple is high. Therefore no one accepting context can have k mutually compatible, block-local replacement menus whose independent products realize all these tuples. This is an exact primary-route product constraint, but no q-dependent argument forces such a context or charges its avoidance. C-257 parity and C-258 equality evade the independent-menu hypothesis. No q improvement follows. Full derivation: C-336.
+
+
+## C-337 — A near-linear activity selector avoids the C-336 product (29 September 2026)
+
+Let `k=K log N` disjoint address subcubes each have `M=lambda*s1*log(s1)` coordinates. Although the independent product over all k blocks contains high tables by counting, a signed-literal monotone circuit can recognize the restricted family that is zero outside these coordinates and nonzero on at most `r=R log N` blocks. Every such table is in `SIZE(s2)`: each active block has arbitrary local pattern circuit cost `O(lambda*s1)`, with an `O(n)` fixed-subcube equality cost, so at most r active blocks cost `O((R*lambda/c0)*s2)+O(n^2)<=s2` for suitable constants. Use one AND per coordinate to check zeros, then a sorting network on the k block-zero flags to test the activity threshold using `O(k*log^2 k)` additional AND gates. C-307 converts this separator into a native cover with `q<=N+O(log N*log^2 log N)` for this restricted anchor family versus the actual high set.
+
+This does not accept all of `SIZE(s1)` and rejects parity/repeated-block low tables, so it is not an O-168 construction and does not pass the full hostile calibrations. It does show that C-336''s forbidden product alone cannot force superlinear q: a global activity selector rejects the independent high product while accepting all individual block menus at linear cost. The full-promise q-charge must use the obligation to cover every low circuit, beyond product entropy or menu availability. See `research/C337_NEAR_LINEAR_BLOCK_SELECTOR_ESCAPE_2026-09-29.md`.
+
+
+
+**C-337 extension audit:** Allowing at most d=R log N distinct block rows remains near-linear: shared pairwise equality tests cost O(k^2*M), and enumerating representative sets costs O(k*binom(k,d))=o(N) when K*H_2(R/K)<1. Every accepted table is in SIZE(s2), so C-307 again gives a restricted cover. This includes repeated rows, but rejects the low O(n)-size relation table whose row b is the minterm [suffix-prefix=b]. Thus even a distinct-cofactor count does not measure coherence; a small circuit can generate many different rows by a shared relation. It still does not cover all SIZE(s1) or change q. Details in C-337.
+
+
+## C-338 - 2026 monotone example hardness does not give an asymmetric full-table map (29 September 2026)
+
+Cavalar, de Rezende, Gray, and Santhanam prove under randomized ETH that partial monotone circuit size from labelled examples is strongly hard to approximate; Theorem 1.2 contrasts sample sets consistent with a small monotone formula against sets with no nontrivial correlation with larger monotone circuits. This is a sample-agreement theorem, not a C-125 map into full truth-table rails. The natural example rails P satisfy P<=e(w) for every fitting low table, whereas C-125 requires e(w)<=Phi(YES). Filling every unobserved coordinate with both rails reverses the order but makes the YES vector inconsistent, so no one-hot high code can dominate it on NO. Marking omitted examples instead can make consistency monotone, but reconstructing the retained sample list then uses negation. The result gives no monotone rail map, no map AND-cost upper bound, and no positive CycAnd-CohEnc margin. It does not change the unconditional native lower bound N-o(N). This closes only the direct example-list adaptation; a witness-dependent C-125 map remains open. Primary source: https://arxiv.org/abs/2607.12331. Full order audit: research/C338_2026_MONOTONE_LEARNING_COHENC_ORDER_AUDIT_2026-09-29.md.
+
+
+## C-339 - Known MCSP lower bounds do not reach the C-307 separator measure
+
+The q-state cover unrolls to a signed monotone acyclic separator with at most q^2 binary AND gates. Therefore an A_cap lower bound L yields only q >= sqrt(L); the requested q >= N^(1+epsilon) needs A_cap >= N^(2+2epsilon). CKLM's N^(3-o(1)) De Morgan formula lower bound would clear this threshold only if the separator had a comparable formula-size simulation. Sharing can make formula expansion exponential, and no near-linear compiler for the exact separator is known. Their N^(2-o(1)) arbitrary-basis formula and general branching-program bounds are model-mismatched: C-319 is a cyclic universally alternating least-fixed-point system, with no q-preserving BP compilation.
+
+The Austrin-Risse SoS bounds concern proof degree for MCSP and minimum monotone-circuit size of slice functions, not circuit size of the full-promise separator. C-307's exponential CNF lower bound applies only when the separator is a CNF; it does not lower-bound shared AND-DAGs. No located theorem proves A_cap > N^2 on the OPS promise, and no cited result yields a superlinear q bound or a near-linear full-promise cover. Continue O-167/O-168 directly; do not spend further effort transferring formula/BP/SoS bounds without a lower-bound-preserving compiler. Full model audit: research/C339_MCSP_LOWER_BOUND_MODEL_TRANSFER_AUDIT_2026-09-29.md.
+
+## C-340 - The gate-address evaluator is not a full-promise cover
+
+The OPS theorem requires one fixed epsilon>0 and every sufficiently small fixed beta>0. The C-305 cost N*s1=N^(1+beta-o(1)) would sit below N^(1+epsilon) when beta<epsilon if it were a full-promise cover. It is not: C-305 evaluates a supplied circuit description, while a valid cover needs one fixed state graph whose winning strategies may encode different low circuits and whose losing behavior excludes every high table. Duplicating (gate,address) states permits address-dependent wiring; sharing gate states loses the challenged address. C-306 rules out recovering that address from support annotations. Thus no parameter contradiction and no q upper bound follows. A valid O(N*s1) cover would refute the desired rho-route, though its q^2 circuit simulation would not itself contradict OPS Theorem 1.4. Source: [OPS Theorem 1.4](https://theoryofcomputing.org/articles/v017a011/v017a011.pdf). Full audit: research/C340_NS1_EVALUATOR_IS_NOT_FULL_COVER_2026-09-29.md.
+
+## C-341 - A shared positional selector loses its address context
+
+In the C-319 game, histories that reach the same state on the same table have identical continuation games; the least-fixed-point value has no caller/address argument. Therefore address-specific verifier states that merge into one shared configuration selector cannot recover their address after the selector acts. Even if a successor retains the selected gate configuration, two lanes reaching the same OR-state side-obligation still cannot choose different true children (for example `x_1 OR not x_1`). This refutes the proposed shared-selector sketch and its unsupported `O(N+s^3)` count, not arbitrary endpoint-induced encodings or any general q bound. A valid repair needs an explicit address-and-description readout and a complete C-281 soundness proof. The actual bound remains `rho_GapMCSP >= N-o(N)`; see `research/C341_SHARED_CONFIGURATION_SELECTOR_LOSES_ADDRESS_CONTEXT_2026-09-29.md`.

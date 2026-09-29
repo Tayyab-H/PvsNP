@@ -34,7 +34,7 @@ For a fixed circuit with s gates, the direct game that evaluates it on all N=2^n
 Ns1 = N^(1+beta-o(1)),
 ```
 
-which is larger than `N^(1+o(1))` for every fixed beta>0. It therefore cannot realize the target cover.
+which is larger than `N^(1+o(1))` for every fixed beta>0. This is an architecture cost for a supplied circuit description, not a full-promise cover upper bound. One fixed Q must accept every low table and reject every high table while selecting one globally consistent circuit description; this construction does not implement that selector. See C-340.
 
 There is a second consistency issue for an *existentially chosen* description. If gate choices are attached to each `(gate,address)` position, they can vary with the challenged address and describe a piecewise circuit rather than one circuit. If all addresses share one gate position, the state no longer records which `w_x` the branch must inspect. The seed clause at one native state is a fixed disjunction of literals; it cannot condition a literal query on an address chosen earlier in a game history.
 

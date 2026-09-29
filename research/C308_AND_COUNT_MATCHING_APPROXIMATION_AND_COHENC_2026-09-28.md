@@ -114,3 +114,19 @@ Cavalar et al.'s Lemma 2 supplies the matching-sunflower threshold; Lemmas 3 and
 ## 6. Later sharpening (C-310)
 
 C-310 observes that any matching term of width `ell<v` has exact D0 mass `2^(-ell)`. This lets the final one-sided separator contradiction use term mass directly, rather than requiring the output DNF to be `o(v)`-small and invoking the DNF agreement cap. Consequently one may take `w=Theta(v^(1/3)/log^(2/3)v)` with `r` a sufficiently small constant fraction of `v`, obtaining `a+N-1>exp(Omega(v^(1/3)/log^(2/3)v))`. Use `research/C310_ODD_CUT_TERM_MASS_TIGHTENS_COHENC_2026-09-28.md` for the strongest current ODDFACTOR encoder bound.
+
+## 7. Independent proof audit (29 September 2026)
+
+The C-308 free-OR/shared-DAG extension and its use in C-310 were checked against the source proof. No output-multiplicity or fan-in gap was found, subject to the stated binary-AND cost model. This does not independently rederive C-286's separate Rao-based approximation.
+
+For a fixed paid AND node, flatten each input's OR-only region into the union of its incoming matching-DNF terms. Each input term has width at most `w`. The raw product family consists of matching unions of one term from each input, hence has width at most `2w`. Regardless of OR fan-in or the number of ancestors/outputs, there are at most
+
+```text
+sum_(ell=0)^(2w) binom(v^2,ell) <= v^(6w)
+```
+
+distinct candidate edge sets for large `v`. Each matching-sunflower pluck replaces at least two terms by their core and adds D0 error at most `eps_sun`; at most `v^(6w)` plucks occur. With `eps_sun=v^(-10w)`, the total new D0 error at this paid AND node is at most `v^(-4w)`. On a perfect matching, two firing matching terms have a matching union, so deleting nonmatching unions adds no D1 loss. After plucking, at most `r^ell` width-`ell` terms remain; deleting widths above `w` loses at most `sum_(ell>w) r^ell(e/v)^ell=q^(w+1)/(1-q)` on D1.
+
+The nodewise directional events propagate through an OR by taking unions, and through an AND by adding that node's local event to its ancestors' events. Thus the error event for **all** output roots is contained in the union of local error events over the `A` distinct paid AND nodes. Shared fan-out and the number of roots add no factor. OR-only roots may have many terms and need not be `r`-small; they do retain width at most `w`. The final separator `Q` used in C-310 has a plucked AND root and is `r`-small, which is the property required for its term-mass contradiction.
+
+The source's plucking lemma is defined by the exact error event `core fires but no petal term fires` under the odd-cut distribution, so the accounting also covers an empty core when it occurs. C-310 separately gives exact odd-cut mass `2^{-ell}` for every nonempty matching term of width `ell<v`. The C-308/C-310 paid-AND approximation and term-mass contradiction are internally consistent as recorded. This audit is not a new encoder, transfer margin, or q bound.
