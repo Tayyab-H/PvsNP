@@ -4,7 +4,7 @@
 
 ## 1. Exact target
 
-Let `N=2^n`, `s1=floor(N^beta/(10n))`, and `s2=ceil(N^beta)`, for fixed `0<beta<1`. The OPS theorem uses a universal denominator constant `c` (the proof uses 10): for one fixed `epsilon>0`, if `Gap-MCSP[N^beta/(c n),N^beta]` requires more than `N^(1+epsilon)` ordinary total fan-in-two gates for every sufficiently small fixed `beta>0`, then `NP` is not in `P/poly`. See [OPS, Theorem 1.4](https://theoryofcomputing.org/articles/v017a011/). The YES side must accept **every** table of circuit size at most `s1`; the NO side must reject **every** table of size at least `s2`; the middle band is free.
+Let `N=2^n`, `s1=floor(N^beta/(10n))`, and `tau2=N^beta`, for fixed `0<beta<1`. OPS defines YES by `CC<=N^beta/(c n)` and NO by `CC>tau2`; with integer circuit sizes, the first NO size is `s2=floor(tau2)+1` (which equals `ceil(tau2)` unless `tau2` is an integer). The theorem uses a universal denominator constant `c` (the proof instantiates 10): if one fixed `epsilon>0` works so that for every sufficiently small fixed `beta>0`, `Gap-MCSP[N^beta/(c n),tau2]` has no ordinary fan-in-two circuit of at most `N^(1+epsilon)` gates, then `NP` is not in `P/poly`. See [OPS, Theorem 1.4 and Definition 2.4](https://theoryofcomputing.org/articles/v017a011/). The YES side must accept **every** table of circuit size at most `s1`; the NO side must reject every table with `CC>=s2`; the middle band is free.
 
 ## 2. Actual-High pivot counterconstruction for a sound but incomplete filter
 
@@ -14,7 +14,7 @@ This sharpens C-423. It uses a genuinely high table, satisfies soundness on the 
 
 Choose a fixed `alpha` with `beta<alpha<1`, let `k=floor(alpha n)`, and set `m=2^k=Theta(N^alpha)`. Let `B` be the address subcube whose first `n-k` address bits are zero; thus `|B|=m`. The number of `k`-input circuits of size at most `s` is `2^(O(s log(s+k)))`. Set `s=c 2^k/k` for a sufficiently small constant c; because `log(s+k)=Theta(k)`, fewer than `2^(2^k)` functions have circuits of this size. Hence some Boolean function `q` on k bits has `CC(q)=Omega(2^k/k)=Omega(N^alpha/n)`. Define `f` to equal `q` on `B` and zero outside `B`. Restricting a circuit for `f` to the prefix defining `B` computes `q` without increasing gate count, so
 
-`CC(f) >= CC(q) = Omega(N^alpha/n) > N^beta = s2`
+`CC(f) >= CC(q) = Omega(N^alpha/n) > N^beta = tau2`
 
 for all sufficiently large `n`. Thus `f` is genuinely OPS-High.
 

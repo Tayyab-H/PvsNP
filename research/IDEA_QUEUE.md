@@ -1,13 +1,133 @@
+﻿## Current priority ? C-462: find a joint charge across easy slices
+
+C-462 generalizes C-407 from the zero anchor: one common existentially chosen `B` makes every anchored slice easy by Hamming distance. It does not make every slice easy, nor does it constrain an arbitrary global separator. The next restriction question is whether a specifically structured `B` can yield a hard trace with exact endpoints; any multi-slice route must separately prove a gate charge for an arbitrary shared DAG. Do not assume additivity or that an arbitrary `F|slice` equals the constructed threshold. Pair any multi-slice argument with a full-promise construction attempt and charge gates, wires, fixed masks, descriptions, and runtime separately. No frontier change. See C-462.
+
+## Current priority ? C-461: no free ROM in a full-promise separator
+
+C-461 retires sorted-table binary search as a purported `O(N log K)` ordinary circuit: it counts RAM comparisons but not conditional execution or pivot lookup. Continue the paired upper-bound search only with a gate-level implementation of the Low-codebook access structure. The direct branch remains a theorem about every total extension with unrestricted DAG sharing; a source branch must prove both exact endpoints and all composition costs. Quantitative frontier unchanged. See C-461.
+
+## Current priority ? C-460: attack the extension gap, not another generic statistic
+
+Work on one explicit theorem about every total extension of `L_s1 subseteq L_s2`, or construct a complete separator with a proved total-gate bound. A direct mechanism must give an operation-wise bound for arbitrary-sharing AND/OR/NOT DAGs and a superlinear promise-forced value. A source route must preserve both exact endpoints and leave a strict hardness margin after all costs. Test proposed mechanisms against the existing parity, equality, sparse-check, global-block, C-457, and C-459 calibrations. Do not infer a lower bound from Hamming radii, support, incidence, certificate counts, or a restricted-model measure. Current quantitative frontier is unchanged. Full audit: C-460.
+
+## Current audit â€” C-458: robust codebook boundary (organizing model, not a lower bound)
+
+The exact low/high promise forces Hamming neighborhoods around safely Low and safely High truth tables, since `r` changed address values cost only `O(r log N)` circuit gates to patch. This is the current model for direct work: prove a concrete invariant of the whole shared DAG that separates those two thickened codebooks, with an operation-wise gate charge and a superlinear output value. Do not infer hardness from volume, anchor count, or number of repairs. If no such invariant is available, investigate a complete near-linear separator directly; the exact enumeration upper is `O(N*2^(O(N^beta)))`. C-457â€™s one-sided sound test shows why accepting only selected Low subclasses cannot settle the question. Full assessment: C-458.
+
+## Current priority - require completeness over *all* Low circuit forms (C-457)
+
+C-457 supplies an `O(N log N)` sound partial separator covering sparse/co-sparse tables and all `RM(d,n)` tables while rejecting the whole High set. It still misses the Low function formed by ANDing `d+1` disjoint pair parities. Thus many Low subclasses plus soundness, all-essential support, sparse acceptance, and high ANF degree do not force expensive gates. Do not add subclasses one at a time; the missing quantifier is completeness for arbitrary size-`s1` circuits. A viable lower bound must use interactions among those circuit forms or directly handle their union. Keep exact enumeration `O(N*2^(O(N^beta)))` as the paired full-promise upper. See [C-457](C457_NEAR_LINEAR_SOUND_INCOMPLETE_SEPARATOR_CALIBRATION_2026-10-01.md).
+
+## Prior priority - move beyond separator weight and ANF degree (C-456)
+
+C-456 proves every separator has ANF degree `N-O(N^beta log N)` from its sparse one-set, but the gate translation is only `Omega(log N)`. The `N-1`-gate conjunction-of-AND/OR-blocks calibration has the same coarse features, so do not sharpen support/degree/essential-input counting. Any algebraic route must use the exact values on the Low circuit set and give an operation-wise gate charge under reuse. The PRF uniformity shortcut remains closed by C-455; source maps still require exact endpoints and a full cost margin. Pair a distinct candidate with the exact enumerator `O(N*2^(O(N^beta)))`. See [C-456](C456_ACCEPTANCE_SPARSENESS_AND_ALGEBRAIC_DEGREE_2026-10-01.md).
+
+## Prior priority - do not spend on uniform crypto to refute nonuniform circuits (C-455)
+
+C-455 closes the C-409 weakening question. A full-table separator is the distinguisher, so uniform PRG/PRF security transfers only to a uniformly constructible separator. If security is nonuniform and strong enough to cover arbitrary polynomial-size separators, then under `NP subseteq P/poly`, MCSP or the prefix-preimage relation already has small circuits, yielding a distinguisher/inverter. Retain C-409 as a conditional scale calibration; do not seek a â€œweakerâ€ uniform crypto premise as a route to the OPS nonuniform lower bound. The direct target still needs a promise-forced superlinear ordinary-DAG gate charge or a fully costed endpoint-preserving source map. Pair the next attempt with the exact enumerator and canaries. See [C-455](C455_UNIFORMITY_FORK_RETIRES_CRYPTO_SHORTCUT_2026-10-01.md).
+
+## Prior priority - start every source map beyond the local-reduction barrier (C-454)
+
+C-454 derives from Allenderâ€“Ilangoâ€“Vafa that no nonuniform AC0 map sends PARITY to the OPS Low/High promise for any fixed beta: bounded-locality coordinates allow a majority of disjoint Low perturbation tables to reconstruct the claimed High table. Do not infer an arbitrary-depth reduction barrier. The required canaries have high block sensitivity and `O(N)` checkers, so use this theorem only to discard shallow maps and generic repair-count charges. For any source-map revival, expose the output router/description cost and prove both OPS endpoints plus `CC(source)>generator+separator+postprocessor`. Otherwise pursue the exact direct target: a superlinear ordinary total-gate surplus forced on every valid full-promise extension. Pair it with exact enumeration. See [C-454](C454_FIRST_PRINCIPLES_AUDIT_AND_HONEST_LOCAL_REDUCTION_2026-10-01.md).
+## Current priority - seek a label-hiding hard-image map, not another repetition (C-453)
+
+C-453 closes the natural AND-product amplifier: an explicit valid-key, essential NO product has only `O(q)` gates, hence is OPS-Low on its `2^q`-bit table for every fixed beta. Do not increase repetitions, pad with more essential variables, or assume direct-sum additivity. The source route now needs a nonlinear/output-hidden map with a proved YES-to-Low and NO-to-High theorem, total ordinary generator cost, and source-hardness margin; the map cannot compute the source answer for free. In parallel, any direct lower bound must force a superlinear charge on actual shared AND/OR/NOT gates. Pair attempts with exact enumeration and the four canaries. See [C-453](C453_DIRECT_PRODUCT_DOES_NOT_AMPLIFY_SIMPLE_EXTENSION_GAP_2026-10-01.md).
+
+## Prior priority - require a true OPS gap amplifier before using simple extensions (C-452)
+
+C-452 shows why exact `f`-Simple Extension hardness does not transfer by identity: a valid-key, nondegenerate OR-extension can fail the exact-size test by a few gates while remaining far below `s1`. Robust point perturbations give the same obstacle for many base functions. Do not spend a cycle characterizing a more complicated base such as MUX until an explicit transformation maps all non-simple inputs above `s2` and all simple inputs below `s1`, with gate costs and the full truth-table address length accounted for. The direct next question is whether any sharing-safe amplification can turn a one/few-gate optimality gap into the OPS multiplicative gap without already solving a general circuit lower-bound problem. If not, retire the f-SEP source route and return to direct ordinary-DAG gate charging or an independent costed source map. Pair with exact enumeration and maintain all four canaries. See [C-452](C452_SIMPLE_EXTENSION_HAS_NO_OPS_GAP_2026-10-01.md).
+
+## Prior priority - C-451 non-order charge on the signed-slice extension problem
+
+C-451 closes monotone dual-rail normalization as a standalone route: it preserves arbitrary sharing at factor 2, but legal encodings are an antichain, so order/monotonicity alone says nothing about Low-versus-High labels. Do not repeat signed-rail monotonicity, generic source monotonicity, or local canary charges. The live targets remain (a) a numerical invariant of actual ordinary AND/OR/NOT DAGs with a proved operation-wise arbitrary-fan-out bound and a superlinear value forced by every codebook-sandwich extension, or (b) an unrestricted-circuit source map with both endpoints and a generator-plus-separator cost below the source lower bound. Any monotone lower-bound revival must preserve source order through both positive and negative table rails. Pair each lower-bound attempt with the exact enumerator and four canaries. No frontier change. See [C-451](C451_SIGNED_RAIL_MONOTONE_LIFT_AUDIT_2026-10-01.md).
+
+## Prior priority - explicit promise endpoints and source-cost margin after C-449
+
+C-449 retires the direct expansion of conditional ImpMCSP samplers: the known no-side guarantee is subexponential in the table address length, below the explicit High threshold `2^{Î²k}`, and the generic generator is exponential in sampler/table parameters. Do not relabel implicit hardness as an explicit-table bound. A source-map candidate must prove `YESâ†’L_{s1}`, `NOâ†’CC>s2`, and `CC(source)>g_table+N^{1+Îµ}` for the same fixed `Îµ` and every sufficiently small fixed `Î²`. Reopen implicit MCSP only if a new theorem supplies the fixed-exponential explicit hardness and a generator below that margin. Otherwise seek a genuinely direct total-gate invariant with an operation-wise arbitrary-sharing bound and a promise-forced superlinear output value. The full-promise upper remains `O(NÂ·2^{O(N^Î²)})`; no frontier change. See C-449.
+
+## Current priority - find a promise-specific gate charge beyond generic geometry
+
+C-448 completed the integrated audit and tested affine-orbit normalization. It is correct on shrunken endpoint cores but direct averaging costs `Î˜(N^{n+1})` copies; symmetry is not a useful near-linear normal form. Repeated-block equality, sparse parity checks, and simple global block relations also have `O(N)` checkers when their total description/incidence is linear; this defeats generic constraint-count charges, not the Gap-MCSP promise. Do not repeat generic support, local certificate, rank, entropy, rectangle-area, rare-literal, or symmetry arguments. The active search is either an operation-wise invariant for actual gate functions whose output value is forced superlinear by the exact `L_s1`/High sandwich, or a deterministic source map: for partial source `h` and shared table generator `G` of `g` gates, require both endpoint implications and a source lower bound exceeding `g+N^{1+Îµ}`, using `CC(h)â‰¤CC(F)+g`. Before expanding a branch, state its theorem, gate model, endpoint subfamilies, and exponent budget; test it against the canaries and exact enumeration. No frontier change. See [C-448](C448_FIRST_PRINCIPLES_AUDIT_AND_AFFINE_ORBIT_TEST_2026-10-01.md).
+
+## Prior priority - C-446 continuation: one-sided gate-state progress measure
+
+C-446 audited the exact extension target and isolated the needed superlinear surplus `Î”=S-E+1` beyond essential table inputs. It derives a gate-path protocol on every Low/High pair. The next concrete attempt is a state potential that preserves each state's one-sided Boolean gate semantics under arbitrary sharing; the relaxed pairwise disagreement cover has an `O(N)` OR-tree solution and is retired. Test against the four shared-computation canaries immediately. Keep the source route secondary and require a fully costed hard trace. See C-446.
+
+## Prior priority - C-444: proof-certified High subfamily (1 October 2026)
+
+The explicit certificate listing a mismatch for every size-`s2` circuit is superpolynomial: even a structurally chained family gives at least `s2!` syntactic descriptions. A succinct selector's universal correctness remains unverified. New precise candidate: for a sound, polynomial-time-checkable QBF proof system `P`, let `W` contain tables whose `exists d<=s2 forall a Eval(d,a)=T[a]` formula has a polynomial-size refutation. Then `W` is NP, `WâŠ†NO`, and every full separator separates YES from W. The route advances only if one proves this pair has separator complexity above `N^(1+epsilon)`. Standard feasible interpolation is proof-to-circuit, not the needed circuit-to-proof implication. See C-444.
+
+## Prior priority - C-443: treat Gap-MCSP as a gap-interpolation problem (1 October 2026)
+
+The exact endpoints are `YES(T) <=> exists circuit d of size <=s1 matching every table coordinate` and `NO(T) <=> every circuit d of size <=s2 has some mismatching coordinate`. This is an NP/coNP gap interpolant; the middle is free. Test proof-complexity or feasible-interpolation tools only if they handle this polarity and yield a bound for every unrestricted ordinary-circuit extension without extracting a witness. First decisive check: state the exact theorem and prove its hypotheses apply. Standard disjoint-NP interpolation does not apply automatically. This is a lead, not a theorem; no separator bound changes. Full audit: C-443.
+
+## Prior priority - C-442: audit source predecoding before investing in a reduction (1 October 2026)
+
+For a hard source `g` of circuit complexity `h`, an ordinary `J`-gate table generator `G` and a `B`-gate decoder from `G(x)` back to `g(x)` force `J+B+O(1)>=h`. If a promised separator of size `S` also outputs `g`, this source-hardness argument cannot contradict `h` once `S>=B+O(1)`. C-441's all-prefix table has `B=O(N)`, so retire it as a source route to a superlinear OPS bound; no further characterization of that same map is useful unless it changes the promise or composition. For any new reduction, first specify the exact YES/NO image, total multi-output generator gates, and any cheap decoder; then show an explicit margin `h-J>N^(1+epsilon)` for a common epsilon. Pair with a direct shared-DAG invariant attempt and the exact full-promise upper. See C-442.
+
+## Prior priority - C-440: actual prefix-table analysis (superseded for source composition)
+
+C-442 supersedes the live-question language below for this source-transfer strategy: the linear decoder already consumes the source-hardness margin needed for a superlinear separator contradiction. The older question is retained as historical context only.
+
+The candidate table `T_x(p)=1` iff a satisfying assignment extends prefix p fails as a generic hard encoding: with a unique witness w of length r, it marks only r+1 prefixes and has an `O(r^2)` circuit, so for `N=2^(r+1)` it is Low for every fixed beta eventually. Stronger, the one-query history gadget gives an `O(L^2)` prefix-extension circuit for both a satisfiable query `phi(z)=z_1` with many witnesses and an unsatisfiable query. Do not infer table hardness from canonical-witness hardness or witness multiplicity. The live question is source-specific: characterize the *full* set of satisfying prefixes of the actual Ren--Williams `C_x` and prove a Low/High gap on opposite source labels, or show that the relation stays Low on both. Separately prove the multi-output source-to-table generator budget. Local PCP verifier tables remain Low on both sides. Paired exact full-promise upper is unchanged. See C-440.
+
+## Prior priority - C-439: one joint encoding, no assumed query additivity (1 October 2026)
+
+C-439's first-principles correction: C-438 proves that literal serial substitution has cost `D_m+sum_j(R_{m,j}+S_{N_j}+B_{m,j})`; it does **not** prove that a joint implementation must pay this sum. Boolean-circuit copy-additivity fails: a hard GF(2) map applied to n separate vectors can be computed together by fast matrix multiplication in `O(n^2.38)` gates, below n times the `Omega(n^2/log n)` single-copy lower bound. The next source-transfer attempt is a single-table map for the whole source function with exact OPS YES/NO thresholds, a generator independent of the unknown source answer/oracle replies, and a full total-gate cost below `Omega(2^m/m)`. If retaining several queries, prove a source-specific joint compiler bound; do not multiply query count by a one-copy lower bound. Attack copy amplification with the matrix example and parity, repeated-block equality, sparse checks, and global-block selectors. OPS is a strong sufficient target for `P != NP`, not a logically equivalent one. No frontier change. Full audit: `research/C439_FIRST_PRINCIPLES_AUDIT_AND_JOINT_COMPOSITION_2026-10-01.md`.
+
+## Prior priority - C-438: serial source-query substitution is an upper-bound compiler (1 October 2026)
+
+For the Ren-Williams `E^{prMA}/1` source, C-438's `D_m+sum_j(R_{m,j}+S_{N_j}+B_{m,j})` is the upper bound for a literal serial compiler, not the required cost of all source circuits. The live map target is a PCP-verified query asking whether a short circuit encodes a satisfying-assignment prefix; its direct verifier table is Low on both YES and NO. See C-438.
+
+## Prior priority - C-435 sharing-rank route retired; seek a promise-forced superlinear invariant (1 October 2026)
+
+C-435 proves a one-way GF(2) communication-rank bound for arbitrary shared fan-in-two DAGs, `rank(M_F)<=2^(2S+1)`, but log-rank is at most `N/2`. A full-rank function `AND_i(x_i OR y_i)` takes `N-1` gates; parity, repeated-block equality, O(N)-incidence sparse checks, and equal-block-parity relations also have O(N) circuits. Retire cut rank and its averages as standalone superlinear charges. The paired exact Low-description separator remains `O(N*2^(O(N^beta)))`; prefix-trie sharing gives no proved compression. Next, seek a distinct property forced by the entire GapMCSP promise for every total separator, and prove its total-gate charge under arbitrary reuse. Keep gates, wires, descriptions, and construction time distinct; preserve the middle band. Ordinary frontier remains `N-O(N^beta log N)-1` plus C-406 refinement; OPS `N^(1+epsilon)` remains open; native rho separate. Full proof: research/C435_COMMUNICATION_RANK_CHARGES_SHARING_BUT_CANNOT_EXCEED_LINEAR_2026-10-01.md.
+
+## Prior priority - C-434 comparator promise bound, with the ordinary-DAG lift still open (30 September 2026)
+
+C-434 adapts the Cavalarâ€“Lu local-PRG proof to the exact OPS gap: use `alpha=0.99 beta` and `eta=0.04 beta`; PRG outputs have circuit size `N^(beta-7 beta/300+o(1))<N^beta/(c log N)`, while at least half of random restricted tables have circuit size `N^(beta+beta/100)/O(log N)>N^beta`. This yields separate comparator gate and active-wire lower bounds `N^(1+0.455 beta)` despite arbitrary behavior on the middle band. The gate proof accounts for two active wires per gate. More generally, PRG-fit requires `alpha-eta/3<beta`, limiting this proof's gain to `<beta/2`; tuning cannot meet OPS's uniform fixed-`epsilon` quantifier. The lift stops at fanout: an ordinary DAG only implies `S*2^mu>=N^(1+0.455 beta)/O(1)` after C-406 unfolding. Do not treat this as ordinary-gate progress or assume a compiler. Full proof and resource audit: research/C434_GAPMCSP_COMPARATOR_BOUND_DOES_NOT_LIFT_TO_SHARED_DAGS_2026-09-30.md.
+
+## Prior priority - C-433 reparameterized HI route (30 September 2026)
+
+C-433 completes the C-432 edge-index route's parameter audit. The edge decoder replaces `poly(n^tau)` membership cost; the separate NO loss is `poly(n*tau)`. With explicit `M<=n^(O(log tau))`, `lambda=n^(A log tau)` pays both and improves `log s` to `Theta(log tau log n)`, while HI still certifies only a factor `Omega(tau)`. The exact hypergraph range is `gamma<tau<=(log n)^(1/gamma)`; thus `beta*tau/(log tau log n)=o(1)` and the OPS threshold fit still fails. This source-specific HI mechanism handles shared DAGs via one common circuit oracle and per-edge extractor descriptions, but parity/equality/sparse-check/global-block examples defeat generic incidence charges. No full-promise near-linear separator or frontier improvement. Report: research/C433_REPARAMETERIZED_HI_GAP_STILL_MISSES_OPS_2026-09-30.md.
+
+C-432 completes the explicit-edge codec attack on HI: indexing the explicit edge set preserves the pointwise all-edge soundness proof after hardcoding an index, and the YES circuit pays a shared lookup decoder. This removes the tuple-address field but leaves s_HI=Theta(n*lambda/(tau log lambda)), so OPS fit still forces D=Omega(tau log n/beta) while the displayed gap is proportional to tau. Retire edge-address-only fixes; a viable transfer must improve the certified gap/log(s) ratio. Full-promise upper O(N*2^(O(N^beta))) and ordinary/native frontiers unchanged. Report: research/C432_EDGE_INDEX_REPAIR_PRESERVES_HI_SOUNDNESS_BUT_NOT_OPS_FIT_2026-09-30.md.
+C-431 sharpens C-430: padding source YES cutoff s and gap g into OPS on D variables requires g>cD and D>=log2(cDs)/beta. HI chooses lambda=n^(a tau) and a YES cutoff s_HI=Theta(n*lambda/(tau log lambda)), so log s_HI=Theta(tau log n), forcing D=Omega(tau log n/beta) even if edge addresses are re-encoded compactly. The cited soundness proof certifies a tau-scale factor and does not establish the required tau log n/beta ratio. This is a limit of the current proved parameters, not an upper bound on true hardness or a universal reduction barrier. A list-index edge codec or pseudorandom seed for ciphertext coordinates needs fresh soundness/security analysis and does not erase the OPS low-threshold fit if s_HI is unchanged. Paired full-promise separator remains O(N*2^(O(N^beta))); ordinary and native frontiers unchanged. Full report: research/C431_LOW_THRESHOLD_SCALE_DOMINATES_ADDRESS_ENCODING_2026-09-30.md.
+C-430 verifies OPS Theorem 1.4 thresholds with universal denominator c and concrete proof choice c=10; the quantifier is one fixed epsilon for every sufficiently small fixed beta. A shared-gate composition lemma gives source size <=R+tS+b with all table generators, t arbitrary separator calls, and postprocessor counted; hence a source lower bound H implies S >= (H-R-b)/t. It assumes no circuit structure or lost gates through sharing. Dummy padding still requires source gap g>cD, so the HI hyperedge route misses by Theta(log n); the HIR oracle-MCSP route has a generic mux-tree lookup cost O(2^(1+10k^2n)), above its 2^(0.3n) NO scale; this is not a lower bound on that particular oracle. Neither proves an ordinary OPS lower bound. The exact full-promise enumerator remains O(N*2^(O(N^beta))); no frontier change. Direct next obligation: find a source with proved hard decision circuit H and promised-table generators/postprocessor R+b small enough relative to H, or prove a direct post-read shared-gate lower bound; do not posit non-shareability or copy-additivity. Full report: research/C430_HYPEREDGE_ADDRESS_TAX_BLOCKS_OPS_TRANSFER_2026-09-30.md.
+## Current priority - C-430 conditional hardness transfer audit
+
+C-430 proves that ignored-variable padding preserves circuit complexity and that transferring a source gap `s` versus `g*s` into OPS on `D` input bits requires `g>10D`; small fixed beta also forces `D >= log2(10Ds)/beta`. Hirahara-Ilango FOCS 2025 exposes a hyperedge address of width Omega(tau log2(n/tau)) = Theta(tau log n) in its parameter range, while the displayed guaranteed gap scales with tau. The direct/padded transfer misses the required ratio by a logarithmic factor; this is not a refutation of their conditional theorem or a no-go for redesigned reductions. Next, search for an edge-address-efficient PCP encoding that preserves the all-edge soundness, or switch to a direct ordinary total-gate invariant. Do not assume independent-copy gap additivity. Pair the attempt with the exact full-promise separator O(N*2^(O(N^beta))); no frontier change. Full report: research/C430_HYPEREDGE_ADDRESS_TAX_BLOCKS_OPS_TRANSFER_2026-09-30.md.
+## Current priority - C-429 transcript-fiber route closeout
+
+C-429 proves fan-in-two DAG transcript fibers are 2-CNF and accepting fibers are contained in SIZE(s2), but fiber volume yields only a linear gate floor. N copy gates can make every fiber a singleton before an arbitrary post-read decoder, and an O(N) coordinate-cylinder transcript fiber can contain 2^r sparse Low tables; repeated-block tables form a large safe 2-CNF set. Retire transcript-fiber volume and majority closure as standalone superlinear routes. Target a direct post-read decoder lower bound or a fully costed promise-preserving hard trace. Keep exact Low-description enumeration at O(N*2^(O(N^beta))) as the unconditional full-promise upper; the OPS anti-checker separator is near-linear only under NP subseteq P/poly. No frontier change. Full proof: research/C429_GATE_TRANSCRIPT_FIBERS_DO_NOT_CHARGE_POSTREAD_WORK_2026-09-30.md.
+## Current priority - C-428 route closeout
+
+C-428 retires scalar rnKt thresholds as an OPS classifier. Counting gives YES tables with rnKt Omega(N^beta/log N); Goldberg et al. give infinitely many NO truth tables with ordinary circuit complexity Omega(N/log N) but rnKt 2^((log N)^gamma)=N^o(1). Neither monotone rnKt cutoff orientation classifies the promise: decreasing cutoffs fail on high-rnKt YES and low-rnKt NO tables; increasing cutoffs fail on zero YES and a counting-chosen high-rnKt NO. rnKt magnitude alone is not a gate-work potential. The rnKt-filtered construction fails; OPS anti-checkers give a near-linear full-promise separator only conditionally under NP subseteq P/poly; the unconditional Low-description enumerator remains O(N*2^(O(N^beta))). Next, test a concrete promise-preserving hard-predicate embedding or a distinct operation-wise circuit invariant; require an explicit reduction and total-gate accounting. Do not revisit support, incidence, certificate multiplicity, or generic robust fibers. Exact thresholds remain YES N^beta/(10n) vs NO >N^beta, with one epsilon for all sufficiently small beta. Frontier unchanged. Full report: research/C428_RNKt_DOES_NOT_CONTROL_GAPMCSP_SHARED_GATES_2026-09-30.md.
+
+## Previous priority - C-427 route closeout
 # Idea queue
 
 Ranked by direct progress toward O-1, the slightly superlinear unrestricted circuit lower bound.
 
-## Current priority - O-239 (after C-419)
+## Current priority - C-427 route closeout
+
+C-427 retires generic robust-fiber compilation: a polynomial-overhead compiler for arbitrary universal circuit quantification would imply coNP subseteq P/poly and a Karp-Lipton collapse; the promise-specific version has no proved gate inequality. Constructive gate elimination currently supplies refuters only for particular explicit targets, not MCSP High errors or free-middle promises. Do not extend either route without a concrete separator-specific mechanism. Continue searching for a distinct shared-DAG gate invariant or a full-promise separator below O(N*2^(O(N^beta))). Exact OPS thresholds and quantifiers remain N^beta/(10n) versus >N^beta; one fixed epsilon for all sufficiently small beta. Ordinary frontier N-O(N^beta log N)-1 plus C-406 logarithmic refinement; OPS exponent open; native rho separate. Full audit: research/C427_ROBUST_FIBER_AND_GATE_ELIMINATION_AUDIT_2026-09-30.md.
+
+## Previous priority - O-239 (after C-419)
+
 
 C-419 closes balanced equal-block restrictions at every fixed dimension exponent gamma in (0,1) for each fixed OPS beta<1/2. If gamma<=beta, C-418 gives the all-nonconstant-High trace and an O(q) equality readout; if gamma>beta, C-408 gives an O(q log^2 q) Hamming-threshold readout. Retire this entire restriction family as a hard-trace route. Continue O-239 only for non-block-constant maps with exact promise preservation and a hard source label after all shared signals are exposed. Keep router gates, output wires, description bits, and construction time separate. In parallel, pursue a direct full-promise gate-work invariant against the exact enumerator O(M*2^(O(M^beta))); no near-linear full-promise separator is known. Full cycle: research/C419_ALL_BLOCK_DIMENSIONS_HAVE_EASY_TRACES_2026-09-30.md.
 ## Prior priority - O-236 (after C-414)
 
 The arbitrary-index lookup transfer is closed for its cheap single- and multiple-instance forms. If K source bits are encoded in t N-bit promise tables and all source information reaching the postprocessor passes through the encoder (it may also inspect generated tables), input support forces `K<=tN+2R`; `R+tS+B>=K-1` follows from the MUX_K gate floor. A map cheap enough to transfer cannot amplify this lower bound past the linear table scale. A different source function or a direct invariant of an arbitrary separator is needed. Keep OPS's exact factor-`10n` gap and full-promise quantifiers. Do not revisit local balls, per-query/per-incidence accounting, static anti-checker menus, or oracle-relative MCSP without a genuinely new transfer theorem. The paired full-promise upper attempt remains `O(N 2^(O(N^beta)))`; no near-linear construction is known. See C-414.
+
+# C-450 continuation - first-principles codebook-sandwich audit (1 October 2026)
+
+1. Keep the exact target `L_s1 âŠ† F^{-1}(1) âŠ† L_s2`; the middle band is free.
+2. A direct proof must force superlinear `Î”(F)=CC(F)-E(F)+1` and charge arbitrary shared AND/OR/NOT gates. Support, rank, local certificates, description entropy, and communication do not meet this by themselves.
+3. A source map must prove both endpoints and leave `CC(G)+N^(1+Îµ)` below a source lower bound. Pullback to descriptions `d` of size at most `s2` gives no forced NO values; longer descriptions need a proof their computed tables are high.
+4. Paired upper remains exact Low-circuit enumeration `O(NÂ·2^(O(N^Î²)))`; no near-linear full-promise compression is known.
+5. Use parity, repeated-block equality, sparse parity checks, and simple global block relations as canaries for any new generic charge. No quantitative frontier change. Full audit: `research/C450_FIRST_PRINCIPLES_CODEBOOK_SANDWICH_AUDIT_2026-10-01.md`.
 
 ## C-405 successor - replace sampler entropy by explicit promise transfer
 
@@ -22,13 +142,13 @@ The cut-transcript mechanism is closed at `Omega(N)`: one split has at most `N/2
 
 **Paired upper test:** linear hashes over candidate low tables cannot compress the full-promise check below `N-O(N^beta log N)` bits: the fiber containing `0^N` must be wholly non-High. Nonlinear fingerprinting remains open but must separate all high inputs while accepting every low input, including dense low tables.
 
-**Gate-elimination literature lead (not yet transferred):** the 2026 Carmosino–Dang–Jackman preprint makes several fixed-function gate-elimination proofs constructive (XOR, MUX, affine dispersers). Test whether a substitution sequence can be designed directly on truth-table input coordinates while preserving the Gap-MCSP promise at each leaf. Any use must prove this promise preservation for both labels and charge AND/OR/NOT gates in the original separator; the fixed-function refuters do not supply that bridge.
+**Gate-elimination literature lead (not yet transferred):** the 2026 Carmosinoâ€“Dangâ€“Jackman preprint makes several fixed-function gate-elimination proofs constructive (XOR, MUX, affine dispersers). Test whether a substitution sequence can be designed directly on truth-table input coordinates while preserving the Gap-MCSP promise at each leaf. Any use must prove this promise preservation for both labels and charge AND/OR/NOT gates in the original separator; the fixed-function refuters do not supply that bridge.
 
 ## Primary target clarification
 
 The exact minimum target is \(D(Y\mid\mathcal B)>N^{1+\epsilon}\) in the OPS magnification quantifiers. The current \(\rho\)-cover route is a stronger sufficient condition because \(\rho\) characterizes cyclic intersection complexity and \(\rho\le D_\cap\le D\). Do not spend further time refining a restricted semi-filter family unless the result yields a lower bound on the unrestricted acyclic complexity. The low-side coordinate trace reaches \(N-o(N)\); the attempted complement-side symmetric bound was false because the cube can contain gap/high tables. Its corrected interpolation bound is only \(\Omega(N^\beta/n^2)\).
 
-## Q32 ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â Static anchor-distance marginal potential (refuted, 26 September 2026)
+## Q32 ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â Static anchor-distance marginal potential (refuted, 26 September 2026)
 
 **Exact state.** C-67 represents a q-pair list by a least fixed point on q rule bits. Each rule needs a witness for both endpoint sides; each initial witness predicate is a disjunction of signed truth-table bits (C-68). The endpoint-containment network is arbitrary semantic data.
 
@@ -38,7 +158,7 @@ The exact minimum target is \(D(Y\mid\mathcal B)>N^{1+\epsilon}\) in the OPS mag
 
 **Learning.** \(\delta_Q\) remains a valid distance, but its additive average credits one shared first intersection separately to a constant fraction of anchors. Any replacement must measure reuse of intermediate intersections rather than demand tiny per-pair progress. The sparse-cube cascade and C-72 remain useful checks. The finite script only validates the recurrence on a toy.
 
-## Q33 ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â Charge shared intersection states, not anchor savings (active)
+## Q33 ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â Charge shared intersection states, not anchor savings (active)
 
 The Q32 refutation exhibits a common rule \(p=(G_{k,b},G_{\ell,c})\) that saves one operation for at least \(1/4-o(1)\) of any weighted anchor family. This is legitimate sharing, not a contradiction of the target. Seek a potential on the global collection of generated intersections or on the proof DAG that charges each shared state once, while still forcing a large total number of distinct states before every low anchor is refuted.
 
@@ -182,7 +302,7 @@ For coordinates corresponding to inputs 0^n and e_1, exactly N affine truth tabl
 
 ## Q11   Uniform distinguishers and sparse magnification
 
-Atserias and MÃƒÆ’Ã‚Â¼ller (2025) use sparse distinguishers to obtain a uniform magnification theorem for approximation-MCSP. Their stated consequence is $P\ne NP^{\oplus P}$ under a near-linear P-uniform circuit lower bound. This bypasses the OPS nonuniform selector but does not by itself imply $P\ne NP$.
+Atserias and MÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¼ller (2025) use sparse distinguishers to obtain a uniform magnification theorem for approximation-MCSP. Their stated consequence is $P\ne NP^{\oplus P}$ under a near-linear P-uniform circuit lower bound. This bypasses the OPS nonuniform selector but does not by itself imply $P\ne NP$.
 
 **Decision.** Keep it as a lower-priority route. First seek a proved class implication to $P\ne NP$ or a target lower bound that yields the desired conclusion directly. Do not silently identify $NP^{\oplus P}$ with $NP$.
 
@@ -219,7 +339,7 @@ Atserias and MÃƒÆ’Ã‚Â¼ller (2025) use sparse distinguishers to obtain 
 
 **Question.** Can a bounded-fan-in circuit make those conditional fibers this small by using the selected labels themselves to determine the addresses? A theorem ruling this out at size $N^{1+\epsilon}$ would reach O-1. A counterexample selector would identify the nonlinear mechanism any lower bound must address.
 
-**Adversarial checks.** The affine-sketch theorem does not cover nonlinear summaries. A fixed-menu range argument only works while the union of candidate coordinates leaves more than $\log M_2$ bits free. A single-circuit fixed-point argument is false: ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œquery the first 1-bitÃƒÂ¢Ã¢â€šÂ¬Ã‚Â avoids zero labels on every nonzero table. The full family of low-circuit traces must be handled simultaneously.
+**Adversarial checks.** The affine-sketch theorem does not cover nonlinear summaries. A fixed-menu range argument only works while the union of candidate coordinates leaves more than $\log M_2$ bits free. A single-circuit fixed-point argument is false: ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã¢â‚¬Å“query the first 1-bitÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â avoids zero labels on every nonzero table. The full family of low-circuit traces must be handled simultaneously.
 
 **Status.** Active subproblem, not a solution. Prove a fiber-shrinkage lower bound or construct a small feedback selector; audit the result against arbitrary sharing and negation.
 
@@ -392,7 +512,7 @@ Given a candidate selector S and low circuit D, define \(A_D^S=\{f:f|_{S(f)}=D|_
 
 **What this adds.** It turns the self-consistent completion problem into a family of explicit circuit-supported sets and makes the quantifiers auditable. It does not lower-bound S: for the class of two constant functions, a linear-size priority selector has singleton agreement fibers.
 
-**Next attack.** Find a property of the full size-s1 circuit classÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Âlikely closure under patching or a richness/extension propertyÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Âthat forces one self-indexed agreement fiber to escape SIZE(s2). Try to prove or falsify that property for arbitrary address feedback before deriving any exponent claim.
+**Next attack.** Find a property of the full size-s1 circuit classÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â€šÂ¬Ã‚Âlikely closure under patching or a richness/extension propertyÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â€šÂ¬Ã‚Âthat forces one self-indexed agreement fiber to escape SIZE(s2). Try to prove or falsify that property for arbitrary address feedback before deriving any exponent claim.
 
 **Status.** Exact reformulation proved; target lemma open. See C-63 and [the reset audit](RESEARCH_RESET_2026-09-25.md).
 ## Idea 229 - Lower-bound only minimax-length selector outputs
@@ -442,11 +562,11 @@ C-76 factors any successful list through its 2q seed bits sigma(w)=(a_1,b_1,...,
 **Status.** C-76 proved; no superlinear consequence yet.
 
 
-### Q37 ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â Ranked cyclic rectangle non-shareability
+### Q37 ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â Ranked cyclic rectangle non-shareability
 
 **Prompt.** The C-77 activation recurrence is a cyclic monotone conjunctive program with q AND states and an input-specific rank decreasing along every valid low/high mismatch path. Find an invariant that lower-bounds q directly, without unfolding to an acyclic rect-DAG.
 
-**Known limits.** Ordinary communication bits are too weak (C-75). The generic binary-fanin DAG expansion costs \(O(q^3)\); the acyclic AND-only expansion costs qÃƒâ€šÃ‚Â². A restricted low/high DAG need only separate the promise and may accept medium tables. A valid lower bound should either apply to the exact \(D^\circ_\cap\) model or prove a separator lower bound strong enough to survive these losses.
+**Known limits.** Ordinary communication bits are too weak (C-75). The generic binary-fanin DAG expansion costs \(O(q^3)\); the acyclic AND-only expansion costs qÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â². A restricted low/high DAG need only separate the promise and may accept medium tables. A valid lower bound should either apply to the exact \(D^\circ_\cap\) model or prove a separator lower bound strong enough to survive these losses.
 
 **First proof subgoal.** For each state rectangle \(R_i=A_i\times B_i\), quantify how many low anchors / high tables can share each decreasing transition \(i\to j\), and prove that a cyclic dependency SCC cannot compress too many independent literal mismatches. Any proposed charging scheme must survive the 2-state cycle example and the previous per-anchor, fractional, and fixed-family ceilings.
 
@@ -455,7 +575,7 @@ C-76 factors any successful list through its 2q seed bits sigma(w)=(a_1,b_1,...,
 
 **Quantitative bridge (C-77).** Let SepAnd(Y,Z) be the minimum number of acyclic monotone AND gates separating low tables from high tables on signed-literal inputs; medium tables are unconstrained. Every q-pair cover gives SepAnd(Y,Z) <= q^2. Proving SepAnd(Y,Z) > N^(2+2 epsilon) would imply the target rho > N^(1+epsilon).
 
-## Q38 ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â Lower-bound residual rectangles, not transcript depth
+## Q38 ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â Lower-bound residual rectangles, not transcript depth
 
 Keep separate the total mismatch relation \(Y\times Z\), the Q-dependent ranked closure-witness relation, ordinary communication bits, protocol-tree nodes, and acyclic rect-DAG nodes. A circuit description gives \(O(s_1\log(n+s_1)+\log N)\) communication but only an exponential generic DAG upper bound. A successful Q gives a direct rank-layered rect-DAG of size \(O(q^2(q+N))=O(q^3)\); the q-state dependency graph itself can cycle.
 
@@ -465,7 +585,7 @@ The interval-pattern construction gives a universal DAG of size \(O(|Y|+\sum_{I\
 
 **Status:** formal bridge proved, lower-bound handle open. See C-78 / O-79.
 
-## Q39 ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â Promise-to-exact transfer must pay for the medium band
+## Q39 ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â Promise-to-exact transfer must pay for the medium band
 
 For low \(Y=\mathrm{SIZE}(s_1)\), medium \(M=\mathrm{SIZE}(s_2)\setminus Y\), and high \(Z=\mathrm{SIZE}(s_2)^c\), every signed truth-table cylinder contains a medium table for sufficiently small fixed OPS \(\beta\). The upward closure generated by \(M\) and the matching literal slices of any low anchor is a semi-filter above that anchor. Every pair with endpoints in \(Z\) misses it.
 
@@ -475,7 +595,7 @@ This proves that a cover/endpoint list for the larger positive class \(\mathrm{S
 
 **Status:** obstruction proved; conversion question open. See C-79 / O-80.
 
-## Q40 ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â Lower-bound incompatible partitions, not the number of anchors
+## Q40 ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â Lower-bound incompatible partitions, not the number of anchors
 
 For a fixed block partition of truth-table coordinates, the whole family of \(2^{\Theta(s_1)}\) low tables constant on those blocks has an \(O(N)\)-vertex DAG against all high tables. Every high table is mixed on a block; Bob finds one, Alice gives the low bit there, and Bob chooses an opposite coordinate.
 
@@ -543,7 +663,7 @@ The signed-mismatch rect-DAG for Y x Z is equivalent up to constants to the mini
 
 The active \(\rho_{\rm prom}\) uses \(\Gamma=Y\sqcup Z\), while \(\rho_{\rm full}\) includes the medium band in its universe. A rect-DAG for \(Y\times Z\) gives a separator circuit, hence a promise cover with O(L) pairs. A full cover restricts to a promise cover. C-79 only blocks the reverse upgrade by reusing endpoints inside Z.
 
-**Learning:** the medium-band escape is not an obstruction to the requested reverse transformation for the projectÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢s actual promise. It only separates promise and exact full-domain formulations. Continue with direct cyclic q lower bounds or faster acyclicization.
+**Learning:** the medium-band escape is not an obstruction to the requested reverse transformation for the projectÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â‚¬Å¾Ã‚Â¢s actual promise. It only separates promise and exact full-domain formulations. Continue with direct cyclic q lower bounds or faster acyclicization.
 ## Q51 - Localize the cyclic cost to strongly connected components
 
 After deleting the redundant self-support arcs, use a directed support edge j -> i when T_j is contained in an endpoint of pair i, and let e_C count the two-sided incidences internal to SCC C. C-91 proves a fan-in-two separator bound O(qN+q^2+sum_C(r_C e_C+r_C^2)), improving O(q^3) when support incidence or SCC width is low. Next inspect endpoint-induced structure inside a largest dense SCC: can alternatives be quotiented by equal supports or dominated states without increasing the charged intersections? Any quotient must preserve both side-support predicates and the least fixed point on every truth-table input.
@@ -742,7 +862,7 @@ Ignored-input padding directly transfers the cyclic cover at fixed absolute thre
 
 ## Q81 - C-120: adversarially hide all variation in one signature cell
 
-Fix a low circuit C and any k-wire signature partition with kÃ¢â€°Ë†(1/2)log s2, including the output wire. A largest fiber F has at least N/sqrt(s2) points. There are 2^|F| ways to alter w only on F, but only 2^{O(s2 n)} size-s2 truth tables. For beta<2/3, some such alteration is high. The two constant-on-F alterations are computable from C plus a signature equality test, so the high alteration must vary inside F. It agrees with w everywhere else; the C-49 patching margin puts Omega(s2/n) mismatches inside this single cell.
+Fix a low circuit C and any k-wire signature partition with kÃƒÂ¢Ã¢â‚¬Â°Ã‹â€ (1/2)log s2, including the output wire. A largest fiber F has at least N/sqrt(s2) points. There are 2^|F| ways to alter w only on F, but only 2^{O(s2 n)} size-s2 truth tables. For beta<2/3, some such alteration is high. The two constant-on-F alterations are computable from C plus a signature equality test, so the high alteration must vary inside F. It agrees with w everywhere else; the C-49 patching margin puts Omega(s2/n) mismatches inside this single cell.
 
 **Learning:** the C-115 witness has no multi-cell dispersal guarantee. Any count-based search for several varying signature cells is falsified. To proceed, the router must either identify one pair-dependent cell across circuit descriptions or use a different invariant that does not require dispersion. This is not a general DAG lower bound; adaptive routing remains open.
 
@@ -757,10 +877,10 @@ This architecture cannot cover all SIZE(s1): each point indicator is a low circu
 For any fixed r<=eta n low rows w_1,...,w_r, partition truth-table coordinates by their joint output vector W(x). If a high z were constant on these cells, z=h(W), computable using r s1 gates for the row circuits plus O(r2^r) lookup gates. Choosing eta<min(beta,c/3) keeps this below s2. So z is mixed on a cell common to all rows. Bob selects the mixed cell, Alice gives her row value, and Bob scans for an opposite bit, yielding an O(N)-vertex DAG for the entire tuple.
 
 **Learning:** arbitrary O(n)-sized anchor sets cannot be made pairwise incompatible using only common-fiber witnesses. The group suffix depends on the chosen tuple; naive covering of the full low class by such groups costs O(N|Y|/n). The hard question is how a small DAG might reuse suffixes among groups, or why it cannot.
-## Q84 Ã¢â‚¬â€ Descriptor invariance leaves a promise-separator problem
+## Q84 ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â Descriptor invariance leaves a promise-separator problem
 
-C-123 proves exact equality of minimum rect-DAG size before and after replacing each low table by a syntactic circuit description; a section gives the reverse restriction. The DAG is therefore governed by semantic separation, not the description length. Direct enumeration of all descriptions gives size O(NÃ‚Â·2^ell), ell=O(s1 log(s1+n)). Universal-circuit evaluation only checks a supplied witness d; it does not compress the existential projection. Next work must attack C_sep(Y,Z) itself or the ranked cyclic cover directly. Keep the quantitative chain rho_promÃ¢â€°Â¤O(S_rect)Ã¢â€°Â¤O(rho_prom^3/log rho_prom); do not claim a lower bound from the enumeration or the nonrectangle interval test.
-## Q85 Ã¢â‚¬â€ Check whether succinct MCSP or SoS can transfer to explicit separator size
+C-123 proves exact equality of minimum rect-DAG size before and after replacing each low table by a syntactic circuit description; a section gives the reverse restriction. The DAG is therefore governed by semantic separation, not the description length. Direct enumeration of all descriptions gives size O(NÃƒâ€šÃ‚Â·2^ell), ell=O(s1 log(s1+n)). Universal-circuit evaluation only checks a supplied witness d; it does not compress the existential projection. Next work must attack C_sep(Y,Z) itself or the ranked cyclic cover directly. Keep the quantitative chain rho_promÃƒÂ¢Ã¢â‚¬Â°Ã‚Â¤O(S_rect)ÃƒÂ¢Ã¢â‚¬Â°Ã‚Â¤O(rho_prom^3/log rho_prom); do not claim a lower bound from the enumeration or the nonrectangle interval test.
+## Q85 ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â Check whether succinct MCSP or SoS can transfer to explicit separator size
 
 C-124 audits two nearby results. Gap-ImpMCSP hardness assumes cryptographic/proof-complexity hypotheses and uses a sampler circuit as the instance; explicit table-separator composition can cost exponential expansion. SoS degree lower bounds certify individual hard truth tables, not one shared separator across Y and Z. Only pursue these as a DAG route if a polynomial-size representation-preserving reduction to C_sep(Y,Z) is found.
 
@@ -874,7 +994,7 @@ C-150 selects, for each low/high pair, the earliest activated rule whose carrier
 
 ## Q110 - Selector hardness must survive witness projection
 
-C-151: the relation A_S=[k]\\S, B_T=T union {k} has unique answer min(A_S intersect B_T) with at least 2^(k-1) k-labelled rect-DAG leaves, hence deterministic communication Theta(k) and rect-DAG/protocol-tree size 2^(Theta(k)). Projecting outputs to Ã¢â‚¬Å“any common elementÃ¢â‚¬Â makes the same input relation one-leaf easy because k is always common. This is a calibration for C-150: a difficult first-missing carrier selector does not lower-bound signed mismatch, which accepts any differing coordinate. A transfer needs every valid-output leaf to be selector-homogeneous, or an explicit decoder/reduction. No OPS consequence.
+C-151: the relation A_S=[k]\\S, B_T=T union {k} has unique answer min(A_S intersect B_T) with at least 2^(k-1) k-labelled rect-DAG leaves, hence deterministic communication Theta(k) and rect-DAG/protocol-tree size 2^(Theta(k)). Projecting outputs to ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œany common elementÃƒÂ¢Ã¢â€šÂ¬Ã‚Â makes the same input relation one-leaf easy because k is always common. This is a calibration for C-150: a difficult first-missing carrier selector does not lower-bound signed mismatch, which accepts any differing coordinate. A transfer needs every valid-output leaf to be selector-homogeneous, or an explicit decoder/reduction. No OPS consequence.
 
 ## Q111 - Test C-150 leaf homogeneity against every separator
 
@@ -890,7 +1010,7 @@ The CCC 2025 theorem gives a large rect-DAG lower bound for Index-lifted CSP sea
 
 ## Q114 - Retract the partial-Index mismatch no-go
 
-C-155 was wrong: it imposed agreement on pairs y_x=0 that are outside SearchORÃ¢Ë†ËœIndex's legal domain. The legal-domain code a(x)=0^m, b(y)=y works and decodes every mismatch to the sole valid output. This is a useful domain-discipline correction. For the total unsat-CSP relations in C-154, continue only with statements that hold on every source pair.
+C-155 was wrong: it imposed agreement on pairs y_x=0 that are outside SearchORÃƒÂ¢Ã‹â€ Ã‹Å“Index's legal domain. The legal-domain code a(x)=0^m, b(y)=y works and decodes every mismatch to the sole valid output. This is a useful domain-discipline correction. For the total unsat-CSP relations in C-154, continue only with statements that hold on every source pair.
 
 ## Q115 - Analyze paired cut covers for total CSP search
 
@@ -917,7 +1037,7 @@ A symmetric two-tail Hamming promise matches the low/non-high counts, large-cyli
 C-161 adds the full affine family and its Hamming patch neighborhoods to an easy calibration; Walsh-Hadamard decoding keeps the separator at N^(1+o(1)). Thus balance, affine symmetry, and one large orbit do not suffice. The actual low class contains n input-literal truth tables forming a separating basis. There are |GL(n,2)|=2^(n^2+O(1)) ordered linear bases, each implemented with O(n^2) gates; composing any such basis with a Boolean circuit g computes g(Ax) with O(n^2) overhead. High tables exclude all these compositions when g fits within the s2 budget. Investigate whether these overlapping basis-induced partitions force distinct residual rectangles in every mismatch DAG. First test the claim against C-122's O(N) router for any family of at most eta*n low rows (for sufficiently small eta), and against descriptor invariance C-123. A proof must exploit interactions beyond these small anchor sets and beyond short descriptions. No lower bound currently follows.
 ## Q121 - Charge nonlinear composition interactions, not basis descriptions
 
-C-162 rules out treating the 2^(nÃ‚Â²+O(1)) ordered linear bases or their affine component rows as distinct hard anchors: the actual affine row family has a Walsh near-linear separator against Z, and descriptions lift/restrict without changing standard rect-DAG size. Each basis composition g(Ax) is just a low circuit when its O(nÃ‚Â²) overhead fits. Investigate only whether residual rectangles for many nonlinear g-composition families force incompatibility under product-hull merging. Any claim must apply to arbitrary separators, survive C-122/C-130/C-132 and C-160/C-161, and clear the explicit DAG-to-rho transfer threshold. No lower bound currently follows.
+C-162 rules out treating the 2^(nÃƒâ€šÃ‚Â²+O(1)) ordered linear bases or their affine component rows as distinct hard anchors: the actual affine row family has a Walsh near-linear separator against Z, and descriptions lift/restrict without changing standard rect-DAG size. Each basis composition g(Ax) is just a low circuit when its O(nÃƒâ€šÃ‚Â²) overhead fits. Investigate only whether residual rectangles for many nonlinear g-composition families force incompatibility under product-hull merging. Any claim must apply to arbitrary separators, survive C-122/C-130/C-132 and C-160/C-161, and clear the explicit DAG-to-rho transfer threshold. No lower bound currently follows.
 
 Promise guardrail: size-\(s_2\) compositions outside \(Y\) are medium rows, absent from \(Y\times Z\); their labels are unconstrained. Prioritize low-budget compositions unless a rigorous medium-extension lemma is found.
 
@@ -941,7 +1061,7 @@ C-165 proves that the CCC paper's one-sided cPHP/Index-to-mKW output map does no
 
 ## Q125 - Interval restriction contexts versus arbitrary state sharing
 
-C-166 rechecks C-78/C-133 and specializes C-110 to the universal interval scanner. C-167 then uses C-160 to refute a generic polynomial-loss normalization: a two-tail threshold promise has an O(N log N) arbitrary rect-DAG but 2^(Theta(N^beta/n)) pairwise nonmergeable contexts in an interval-local scanner. Do not pursue promise-independent interval normalization. The remaining version must identify a property specific to SIZE(s1) versus SIZE(s2)^c and prove a controlled conversion; otherwise shift to arbitrary rectangle-state merging without interval labels. Circuit descriptions alone do not specify a joint rectangle. Keep O(q^3/log q) cover-to-DAG loss explicit. C-167 is a route-pruning calibration, not an OPS bound. See bridge Ã‚Â§Ã‚Â§92-93/O-127.
+C-166 rechecks C-78/C-133 and specializes C-110 to the universal interval scanner. C-167 then uses C-160 to refute a generic polynomial-loss normalization: a two-tail threshold promise has an O(N log N) arbitrary rect-DAG but 2^(Theta(N^beta/n)) pairwise nonmergeable contexts in an interval-local scanner. Do not pursue promise-independent interval normalization. The remaining version must identify a property specific to SIZE(s1) versus SIZE(s2)^c and prove a controlled conversion; otherwise shift to arbitrary rectangle-state merging without interval labels. Circuit descriptions alone do not specify a joint rectangle. Keep O(q^3/log q) cover-to-DAG loss explicit. C-167 is a route-pruning calibration, not an OPS bound. See bridge Ãƒâ€šÃ‚Â§Ãƒâ€šÃ‚Â§92-93/O-127.
 ## Q126 - Force genuine two-party adaptivity in any compact mismatch DAG
 
 C-168 closes the row-only nonadaptive sample route: for each w in Y, any coordinate set S(w) guaranteed to contain a mismatch with every z in Z must have size at least N-log2|SIZE(s2)|=N-o(N), even if S is chosen from a circuit description. Try to construct a compact DAG whose Bob-dependent rectangle transitions exploit the high table to select a smaller relevant region, or prove that state sharing cannot implement that adaptation with o(N^(3+3epsilon)/log N) nodes. Keep this separate from interval-local routers, whose generic normalization is refuted by C-167, and from the ranked cyclic q-state model. No DAG or rho_prom lower bound follows from C-168.
@@ -954,7 +1074,7 @@ C-170 shows that an Alice-first one-switch DAG needs 2^Theta(s1) frontier states
 
 ## Q128 - Salvage or retire the fiber-witness lower bound
 
-C-171 proves S_rect(Fib)>=Omega(N^(2-beta)/n) by affine-flat component counting, but Fib is a stronger output relation than C-75 mismatch. Fib-to-Mis is O(1); Mis-to-Fib needs O(N^2) state copies to retain prior output coordinates, so the lower bound gives no useful Mis bound. Attempt a direct simulation that avoids storing the pair, or recast the affine-flat component obstruction on ordinary mismatch rectangles. If neither works, keep C-171 only as a fixed-pair-menu no-go and return to O-129's alternating-state charge. Exact scope and proof are in bridge Ã‚Â§97.
+C-171 proves S_rect(Fib)>=Omega(N^(2-beta)/n) by affine-flat component counting, but Fib is a stronger output relation than C-75 mismatch. Fib-to-Mis is O(1); Mis-to-Fib needs O(N^2) state copies to retain prior output coordinates, so the lower bound gives no useful Mis bound. Attempt a direct simulation that avoids storing the pair, or recast the affine-flat component obstruction on ordinary mismatch rectangles. If neither works, keep C-171 only as a fixed-pair-menu no-go and return to O-129's alternating-state charge. Exact scope and proof are in bridge Ãƒâ€šÃ‚Â§97.
 
 ## Q129 - Global cylinder budget and the missing alternation charge
 C-172 replaces C-129's r separate M2 allowances by one global allowance: for a state with r realized row signatures on K, at least r*2^(N-|K|)-M2 high columns are excluded. At the root this gives |pi_K(Y)|2^(N-|K|)<=M2, and point-indicator realizability adds Theta(s1/n) coordinates to the N-log M2 floor. This is a sharper state constraint, but its excluded-column sets may overlap heavily across nodes. Do not sum them without a disjointness/charging proof. Also, C-135 patching means a fixed N-Theta(s1) candidate set already hits every pair; the difficulty is rectangle-valid routing, not output support. Try an overlap-aware potential against C-80's adaptive router and C-160's threshold separator, or retire the profile as a local bound and return to O-129.
@@ -1003,7 +1123,7 @@ The mixed fiber now has a fixed label b, but its membership still depends on the
 
 C-183 gives a promise-valid 2x2 XOR submatrix for the predicate that the high table is mixed on the low row's zero-output fiber. Choose low rows whose zero sets are {p1,p2} and {p1,p3}; high completions with restrictions 001 and 010 exist because 2^(N-3)>|SIZE(s2)|. The mixed-fiber predicate is [[0,1],[1,0]], so its two valid pairs cannot merge into one product rectangle.
 
-Learning: C-182's dense-fiber lemma is only a pairwise existence statement. The identity of the useful fiber depends jointly on both inputs, so Ã¢â‚¬Å“Bob picks the fiber, then scanÃ¢â‚¬Â has a genuine rectangle-state gap. This only kills a single-rectangle selector. It does not bound the number of rectangles needed or arbitrary DAG size. Next seek a bounded-state alternating selector or a quantitative residual-rectangle lower bound, with C-80 and C-160 as counterchecks.
+Learning: C-182's dense-fiber lemma is only a pairwise existence statement. The identity of the useful fiber depends jointly on both inputs, so ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œBob picks the fiber, then scanÃƒÂ¢Ã¢â€šÂ¬Ã‚Â has a genuine rectangle-state gap. This only kills a single-rectangle selector. It does not bound the number of rectangles needed or arbitrary DAG size. Next seek a bounded-state alternating selector or a quantitative residual-rectangle lower bound, with C-80 and C-160 as counterchecks.
 
 ## Idea 321 - Track residual circuit complexity, not only mismatch mass
 
@@ -1058,7 +1178,7 @@ Try to construct a recursive shared suffix for the matched branch or prove that 
 
 For C-190's fixed Q, the exact matched-pair set E_Q has r_Q=|Y|Q| signature blocks. Each block has a high completion, while a product rectangle contained in E_Q can cover only one block. Point-indicator traces imply r_Q>=binom(k,t); because k/t=Omega(n), this is N^{omega(1)}.
 
-Learning: the clean recursion â€œcompare Q, then forget it and solve the remaining coordinatesâ€ cannot merge all matched signatures into a tail-only rectangle state. But this is not an arbitrary Mis lower bound: a general suffix can use Q-output leaves for cross-signature pairs, and a promise rectangle may intersect E_Q in a diagonal union. Next charge the tradeoff between those exits and signature-specific residuals; do not transfer the E_Q rectangle-cover number directly.
+Learning: the clean recursion Ã¢â‚¬Å“compare Q, then forget it and solve the remaining coordinatesÃ¢â‚¬Â cannot merge all matched signatures into a tail-only rectangle state. But this is not an arbitrary Mis lower bound: a general suffix can use Q-output leaves for cross-signature pairs, and a promise rectangle may intersect E_Q in a diagonal union. Next charge the tradeoff between those exits and signature-specific residuals; do not transfer the E_Q rectangle-cover number directly.
 ## Idea 329 - Recast mismatch as monotone KW; separate rectangle and equality states
 
 C-192 gives an exact dual-rail encoding rho(u)_(i,b)=1[u_i=b]. With the high table as the monotone-KW 0-input and the low table as the 1-input, every KW output is exactly a valid signed mismatch. Thus C-75 is a partial monotone KW relation, with no protocol-size loss under the encoding. The Q-matched relation E_Q is one equality-feasible state q(w)=r(z)=code(w|Q), while C-191 says any rectangle cover constrained to lie inside E_Q needs r_Q=N^(omega(1)) rectangles.
@@ -1125,7 +1245,7 @@ Let `tau_i(w)` be the first activation round of rule i. States `(i,r)` with Alic
 
 ### Idea 343 - Use a sparse family of mismatch samples (C-211)
 
-Point-minterm patching makes every low/high pair differ on `d=Omega(s2/n)` coordinates. A probabilistic construction yields `R=O(d log(eN/d))` subsets of size `k=ceil(N/d)` whose total incidence count is `O(N logN)` and which hit every d-set. This looks like a compact universal output support. It fails to give a DAG because â€œthis sample contains a mismatchâ€ is a union of rectangles, not a product rectangle; the sample index is a joint property. A prefix scan confined to one sample that discards its tested coordinates fails the product-hull test on exponentially many matched-prefix patterns. A composite protocol that uses other samples or revisits old coordinates may evade this test. Continue only by constructing a product-rectangle selector or proving a cross-sample non-shareability charge. No C-75 or fusion bound follows. See bridge C-211/O-141.
+Point-minterm patching makes every low/high pair differ on `d=Omega(s2/n)` coordinates. A probabilistic construction yields `R=O(d log(eN/d))` subsets of size `k=ceil(N/d)` whose total incidence count is `O(N logN)` and which hit every d-set. This looks like a compact universal output support. It fails to give a DAG because Ã¢â‚¬Å“this sample contains a mismatchÃ¢â‚¬Â is a union of rectangles, not a product rectangle; the sample index is a joint property. A prefix scan confined to one sample that discards its tested coordinates fails the product-hull test on exponentially many matched-prefix patterns. A composite protocol that uses other samples or revisits old coordinates may evade this test. Continue only by constructing a product-rectangle selector or proving a cross-sample non-shareability charge. No C-75 or fusion bound follows. See bridge C-211/O-141.
 
 
 ### C-212 next-step queue
@@ -1143,7 +1263,7 @@ The shattering/context improvements are route-specific and are not an arbitrary-
 
 The cyclic product-rectangle model is too strong for lower bounds: a `5N`-state coordinate cycle solves all disjoint mismatch promises and safely revisits cross-history coordinates. Do not spend effort proving superlinear complexity in that model. Test only a representation theorem that preserves the fusion restrictions: can a legal pair-list closure encode independent row/column state predicates with controlled q? The universal root state needs the cut `X=Y`, so a generic answer is the sparse-envelope problem itself. If no structure beyond that is found, return to O-141 for acyclic DAGs and the native `x_i(v)` activation equations. Preserve C-80/C-160 counterchecks. No q bound follows.
 
-### C-214 route filter â€” count the native closure syntax
+### C-214 route filter Ã¢â‚¬â€ count the native closure syntax
 
 The q-state least-fixed-point system has only 4Nq+2q^2+q bits of effective recurrence description, even though endpoints are arbitrary semantic subsets: two signed seed clauses per state, predecessor incidence, and empty outputs. Counting yields an artificial full partition with q=Omega(2^(N/2)), while the universal cyclic rectangle scan uses 5N states. This rules out generic polynomial compilation from cyclic rectangles to fusion. The promising next question is whether a concrete actual-promise restriction can force a closure-hard truth table on every separator; the medium band and the fixed explicit SIZE promise block direct counting. Do not treat C-214 as a Gap-MCSP lower bound. Preserve O-141 and all magnification losses. Full proof: research/C75_SHARED_DAG_CONTINUATION_2026-09-27.md.
 
@@ -1151,7 +1271,7 @@ The q-state least-fixed-point system has only 4Nq+2q^2+q bits of effective recur
 
 For each state v, join low/high Q-signatures when their tail projections overlap. Every such edge must be separated on the descendant Q-output coordinates. A fixed pair witness persists to its routed child, but the graph can gain edges when the tail support shrinks and lose edges under filtering; neither edge count nor static excluded-column volume is a conserved potential. Continue O-141 only with a parent-conditioned pair/history flow that prices Q exits against tail suffix reuse and survives C-80/C-160. The 2026 monotone-learning lifting paper is conditional and sample-based; no C-75 image map is available. Details: research/C215_Q_EXIT_GRAPH_AUDIT_2026-09-27.md.
 
-### C-216/C-217 next move â€” leave fixed scans behind; attack general merge reuse
+### C-216/C-217 next move Ã¢â‚¬â€ leave fixed scans behind; attack general merge reuse
 
 C-216 sharpens the local state profile to `r_v*2^(N-k-t_v)<=M2+Delta_v`, but transition accounting fails because Alice children duplicate the deficit and Bob children pay `|Z|`. Do not sum this potential.
 
@@ -1241,9 +1361,9 @@ Define kappa_square(s2) as the largest dimension of a truth-table-coordinate sub
 
 The user's latest steering prioritizes standard acyclic product-rectangle DAG complexity. The generic short-description shortcut is falsified: some N-output Karchmer-Wigderson mismatch relations have O(N) communication bits but Omega(2^N/N) DAG states. For actual Gap-MCSP, descriptions and truth tables induce exactly the same minimum DAG; universal evaluation leaves an expensive `exists d forall k` check, and 2N mismatch rectangles do not automatically binary-expand while keeping intermediate nodes rectangular. O-152 is the active obligation: lower-bound the OPS separator above `N^(3+3epsilon)/log N` or build a near-linear DAG. Keep `rho<=O(S_rect)<=O(rho^3/log rho)` and the product-hull merge law explicit. C-232 is not an actual-promise lower bound. Native proof splicing O-151 is subordinate unless it improves this target.
 
-## C-233 â€” Worklist activation ranks do not yet compile to a DAG
+## C-233 Ã¢â‚¬â€ Worklist activation ranks do not yet compile to a DAG
 
-Native q-rule activation ranks solve the minâ€“max recurrence `tau_i=1+max(min E-support rank,min H-support rank)`. A Dijkstra-style heap finalizes each active rule once and processes each support incidence once, giving `O(q^2 polylog q)` RAM evaluation. The input-dependent heap and memory access pattern is not a Boolean circuit. TSCs give a sharper model distinction: the direct cyclic positive-signal network is an `O(q^2)` partial recognizer (YESâ†’1, NOâ†’Z), while RAM simulation gives a total `O(q^2 polylog q)` separator. A partial-TSC lower bound above `N^(2+2epsilon+delta)` would force q superlinear, but no such bound is known and TSC is more expressive than an acyclic DAG. Standard `O(q^3/log q)` rect-DAG transfer remains unchanged. Next test: an oblivious fan-in-two simulation with `O(q^2 polylog q)` area despite rank-reversing SCCs, or keep TSC as a separate model. Full proof: `research/C233_MINMAX_ACTIVATION_RANK_AND_TRISTATE_RAM_BRIDGE_2026-09-27.md`.
+Native q-rule activation ranks solve the minÃ¢â‚¬â€œmax recurrence `tau_i=1+max(min E-support rank,min H-support rank)`. A Dijkstra-style heap finalizes each active rule once and processes each support incidence once, giving `O(q^2 polylog q)` RAM evaluation. The input-dependent heap and memory access pattern is not a Boolean circuit. TSCs give a sharper model distinction: the direct cyclic positive-signal network is an `O(q^2)` partial recognizer (YESÃ¢â€ â€™1, NOÃ¢â€ â€™Z), while RAM simulation gives a total `O(q^2 polylog q)` separator. A partial-TSC lower bound above `N^(2+2epsilon+delta)` would force q superlinear, but no such bound is known and TSC is more expressive than an acyclic DAG. Standard `O(q^3/log q)` rect-DAG transfer remains unchanged. Next test: an oblivious fan-in-two simulation with `O(q^2 polylog q)` area despite rank-reversing SCCs, or keep TSC as a separate model. Full proof: `research/C233_MINMAX_ACTIVATION_RANK_AND_TRISTATE_RAM_BRIDGE_2026-09-27.md`.
 ## Idea 353 - Blockwise description replication and the mixing dichotomy (C-234)
 
 Encode every k-bit Boolean function g, with 2^k=Theta(s2), as a low n-bit table by repeating g across r=N/2^k=Theta(N/s2) prefix blocks. Independent choices in all blocks range over the full table cube, so almost every hybrid is high by circuit counting. If proof trees exposed a disjoint state occurrence per block whose subtree and outside context were block-pure, state-label reuse would force exponentially many accepted hybrids and q>=2^(Omega(s2)).
@@ -1253,38 +1373,38 @@ The localization condition is false as a generic inference: the diagonal-only su
 
 On the repeated-circuit family w_g(p,u)=g(u), a context from g and replacement subproof from h are compatible exactly when g=h on every suffix input u represented in both supports (in any prefix block). This overlap is a partial description fingerprint. Full overlap blocks cross-description splicing. Outside the overlap, if each suffix input's repeated copies are all assigned to one side, the splice completes to another low diagonal table. A dangerous hybrid needs ownership to vary across prefix blocks on many suffix inputs. The next measure should jointly track fingerprint coverage and the circuit complexity/entropy of the ownership mask, not merely shared state labels or certificate widths. Details and conditional theorem: C-234.
 
-### C-235 â€” Attack canonical endpoints, not only free-cube dimension
+### C-235 Ã¢â‚¬â€ Attack canonical endpoints, not only free-cube dimension
 
 Represent every proof support by its Boolean interval `[ell,u]`. A compatible splice intersects intervals; its lower endpoint is the OR of positive supports and its upper endpoint is the AND of the complements of negative supports. Both endpoints must be size-s2 for a sound output proof. This suggests searching for a high-complexity ownership join directly, which could evade the already-tight safe-cube dimension barrier. The law is exact but does not force such a join: the unproved work is to show that covering all low circuits with few states forces a high join/meet. The singleton-safe artificial promise and diagonal equality cover are counterexamples to any generic forced-splice claim. See C-235.
 
-C-235 literature motif: Austrinâ€“Risse's SoS MCSP lower-bound framework uses CSP incidence expansion and local Boolean substitutions; their paper also treats monotone circuit size on monotone Boolean slice functions. Try replacing C-234's repeated blocks with expander-overlapping local views so nonlocal sharing can be tracked through an incidence graph. The exact transfer is absent: SoS refutations and native fusion readout are different measures, and encoding a hard slice promise as actual low/high-complexity truth tables is unresolved. Source: https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.CCC.2023.31.
+C-235 literature motif: AustrinÃ¢â‚¬â€œRisse's SoS MCSP lower-bound framework uses CSP incidence expansion and local Boolean substitutions; their paper also treats monotone circuit size on monotone Boolean slice functions. Try replacing C-234's repeated blocks with expander-overlapping local views so nonlocal sharing can be tracked through an incidence graph. The exact transfer is absent: SoS refutations and native fusion readout are different measures, and encoding a hard slice promise as actual low/high-complexity truth tables is unresolved. Source: https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.CCC.2023.31.
 
-### C-236 â€” Bound the compatible ownership-mask image
+### C-236 Ã¢â‚¬â€ Bound the compatible ownership-mask image
 
 For typical repeated low anchors g,h, their disagreement set has Theta(N) coordinates. A compatible context/subproof splice induces a selector choosing g or h on each disagreement coordinate; its endpoint is low, so at most `|SIZE(s2)|=2^(o(N))` distinct masks can occur among `2^(Theta(N))` possibilities. The exact missing step is a grammar-wide theorem connecting q states to the number/structure of these masks. The diagonal equality cover shows q=O(N) can safely restrict them to prefix-constant profiles; do not count proof trees without a bound on cyclic unfoldings or seed incidence. See C-236.
 
 C-236-A: Each compatible mask has an explicit completion `H_mu=w_h XOR mu` accepted by the splice. Thus the safe profile set is precisely bounded by the number of low tables; most masks on D have a canonical high completion. This makes profile avoidance a necessary behavior of any sound closure, but it does not yet say how many q-states profile avoidance costs. The diagonal equality cover realizes only prefix-constant masks and remains the main counterexample to generic claims.
 
-### C-237 â€” Do not pursue random-pair free-width improvements
+### C-237 Ã¢â‚¬â€ Do not pursue random-pair free-width improvements
 
 The selector-safe set for a typical repeated-anchor pair still contains a cube of dimension `Theta(s2 n)`, matching the universal C-230 limit. Explicit constructions use a prefix subcube in one differing suffix column for beta<1/2, and multiple differing suffix columns with arbitrary prefix functions for beta>=1/2. Thus a local dimension-only argument is exhausted. Next measure the grammar's ability to select/describe these structured free sets and ownership masks, or pursue the full-promise upper cover. See C-237.
 
-### C-238 â€” Common ranked witness skeletons mix globally
+### C-238 Ã¢â‚¬â€ Common ranked witness skeletons mix globally
 
 If x,y share the same active-state/predecessor topology in their ranked proof DAGs, combine all E-side seed witnesses from x with all H-side witnesses from y. Consistency suffices for a valid finite accepting proof, so the whole mixed cylinder is low. This exposes a global strategy-level product beyond one occurrence. Pigeonholing fails because a q-rule list admits up to `2^(O(q log q))` skeletons; the repeated low anchor family is much smaller. Seek restrictions on realizable skeletons from the fixed recurrence, not a raw count. See C-238.
-### C-239 â€” Canonical rank fibers and cross-family conflict-or-cover
+### C-239 Ã¢â‚¬â€ Canonical rank fibers and cross-family conflict-or-cover
 
 The state activation-rank vector alone does not determine the witness skeleton: a nonmaximal side can use either a seed or a predecessor while preserving the state rank. The two side-support minima per state do determine one canonical skeleton, so equal-side-rank anchors satisfy C-238's full E/H mixing law. For fixed Q, the canonical profile is a function of the 2q-bit seed signature, giving at most 2^(2q) canonical fibers. This sharpens the count for the canonical choice, not the set of all possible witness topologies, and is still too large for pigeonholing. Every shared state has a precise semantic duty: all context/replacement pairs either contain opposite rails or jointly cover all but kappa_square(s2) coordinates. The next target is an extremal bound for such cross-families under the legal endpoint-containment recurrence. A blockwise circuit-description cover still needs to keep one description alive across every block. See C-239.
 **Artificial-model check for C-239.** Monotone clique-versus-coloring is not the needed toy: each YES clique certificate leaves N-binom(k,2) bits free and all completions remain YES, unlike the `kappa_square(s2)=o(N)` safe-cylinder regime. Exact-clique recognition requires negative information and loses the standard monotone lower bound. Seek a width-preserving lift before importing monotone global-witness arguments. Razborov's primary paper: https://www.mathnet.ru/php/archive.phtml?jrnid=dan&option_lang=eng&paperid=9192&wshow=paper.
 C-239 collision check: one literal seed test per suffix input u separates all repeated anchors w_g(p,u)=g(u) with Theta(s2) features. The q>=N-o(N) regime has enough raw seed capacity, so don't use a seed-profile pigeonhole. Seek a restriction coming from endpoint-containment geometry plus soundness.
 
-## Idea 355 â€” Representation-invariant shared routing (C-241)
+## Idea 355 Ã¢â‚¬â€ Representation-invariant shared routing (C-241)
 
 The short-description route is exactly audited: any shared rect-DAG over circuit descriptions pulls back/restricts with no vertex change, so syntax cannot itself compress the graph. A universal evaluator only evaluates G(d)[k]; it does not remove the shared exists-d forall-k consistency problem. The direct minterm and dyadic-profile DAGs remain exponential. The live idea is to turn the product-hull condition into a global potential on residual row/column projections, allowing adaptive DAG merges but charging each genuinely new residual separator. C-215/C-216 show that naive statewise deficit sums fail; next candidates must account for overlap when paths enter from Alice and Bob splits. No lower bound is yet obtained.
 The C-240 empty-root normal form reduces seed-clause preprocessing to O((q-m)N+m) when m output roots have complementary singleton seeds. It leaves the predecessor OR routers untouched, so the dense-SCC cost remains. Do not pursue this as an asymptotic compiler unless endpoint-containment yields a bound on support incidences or SCC feedback.
 
 
-## Idea 356 â€” Couple native splice intervals to high-side blocker maps (C-242)
+## Idea 356 Ã¢â‚¬â€ Couple native splice intervals to high-side blocker maps (C-242)
 
 The exact cyclic recurrence has a finite antichain-semiring grammar: alternatives are minimized unions of support families, and each rule takes the union-product of its E/H supports. Cycles are resolved by least finite-proof semantics; every minimal support has a witness of height at most q. For any high table z, choose one false side at each inactive state. Following those blocker choices through a ranked proof of any low w yields a path entirely through states active on w and inactive on z, ending at a seed literal where w and z differ.
 
@@ -1293,70 +1413,70 @@ At a shared state i, every context/replacement pair gives an output proof. If co
 The dual blocker path itself is only a short pairwise mismatch witness and does not give a superlinear bound. C-228 remains counting hardness without dangerous splices; C-234's block-isolation condition is false as a universal inference because the diagonal subpromise has an O(N) equality cover. Continue with the full-promise near-linear cover in parallel. Full exact derivation and limitations: research/C242_NATIVE_CERTIFICATE_ANTICHAIN_AND_BLOCKER_PATH_2026-09-27.md.
 
 
-## Idea 357 â€” Prefix-intersection cover as the native upper-bound baseline (C-242)
+## Idea 357 Ã¢â‚¬â€ Prefix-intersection cover as the native upper-bound baseline (C-242)
 
 For any fixed ordering of truth-table coordinates, build one carrier for each realized low-table prefix p: T_p is the intersection of its matching high-side coordinate slices. Each prefix extension uses one legal fusion pair (parent carrier, next literal slice). Stop at length N-1. Every low w and its one-output-bit neighbor have circuit size at most s1+O(n)<s2, so the high-side intersection T_p for w's N-1 prefix is empty. This gives a valid native cover of size at most sum_{t=2}^{N-1}|pi_t(SIZE(s1))| <= N|SIZE(s1)|.
 
 The construction is exponentially large: C-212's uniform Theta(s1)-coordinate shattering gives 2^t distinct nonempty prefix cylinders for every t<=c s1 (the high side intersects each because each such cylinder has size much larger than |SIZE(s2)|). Thus the fixed-order prefix trie cannot give N polylog N. This only retires this fixed-order construction; adaptive coordinate choice, semantic circuit quotients, and non-prefix closure joins remain open.
 
 
-### Idea 359 â€” Factor the output into safe state zones (C-244)
+### Idea 359 Ã¢â‚¬â€ Factor the output into safe state zones (C-244)
 
 For each state i, let P_i be the family of finite proof supports rooted there and K_i the family of accepting-context supports with a marked hole at i. Then the legal accepted language is exactly the union over i of the intersections [P_i] AND [K_i]. Every low anchor lies in at least one such state zone, and soundness makes every whole zone a subset of SIZE(s2). At a high table, every state has either no matching context or no matching replacement proof. This packages all cross-splices at a state into one global factor rather than tracking a selected collision.
 
 The new lower-bound target is to bound the low-circuit mass or description entropy of a zone from the shared grammar that generates both context and proof supports. Zone count alone fails because each zone is a union of potentially exponentially many cylinders; C-228 and C-234 remain hostile checks. In parallel, synthesize the full-promise zones in N polylog N or N^(1+o(1)) states. Exact theorem and proof: research/C244_STATE_ZONE_FACTORISATION_AND_GLOBAL_READOUT_2026-09-27.md.
 
 
-### Idea 360 â€” Differentiate the certificate grammar at a marked state (C-245)
+### Idea 360 Ã¢â‚¬â€ Differentiate the certificate grammar at a marked state (C-245)
 
 Use an antichain semiring whose addition is alternative derivation and whose multiplication unions compatible supports. Add a one-hole context component: in each two-sided rule, the marked hole propagates through one side while the other side carries an ordinary proof. This is the proof-support analogue of automatic differentiation. It generates all context/replacement joins from the same cyclic grammar.
 
 For any input where a context and proof at i both match, their substitution yields an accepting proof containing i. Loop deletion along the root-to-hole path and rank-minimal sibling derivations give a matching context of height at most 2q. So the full-context state zone is captured by this bounded marked grammar. The construction has q^2 family labels across target states but may have exponentially large antichains; label counting gives no lower bound. Next seek an invariant on the joint support-incidence tensor that uses actual low/high circuit geometry. See research/C245_MARKED_ANTICHAIN_GRAMMAR_FOR_CONTEXTS_2026-09-27.md.
 
 
-### Idea 361 â€” Repeated-block certificate capacity versus grammar count (C-246)
+### Idea 361 Ã¢â‚¬â€ Repeated-block certificate capacity versus grammar count (C-246)
 
 For C-234's repeated table family, a support cylinder can contain an anchor with freely varying g(u) only if all r repeated copies of that suffix coordinate are unfixed. With at most kappa_square(s2)=o(N) free coordinates, one safe output certificate covers at most 2^(kappa/r)=2^(o(s2)) of the 2^(Theta(s2)) diagonal anchors. This forces exponentially many proof certificates.
 
 The q-state grammar can still have q*2^q*(2N+q)^(2q) ranked witness DAGs. At q around N this capacity dwarfs the low-anchor family; the count gives only a bound below the established linear floor. Thus raw antichain cardinality and proof-tree counts are closed as routes to superlinear q. The next invariant must use cross-join compatibility/endpoint geometry, not merely how many certificates exist. Full derivation: research/C246_REPEATED_BLOCK_CERTIFICATE_CAP_AND_COUNTING_FAILURE_2026-09-27.md.
 
 
-### Idea 362 â€” Multi-hole splice entropy and private regions (C-247)
+### Idea 362 Ã¢â‚¬â€ Multi-hole splice entropy and private regions (C-247)
 
 Mark pairwise disjoint occurrences in one accepting proof. Replacing all of them at once with arbitrary rooted proofs is valid whenever the total support remains consistent. If each replacement choice has an associated anchor code on a private coordinate region untouched by the context and other replacements; distinct anchors have distinct projections there, every tuple gives a distinct accepted table. Soundness caps the product of replacement-family sizes by |SIZE(s2)|.
 
 This recovers C-234's exponential hybrid contradiction under block isolation, but does not force private slots. Nested occurrences, cross-rail conflicts, and diagonal fingerprints reduce the compatible product. The next target is a q-sensitive dichotomy between large splice partition function and expensive organization of overlaps. Total entropy is only O(N), so it cannot alone yield a superlinear q bound. Full theorem and limits: research/C247_MULTIHole_SPLICE_ENTROPY_BUDGET_2026-09-27.md.
 
 
-### Idea 363 â€” Blocker rectangles as the native product-hull object (C-248)
+### Idea 363 Ã¢â‚¬â€ Blocker rectangles as the native product-hull object (C-248)
 
-For each state i, define A_i as low tables activating i and B_i as high tables on which i is inactive. The product R_i=A_iÃ—B_i is forced by unary state semantics. Every pair in R_i has a high-blocked side; the low table supplies a seed or predecessor on that same side, giving an exact recursive decomposition into mismatch rectangles or R_j. Activation rank terminates every pair's route. This makes global cross-state reuse explicit, but rectangle area/count fails: the artificial promise Y=all nonconstant tables, Z={0^N,1^N} has a one-rule cover with R_1=YÃ—Z. Different pairs route to different mismatches, so a shared pair rectangle does not itself produce a mixed truth table. Seek a lower bound on the shared two-sided routing grammar, not on rectangles alone.
+For each state i, define A_i as low tables activating i and B_i as high tables on which i is inactive. The product R_i=A_iÃƒâ€”B_i is forced by unary state semantics. Every pair in R_i has a high-blocked side; the low table supplies a seed or predecessor on that same side, giving an exact recursive decomposition into mismatch rectangles or R_j. Activation rank terminates every pair's route. This makes global cross-state reuse explicit, but rectangle area/count fails: the artificial promise Y=all nonconstant tables, Z={0^N,1^N} has a one-rule cover with R_1=YÃƒâ€”Z. Different pairs route to different mismatches, so a shared pair rectangle does not itself produce a mixed truth table. Seek a lower bound on the shared two-sided routing grammar, not on rectangles alone.
 
-An independent compiler unrolls q rounds to at most 3qÂ²+1 unbounded-fan-in monotone gates, gate-count model only. Its O(qÂ²(N+q)) incidences remain cubic near q=N, so it does not repair the standard compiler. The relevant lower-bound target would be monotone extension complexity of the actual dual-rail Gap-MCSP promise; no such bound is known here. Full proof and literature boundary: research/C248_BLOCKER_RECTANGLES_AND_MONOTONE_EXTENSION_COMPILER_2026-09-27.md.
+An independent compiler unrolls q rounds to at most 3qÃ‚Â²+1 unbounded-fan-in monotone gates, gate-count model only. Its O(qÃ‚Â²(N+q)) incidences remain cubic near q=N, so it does not repair the standard compiler. The relevant lower-bound target would be monotone extension complexity of the actual dual-rail Gap-MCSP promise; no such bound is known here. Full proof and literature boundary: research/C248_BLOCKER_RECTANGLES_AND_MONOTONE_EXTENSION_COMPILER_2026-09-27.md.
 
 
-### Idea 364 â€” Bi-blocked output roots and fixed escape witnesses (C-249)
+### Idea 364 Ã¢â‚¬â€ Bi-blocked output roots and fixed escape witnesses (C-249)
 
 Because the actual high set intersects every signed literal half-cube, a minimum-rank active empty-carrier root on any accepted low input cannot have an empty endpoint. Such a side would need either an impossible empty seed slice or an earlier empty-carrier predecessor. Each useful root therefore has two nonempty disjoint endpoints and contains high witnesses z_E,z_H that block the opposite sides. C-240 further limits direct seed vocabularies to one complementary literal pair or a seedless side; every proof must escape the root through a predecessor. H-side escapes pair with the fixed z_E, and E-side escapes with z_H.
 
 This provides a normalized root-to-escape layer but no charge for how many anchors each predecessor rectangle serves. Root count, fixed witnesses, and the one-bit selector are only O(q). The next theorem must aggregate the escape relation with safe context/proof joins, or show how to build a near-linear full-promise cover. The C-248 q=1 toy fails the high-side shattering condition, so it only blocks generic rectangle-area arguments. See research/C249_BIBLOCKED_OUTPUT_ROOT_NORMAL_FORM_2026-09-27.md.
 
 
-### Idea 365 â€” Half-safe escape supports at seedful roots (C-250)
+### Idea 365 Ã¢â‚¬â€ Half-safe escape supports at seedful roots (C-250)
 
 At a minimum-rank output root with a direct seed literal (k,b), a low anchor matching that literal cannot exit through an opposite-side seed. It must use a predecessor. The high half-cube inside the seed side is excluded from the opposite endpoint and hence from the predecessor carrier. C-243 then says every high completion of an escape support avoids bit b, so that half of the support cylinder is all low. This forces at most ceil(log2|SIZE(s2)|)+1 free coordinates.
 
 On repeated-block anchors this gives a per-support capacity of 2^((kappa+1)/r), recovering the certificate-capacity phenomenon for seedful branches. Taking the result to its limit still fails at certificate-to-state counting: q states permit exp(O(q log(N+q))) ranked witness-DAG descriptions, which is too many at the linear scale. Seedless roots still need the two-sided C-242/C-247 join analysis. Next seek a grammar-wide reuse charge, not a stronger local width bound. Full derivation: research/C250_ONE_SIDED_SAFE_ESCAPE_CYLINDERS_2026-09-27.md.
 
 
-### Idea 366 â€” Root escape dichotomy closes the local seedless gap (C-251)
+### Idea 366 Ã¢â‚¬â€ Root escape dichotomy closes the local seedless gap (C-251)
 
 At a normalized empty output root, inspect a low anchor's selected root proof. If a direct seed matches, the other side must use a predecessor, whose support is half-safe by C-250. If no direct seed matches, both sides use predecessors; their support union is consistent, and every completion preserves the empty-root proof, so the whole union cylinder is low. Thus every low anchor has either a one-sided half-safe escape support or a two-sided wholly-low paired support. On repeated-block anchors either signature type has capacity at most 2^((kappa+1)/r).
 
 This takes the local argument through seedless and missed-seed roots, but still stops at signature counting. Paired proof-DAG counts square the previous upper bound only up to constants, leaving exp(O(q log(N+q))) descriptions. The next step must charge incidence/overlap among signatures that reuse states, or construct a near-linear full-promise cover. No state lower bound follows from per-signature capacity. Full proof and exact failure: research/C251_ROOT_ESCAPE_SUPPORT_DICHOTOMY_2026-09-27.md.
 
 
-### Idea 367 â€” Quotient root escapes to a state-conflict graph (C-252)
+### Idea 367 Ã¢â‚¬â€ Quotient root escapes to a state-conflict graph (C-252)
 
 For each empty output root i, every pair of active predecessor states (j\in P_i,k\in R_i) is forbidden on high tables: C-243 would put a high table in both disjoint endpoints. A matching direct seed on one side plus an active opposite predecessor is likewise forbidden. Conversely every accepted low triggers one of these patterns. Collapsing over roots yields a bipartite conflict relation on at most q state pairs and at most 2qN state/literal incidences; the resulting depth-two readout has at most q^2+2qN terms.
 
@@ -1381,18 +1501,18 @@ If a truth table z is h entries from a size-s1 table, point-patching yields a ci
 **C-364 quantifier correction:** this is `NO_Gap subseteq NO_Approx`, so Gap-MCSP is a restriction of the approximate promise. The approximate promise may also reject medium-complexity tables, which a Gap separator may accept. Therefore a lower bound for approximate MCSP does not transfer to Gap-MCSP. Atserias-Muller (2025) additionally require subexponential low thresholds for their formula bound; fixed `alpha>0` gives `sigma=2^(alpha n)/n`, outside that range. Their separate uniform-circuit consequence is not a native-q theorem. Keep this as a checked NO-set containment only, not a q route unless a reverse reduction is proved. Full audit: `research/C364_APPROX_MCSP_HARDCORE_AND_DISTINGUISHER_TRANSFER_AUDIT_2026-09-29.md`; source: https://arxiv.org/html/2503.24061.
 
 
-### Idea 371 â€” Residual-hull state charge for the C-75 mismatch DAG (C-255)
+### Idea 371 Ã¢â‚¬â€ Residual-hull state charge for the C-75 mismatch DAG (C-255)
 
 For a shared DAG node v with rectangle A_v x B_v, let K_v be all output labels below it. Correctness is exactly `pi_Kv(A_v) intersect pi_Kv(B_v)=empty`. When histories merge, the suffix must solve the full cross-product hull of their unions. Try to attach to each state a residual signature whose potential decreases under every child transition and whose total cannot be charged twice when high projections overlap. C-80/C-160 are hostile checks. A local projection deficit or description count is not enough. The useful quantitative target through the current compiler is `S_rect>N^(3+3epsilon)/log N`; alternatively, an `N^(1+o(1))` adaptive DAG would kill the superlinear-cover route. No potential is proved yet. See C-255.
 
-### Idea 372 â€” Transfer DAG bottleneck counting through a hard-image search embedding (C-255)
+### Idea 372 Ã¢â‚¬â€ Transfer DAG bottleneck counting through a hard-image search embedding (C-255)
 
-Beameâ€“Whitmeyer (ICALP 2025, Theorem 1.7) prove a `2^(Omega(m^(1/4)))` lower bound for triangle-DAGs solving bit-pigeonhole search. Taking `m=K(log N)^4` clears the current compiler threshold for large K. The hard-image condition has a new solution: since `|SIZE(s1)||SIZE(s2)|=2^o(N)`, choose a common mask `r` outside `SIZE(s1) xor SIZE(s2)`; then every low codeword `u` maps to the high table `u xor r`. The unresolved condition is answer soundness: for each coordinate, one of the two signed mismatch rectangles is diagonal (if r_k=1) or off-diagonal (if r_k=0), and every such rectangle must be contained in a valid source-answer set under a fixed decoder. No BPHP encoding with this cut-soundness property is known. A separate bottleneck-width adaptation still lacks a per-node capacity lemma. Full proof: C-255.
-### Idea 373 â€” Common-translate answer-code reconstruction obstruction (C-256)
+BeameÃ¢â‚¬â€œWhitmeyer (ICALP 2025, Theorem 1.7) prove a `2^(Omega(m^(1/4)))` lower bound for triangle-DAGs solving bit-pigeonhole search. Taking `m=K(log N)^4` clears the current compiler threshold for large K. The hard-image condition has a new solution: since `|SIZE(s1)||SIZE(s2)|=2^o(N)`, choose a common mask `r` outside `SIZE(s1) xor SIZE(s2)`; then every low codeword `u` maps to the high table `u xor r`. The unresolved condition is answer soundness: for each coordinate, one of the two signed mismatch rectangles is diagonal (if r_k=1) or off-diagonal (if r_k=0), and every such rectangle must be contained in a valid source-answer set under a fixed decoder. No BPHP encoding with this cut-soundness property is known. A separate bottleneck-width adaptation still lacks a per-node capacity lemma. Full proof: C-255.
+### Idea 373 Ã¢â‚¬â€ Common-translate answer-code reconstruction obstruction (C-256)
 
 Static output-label decoding can leak enough structure to reconstruct the supposedly hard mask. For a two-wise-rich hard KW partition with 0,e_i on one side and 1^M on the other, every active C-75 coordinate must encode one source bit with the same phase on both parties. The active-coordinate indicator is OR_i(u_0 xor u_ei), and r=v_1 xor u_0 xor active; this costs O(Ms1). The full-domain BPHP source is also blocked: both signed labels at an active target coordinate would make the Alice domain the union of two fixed collision-equality sets, which cannot cover it. These are reduction-interface no-go results, not target lower bounds. Next test whether terminal-specific decoding has a small enough binary-DAG refinement cost; otherwise focus on direct bottleneck capacity or an actual C-75 DAG construction. See C-256.
 
-### Idea 374 â€” Parity-code splicing lock (C-257)
+### Idea 374 Ã¢â‚¬â€ Parity-code splicing lock (C-257)
 
 The even/odd parity promise has a native fusion cover of size `4N-4` although every proper partial assignment has an odd high completion and every consistent accepting support fixes all N bits. Any consistent splice is again even. This is a hostile calibration: width, high-side richness, and anchor count do not force dangerous splicing. The missing target-specific resource is common short-description consistency for `SIZE(s1)` under mixed support joins. Do not use this toy as an OPS lower bound. See `research/C257_PARITY_CODE_SPLICE_LOCKING_CALIBRATION_2026-09-27.md`.
 
@@ -1412,43 +1532,43 @@ The exact circuit patching budget is `CC(hybrid)<=t s1+O(t)`, so up to `Theta(n)
 
 The native least-fixed-point grammar generates minimal proof certificates `C_i` and their exact minimal transversal blockers `B_i`. For an accepting context K with a hole at i, every consistent join `K union P` with a proof P rooted at i is an accepting output certificate, and every output blocker hits it. Pigeonholing forces an internal state to serve `2^d/q` repeated-block anchors when `d log d=O(s1)`, but C-258's O(N) equality fingerprint shows this reuse can remain safe. This creates a two-sided incidence object `(K,P,B)` tied to one q-rule grammar. The missing bound is incidence multiplicity: one blocker can hit many joins. No q lower bound follows. Full derivation: C-260.
 
-## Q132 â€” Transfer Rao matching hardness into LowExt
+## Q132 Ã¢â‚¬â€ Transfer Rao matching hardness into LowExt
 
 C-261 gives a genuine cyclic monotone source lower bound exp(Omega(sqrt(v))) for perfect matching versus no v/4-matching. Use v=Theta(log^2 N); the source has only Theta(log^4 N) edge inputs and its cyclic complexity can exceed N^(1+epsilon) by choosing the constant. C-262 reduces the transfer question to building a monotone signed-partial-table map phi with AND cost below the source exponent, low completion on every YES graph, and high completion on every NO graph. The simple edge-indicator code is killed by C-263. Look for a global code-validity mechanism, possibly using block summaries of absent rails, without making phi compute matching itself.
 
-## Q133 â€” Summary-rail synchronization
+## Q133 Ã¢â‚¬â€ Summary-rail synchronization
 
 Cavalar et al. (ECCC TR26-128, 2026) use block summary variables for absent literals in a lifted Resolution-to-monotone-learning construction. This does not directly transfer to our full truth-table LowExt relation: it is conditional algorithmic hardness for succinct examples. The technique-level question is whether a compact summary of absent table rails can synchronize many context/proof joins while preserving one latent circuit description. Any proposed bridge must quantify its AND cost and pass the C-258 equality test.
 
-## Q134 â€” Compatibility relation beyond row counts
+## Q134 Ã¢â‚¬â€ Compatibility relation beyond row counts
 
 For each native state i, define the low-description relation Comp_i(w,w') when an accepting context matching w and a proof rooted at i matching w' have a consistent union. Pair this relation with the output blockers. C-260 proves exact incidence; C-258 shows equality fingerprints realize compact safe synchronization. Do not count rows, pairs, or blocker hits alone. Seek a complexity measure for the grammar's representation of many incompatible Comp_i relations that yields q>=N g(N).
 
-## Q135 â€” Cofactor recursion ceiling
+## Q135 Ã¢â‚¬â€ Cofactor recursion ceiling
 
 Independent recursive partitioning into r blocks multiplies the number of free size-s1 leaf circuits. The soundness budget permits R=O(n) leaves, while making all leaf truth tables trivially size-s1 requires R=N^(1-beta+o(1)). Retire the naive product recursion. Continue only with a globally shared circuit description or a new cofactor compiler that preserves coherence without paying R s1.
 
-## Q136 â€” Matching source parameter window with explicit cyclic semantics
+## Q136 Ã¢â‚¬â€ Matching source parameter window with explicit cyclic semantics
 
 C-266 audits the cyclic step: a q-intersection least-fixed-point grammar stabilizes in q rounds and unrolls to `O(q^2(v^2+q))` ordinary monotone gates. Thus Rao's perfect-matching versus no-`v/4`-matching lower bound survives cycles as `exp(Omega(sqrt(v)))`. With `v=A(log N)^2`, the source exponent beats `N^(1+epsilon)` if `c' sqrt(A)>1+epsilon`; map cost `N^eta` is dominated if `c' sqrt(A)>eta`. The small-beta completion-size issue is gone for `poly(v)` witnesses. The unsolved step is still a low-AND monotone LowExt map with a high NO completion.
 
-## Q137 â€” Do not import generic partial-MCSP hardness as a monotone reduction
+## Q137 Ã¢â‚¬â€ Do not import generic partial-MCSP hardness as a monotone reduction
 
 Ilango's ETH-hard partial-MCSP result uses a full truth-table output and permutation choices encoded by optimal monotone read-once formulas. It gives no bound on the number of AND gates in each output rail as a monotone function of source bits, and no unrestricted high-completion promise. Reuse the optimal-description synchronization motif only after constructing and auditing those exact interfaces.
 
-## Q138 â€” Hard-baseline patch mask obstruction
+## Q138 Ã¢â‚¬â€ Hard-baseline patch mask obstruction
 
 If a NO image fully pins one high table z, and a YES witness w_M differs from z only on a succinct mask D_M whose indicator costs at most `s2-s1-O(1)`, then z itself has size at most s2. This kills structured edge-block masks on a common fully specified baseline. A surviving map must either use genuinely hard-to-describe changed-coordinate masks or leave part of z unpinned and hide its hardness there; the latter must still prevent every unintended low completion.
 
-## Q139 â€” Expander-overlap synchronization family (candidate, unproved)
+## Q139 Ã¢â‚¬â€ Expander-overlap synchronization family (candidate, unproved)
 
 Replace repeated identical blocks by local views of one short latent circuit description placed on overlapping sets indexed by a bounded-degree expander. Each view should be individually computable by a size-s1 circuit, while independently recombining views should typically require size above s2. The intended global test is whether a q-state grammar can enforce agreement on all overlapping projections without an equality scan for one fixed partition. Mandatory checks: (i) explicit circuit for every diagonal low table; (ii) counting or construction of high hybrids; (iii) prove any consistent state splice corresponds to independent local choices; (iv) test whether one O(N) fingerprint family still synchronizes them. No construction or q lower bound exists yet; this is a design target, not evidence.
 
-## Q140 â€” Terminal-specific BPHP sink answer localization
+## Q140 Ã¢â‚¬â€ Terminal-specific BPHP sink answer localization
 
 Static labels fail by C-256. For a terminal-specific route, a broad collision-pair rectangle leaves the common hole value among `2^n0` choices; splitting into fixed violated-clause rectangles costs exponential-in-n0 refiners and erases the Beame-Whitmeyer exponent at `n0=K log^4 N`. Seek an invariant of the actual pulled-back sink rectangles that reduces the answer list, and preserve the triangle-DAG target model. Otherwise close the common-translate/BPHP route.
 
-## Q141 â€” Compile the native worklist without replaying all dense supports
+## Q141 Ã¢â‚¬â€ Compile the native worklist without replaying all dense supports
 
 The fixed-support closure has q activations and E<=2q^2 support incidences; a sequential worklist scans each incidence once, but a plain synchronous circuit recomputes all E incidences for q rounds. Explore an oblivious event queue plus batched routing/flag updates with total `O((qN+E)polylog q)` gates. A construction must explicitly implement dynamic selection and writes; uncounted RAM operations or a generic circuit simulation are not enough. No such circuit is known here.
 
@@ -1600,13 +1720,13 @@ The literal Shannon compiler cannot be lifted to one arbitrary monotone guard: t
 
 ## Q176 - Route the locally hard prefix block without gate-address states (C-314)
 
-The safe envelope A_k contains every low table and lies inside SIZE(s2) for k=small Theta(log N). A high table must have a block restriction above s1. Find a native closure that locates such a block using only literal seeds and compatible support joins, or prove state synchronization requires superlinear q. Explicit gate×address evaluation costs Theta(N*s1); support-carried addresses fail C-306. Stress-test with parity, equality, and owner-mask hybrids. See C-314/O-168.
+The safe envelope A_k contains every low table and lies inside SIZE(s2) for k=small Theta(log N). A high table must have a block restriction above s1. Find a native closure that locates such a block using only literal seeds and compatible support joins, or prove state synchronization requires superlinear q. Explicit gateÃ—address evaluation costs Theta(N*s1); support-carried addresses fail C-306. Stress-test with parity, equality, and owner-mask hybrids. See C-314/O-168.
 
 ## Q177 - Prove or refute a native direct-sum law for blockwise constant-gap MCSP (C-315)
 
 The k-copy upper composition assumes a monotone local separator over signed block literals.
 
-For k=Theta(log N), a local separator for `SIZE(s1)` versus block complexity above `t0≈s2/k` yields the global separator by k-fold AND, at cost `k*a+(k-1)`. The local gap is constant factor. Counting gives globally high tables with every block complexity in `(B*s1,A*s1]` for fixed constants, so no growing local margin is forced. Determine whether a global native q-cover must pay a direct-sum cost across these disjoint local gaps, or whether a shared selector can beat k copies while preserving all C-281 compatible joins. A proof must survive parity and repeated-equality calibrations. C-315 gives no q bound; actual `q=N-o(N)`.
+For k=Theta(log N), a local separator for `SIZE(s1)` versus block complexity above `t0â‰ˆs2/k` yields the global separator by k-fold AND, at cost `k*a+(k-1)`. The local gap is constant factor. Counting gives globally high tables with every block complexity in `(B*s1,A*s1]` for fixed constants, so no growing local margin is forced. Determine whether a global native q-cover must pay a direct-sum cost across these disjoint local gaps, or whether a shared selector can beat k copies while preserving all C-281 compatible joins. A proof must survive parity and repeated-equality calibrations. C-315 gives no q bound; actual `q=N-o(N)`.
 
 ## Q178 - Exact algebraic fingerprints cannot compress every truth-table difference (C-316)
 
@@ -1684,45 +1804,45 @@ Applebaum-Nir's explicit family gives total share lower bound `Omega(t^2/log t)`
 C-329 rejects two shortcuts: counting positional policies gives only `Omega(s1/log N)`, and one shared state per circuit gate cannot handle an OR gate whose different address lanes require different children. Find either (i) an explicit compatible-support encoding of address-dependent gate selectors with `q=N^{1+o(1)}` total states and a full all-input soundness proof, or (ii) a theorem showing that every C-319/C-281 grammar for the full `SIZE(s1)` class must pay superlinear q to preserve those selectors. Do not assume the direct `N*s1` gate/address product is necessary for arbitrary semantic endpoints. Preserve C-257, C-258, C-307, C-317, and all C-281 splices. Current q remains `N-o(N)`.
 
 
-## Q190 — Test recent pseudo-independent sunflower bounds against the actual matching distributions (C-330; closed for this transfer)
+## Q190 â€” Test recent pseudo-independent sunflower bounds against the actual matching distributions (C-330; closed for this transfer)
 
 TR26-220 requires every small-coordinate marginal to be a convex mixture of near-equal product distributions. The odd-cut edge distribution fails on cycle constraints; the perfect-matching edge distribution fails on incident-edge exclusivity. A vertex-color lift fits the theorem in principle, but width 2w and error delta around v^(-10w) give independence order O(w^2 log v), and its sunflower size threshold is weaker than the matching-specific C-310 lemma. It adds no D1 tail guarantee and no C-125 map. Reopen only if a new source distribution or encoder makes these hypotheses useful.
 
-## Q191 — Can an alternating proof system expose a globally committed witness to the native recurrence? (C-331; direct PCP compilation closed)
+## Q191 â€” Can an alternating proof system expose a globally committed witness to the native recurrence? (C-331; direct PCP compilation closed)
 
 A PCP gives the quantifier pattern exists proof, for all random strings, accept, but C-319 states read only predecessor activation bits. Winning action choices and attractor ranks are not writable/readable memory. Directly sharing proof-bit states loses verifier context; duplicating them loses proof consistency. A viable alternative must encode an exclusive global witness in the least-fixed-point activation vector with a proved state bound, or replace witness verification with a different semantic mechanism. No cover or lower bound follows yet.
 
 
-## Q192 — Find an alternation-sensitive local PRG for the exact native game (C-332)
+## Q192 â€” Find an alternation-sensitive local PRG for the exact native game (C-332)
 
 Cheraghchi et al. obtain N^(2-o(1)) lower bounds for exact MCSP against ordinary branching programs through local PRGs with output-table complexity S^(1/2+o(1)). The two-distribution logic also applies to a low/high promise if PRG outputs have CC<=s1 and random tables have CC>s2, but for small fixed beta the known generator is far too complex locally. C-319 is cyclic alternating reachability, not an ordinary BP; the existing q^2 circuit unrolling does not transfer the BP lower bound.
 
 A viable route needs a PRG/shrinkage theorem directly for the exact positive alternating game whose outputs have circuit complexity below s1 even when q is near N, or an independently proved q-preserving compiler into a model with strong MCSP lower bounds. It must handle universal alternation and lfp cycles and survive the C-257 parity calibration. The current BP theorem is a route map only; no q gain follows.
 
 
-## Q193 — Specialize the PRG to sound separators, not all native games (C-333)
+## Q193 â€” Specialize the PRG to sound separators, not all native games (C-333)
 
 Trace tables of random low-degree polynomials are K-wise independent and have circuit size O(Kn^2), but when this is below s1 their outputs lie in a proper linear code. An abstract C-319 equation system computes the dual parity test with O(N) states. C-257's related endpoint cover is only for an artificial parity universe, not the actual high-table universe. Also, a q-state readout can depend jointly on all 2q seed clauses, so clause-wise independence is inadequate; exact independence for all short clauses needs order min(N,O(q log q)).
 
 The only viable continuation of the local-PRG route must exploit the fact that the game is a sound separator for SIZE(s1) versus outside SIZE(s2), excluding generic parity distinguishers. Seek a nonlinear low-circuit distribution and a soundness-conditioned indistinguishability theorem, or close the PRG approach. This is a route audit, not q progress. See `research/C333_LOW_DEGREE_POLYNOMIAL_PRG_PARITY_OBSTRUCTION_2026-09-29.md`.
 
 
-## Q194 — Exploit the policy-CNF normal form (C-334)
+## Q194 â€” Exploit the policy-CNF normal form (C-334)
 
 Retain a whole seed clause whenever a positional policy stops at a seed. Then each fixed policy accepts a CNF region with at most 2q clauses, and the game acceptance set is the union of at most 2^(2q) distinct regions: there are q(q+2)^(2q) raw strategies, but a region is determined by the subset of at most 2q seed clauses used at stops. Soundness forces every region into SIZE(s2), but the CNF satisfying-assignment count yields only q>=(N-o(N))/2.
 
 Naor-Naor small-bias spaces give low-circuit output tables that avoid the polynomial source's parity check. Bazzi fooling of each distinct policy CNF plus a union bound needs k=O(q^2) independence. Do not repeat the per-policy union bound. The remaining target is a shared-union PRG or direct grammar lower bound exploiting soundness and endpoint incidence. See research/C334_POLICY_CNF_NORMAL_FORM_AND_SMALL_BIAS_LIMIT_2026-09-29.md.
 
-## Q195 — Parked local route: empty-root/promise span-program bridge after GEN (C-335)
+## Q195 â€” Parked local route: empty-root/promise span-program bridge after GEN (C-335)
 
 An unrestricted recurrence-to-MSP compiler is impossible: the abstract equations compute GEN_n with O(n^3) states, while every-field MSP complexity is 2^{n^{Omega(1)}}. A generic formula expansion costs 2^{O(q log q)} and cannot improve the q floor. Endpoint-incidence alone is no obstacle: GEN is realizable in actual internal states, but its gate consequences are all nonempty and the native output stays false. Keep this as a calibration and do not resume it absent a direct q-sensitive native-output theorem. Primary work is O-167/O-168: prove a state-sensitive synchronization bound or construct a full-promise near-linear cover. No q improvement follows. See research/C335_NATIVE_TO_SPAN_PROGRAM_COMPILER_AND_MODEL_BOUNDARY_2026-09-29.md.
 
-## Q196 — Force or charge multi-hole block synchronization (C-336)
+## Q196 â€” Force or charge multi-hole block synchronization (C-336)
 
 C-336 proves that a single accepting context cannot expose mutually compatible independent replacement menus across `K log N` blocks when each menu comes from low single-block anchors and the product family exceeds `SIZE(s2)`. This gives a concrete state-reuse obstruction at the OPS gap scale. The active task is to derive from the exact q-state recurrence that either such a forbidden product occurs or q pays a superlinear synchronization cost. No proof currently turns the product prohibition into q lower bounds; support incompatibility and context-specific selectors remain open. Preserve C-257 parity and C-258 equality. See `research/C336_MULTIHOLE_OWNER_PRODUCTS_AND_BLOCK_HARDNESS_2026-09-29.md`.
 
 
-## Q197 — Charge global selectors using all-low coverage (C-337)
+## Q197 â€” Charge global selectors using all-low coverage (C-337)
 
 C-337 shows that independent-product entropy is avoidable at near-linear cost for a restricted block family: check zero outside selected subcubes and cap the number of active blocks. The resulting native cover accepts every one-block low anchor and rejects the high independent product, but excludes most of `SIZE(s1)`, including parity and relationally generated cofactor tables. A stronger distinct-row selector also captures repeated rows on the selected blocks, but still misses an O(n)-size block-prefix/suffix-prefix relation. Do not sharpen these selector counts further. The surviving task is to prove that any grammar covering **all** low circuits either pays superlinear q or can be compiled into a full-promise `N^(1+o(1))` cover. It must distinguish genuine shared descriptions from arbitrary independent cofactors and pass C-257/C-258/C-307/C-317. Actual q remains `N-o(N)`; no breakthrough checkpoint changes.
 
@@ -1752,11 +1872,11 @@ The multiplexer test sharpens the local state-capacity claim: for `Mux(d,a)=d_a`
 
 The exact local failure is `forall a exists C_a: C_a(a)=w_a`; it is true on every table because `C_a` may be constant `w_a`. Circuit-size membership needs `exists C forall a`, with one coherent description. The shared-state/address-loss and path-register results explain why two simple encodings fail, but neither bounds arbitrary Q.
 
-The actual next question is whether OPS's conditional near-linear anti-checker circuit can be simulated by valid C-319 endpoint pairs with q at the same asymptotic cost, or whether a q-sensitive direct theorem is needed. The established compiler is one-way, Q to an ordinary monotone circuit at cost q²; it does not itself give a reverse native construction. All five breakthrough checkpoints remain NO, and `rho_GapMCSP` remains `N-o(N)`. Details: C-343.
-## Q202 — Make the pointwise hard-core sampler effective without losing the small gap
+The actual next question is whether OPS's conditional near-linear anti-checker circuit can be simulated by valid C-319 endpoint pairs with q at the same asymptotic cost, or whether a q-sensitive direct theorem is needed. The established compiler is one-way, Q to an ordinary monotone circuit at cost qÂ²; it does not itself give a reverse native construction. All five breakthrough checkpoints remain NO, and `rho_GapMCSP` remains `N-o(N)`. Details: C-343.
+## Q202 â€” Make the pointwise hard-core sampler effective without losing the small gap
 
 C-345 shows that high worst-case complexity above s2 suffices, by minimax, for a short address list defeating every T=lambda*s1 circuit when c has enough slack. This meets a constant-factor Total-Learn NO threshold and can be made full-support by adding a small uniform component. C-344 only kills uniform sampling and target gaps g(s1) larger than the nearby-high patch complexity O(s2*n). The live obstacle is selecting Q from f: its validity is universal over all small circuits, while the witness Q is existential. Find a polynomial-time/near-linear selector, a lower bound at the OPS threshold, or a parameter-preserving reduction that avoids selecting Q. Preserve the exact Total-Learn g(s) quantifier; do not silently treat every subexponential g as superpolynomial.
-## Q203 — Select the c=10 hard-core sample without the minimax oracle
+## Q203 â€” Select the c=10 hard-core sample without the minimax oracle
 
 C-346 gives an exact pointwise route from every OPS-high truth table to a full-support Total-Learn NO instance using only a 1.5 factor predictor gap. The obstacle is now isolated to producing the O(N^beta)-point list Q from f. Try to compute a minimax separator or approximate the weighted circuit-fitting oracle using the actual truth-table structure; otherwise seek a lower bound against every selector, not just the greedy/LP implementation. Any proposal must preserve the explicit c=10 ratio and account for the universal quantifier over size-T circuits. Do not call pointwise existence a reduction.
 
@@ -1791,7 +1911,7 @@ On the one-suffix slice `z_mu(p,u)=1[u=u0]mu(p)`, the hybrid complexity is withi
 
 **C-355/C-356 audit:** C-355's tree dichotomy is valid but local. A repeated-row code family on the same one-suffix column has `2^(Theta(s1))` low members and pairwise distance `Theta(N^(1-2 beta)) >> kappa_square(s2)` for beta<1/3, yet C-258's product-code grammar covers that subfamily with q=O(N). Thus stop using code size, minimum distance, balanced cuts, or q^3 state-label buckets as a route to a forced splice. Q210's owner-cube mechanism is parked unless a transition/seed-clause complexity argument makes the grammar generate compatible joins. The primary objective returns to the attached priority: either a full-promise `N^(1+o(1))` cover or a q-sensitive theorem for exact C-319 that uses more than these coarse support statistics. Current lower bound is still `N-o(N)`.
 
-**C-357/C-358 audit:** Pauly's reachability graph-game form is the right generic analogue of C-319 and the circuit-size relationship is a known open question. Counting shows some O(q)-state readouts need `Omega(q^2/log q)` bounded-fan-in gates, so a generic subquadratic total-gate compiler is unavailable; this does not settle the paid-AND `A_cap` compiler. More decisively for Q210, C-358 gives the exact C-355 Reed-Muller family an O(N)-rule subpromise cover via fast Möbius membership plus C-109. Retire code-family size/distance as the next target. The active task remains a full-promise near-linear cover or a transition/seed-sensitive lower bound that applies to all low circuits. No current success checkpoint changes.
+**C-357/C-358 audit:** Pauly's reachability graph-game form is the right generic analogue of C-319 and the circuit-size relationship is a known open question. Counting shows some O(q)-state readouts need `Omega(q^2/log q)` bounded-fan-in gates, so a generic subquadratic total-gate compiler is unavailable; this does not settle the paid-AND `A_cap` compiler. More decisively for Q210, C-358 gives the exact C-355 Reed-Muller family an O(N)-rule subpromise cover via fast MÃ¶bius membership plus C-109. Retire code-family size/distance as the next target. The active task remains a full-promise near-linear cover or a transition/seed-sensitive lower bound that applies to all low circuits. No current success checkpoint changes.
 
 **C-359 priority correction:** standard rectangle/fooling-set/communication measures on one fixed circuit's address-by-gate selector matrix have a hard ceiling of O(N): row slices already partition any constant-alphabet matrix into at most kN monochromatic rectangles. Do not search for a more complicated fixed-C selector entry function. A surviving communication route must add the low-table/description coordinate and prove an arbitrary-cover embedding from C-319; otherwise work directly with the global support grammar or full-promise cover. Actual q remains N-o(N).
 
@@ -1867,7 +1987,7 @@ C-375 shows ordinary deterministic two-party communication for an explicit N-bit
 
 ## Q226 - Strengthen the paired mismatch game without losing description coherence
 
-C-376 proves that any valid cover yields a terminating q-state interaction on (low table w, high table z): Bob picks a side false on z; Alice follows a first-activation proof on w; the protocol exits at a differing coordinate. This is exact but too weak, because a fixed N+1-state scan finds a mismatch for every distinct pair. Do not seek lower bounds for the bare low/high mismatch relation. A surviving KW/game route must encode the decision work that makes w low—especially one circuit description coherent across all addresses—and that object must be induced by every valid cover rather than assumed as a witness. Standard hazard-free formula games are not enough: support semantics supplies safe 1-cubes only, while C-319 permits shared cyclic states. Current q remains N-o(N).
+C-376 proves that any valid cover yields a terminating q-state interaction on (low table w, high table z): Bob picks a side false on z; Alice follows a first-activation proof on w; the protocol exits at a differing coordinate. This is exact but too weak, because a fixed N+1-state scan finds a mismatch for every distinct pair. Do not seek lower bounds for the bare low/high mismatch relation. A surviving KW/game route must encode the decision work that makes w lowâ€”especially one circuit description coherent across all addressesâ€”and that object must be induced by every valid cover rather than assumed as a witness. Standard hazard-free formula games are not enough: support semantics supplies safe 1-cubes only, while C-319 permits shared cyclic states. Current q remains N-o(N).
 ## Q227 - Use positional strategies as cross-anchor coherence objects
 
 C-377 shows that each accepted low table has one positional action table that wins against every universal play, giving a globally consistent policy for that input. Fixing it yields a sound literal cube with N-o(N) fixed coordinates, but no circuit description is extracted and policy counting is capped. The next target is the joint family of positional policies generated by one fixed C-319 transition graph: quantify when two anchors can reuse the same state-side actions and splice their context/continuation supports, then use C-281 to force a high table or a q charge. Test against C-257 parity and C-258 equality; do not count policy regions alone. A near-linear full-promise cover remains the counter-route.
@@ -1941,7 +2061,7 @@ C-397 gives the exact available selector bridge: an all-high circuit selector fo
 C-398 identifies a single NP language `BAD` on the compressed hard-core sample, of input length `M=O(N^beta log N)`. Under `BAD in SIZE(M^d)` the selector composition costs `R_N + O(N^(1+beta) log N) + O(N^(beta*d) log^d N)`, yielding a separator at any fixed exponent above a selector's `1+delta` by taking beta small. NP subseteq P/poly is sufficient with fixed d. This is a genuine size-controlled one-way reduction, but it still assumes a small verifier and does not produce Q. Unconditional enumeration is `2^(O(N^beta))`; attack the specific BAD language or change the sample relation. Separately, `A_cap>=N-o(N)` plus C-393's `A_cap<=(s+1)q` gives only `q>=(N-o(N))/(s+1)`; C-396 lower-bounds s, so this cannot improve q. Preserve C-258/C-257. Current native q remains `N-o(N)`.
 ## Q242 - Attach a short refutation to the hard-core sample
 
-For `(Q,y)`, encode “there exists a size-T circuit with error below 0.259” as a polynomial-size SAT formula Phi. Appending a sound refutation would make candidate validation deterministic polynomial time, avoiding the coNP predicate once the proof is in hand. High-table existence is not enough: C-346 only supplies a Q for which Phi is unsatisfiable, and no short proof bound is known. Try to exploit the minimax/sampling construction to obtain Frege or resolution refutations of size `M^c` for some fixed c; charge proof output length and verify soundness. If no such bound is available, this is just the coNP obstacle packaged as proof complexity.
+For `(Q,y)`, encode â€œthere exists a size-T circuit with error below 0.259â€ as a polynomial-size SAT formula Phi. Appending a sound refutation would make candidate validation deterministic polynomial time, avoiding the coNP predicate once the proof is in hand. High-table existence is not enough: C-346 only supplies a Q for which Phi is unsatisfiable, and no short proof bound is known. Try to exploit the minimax/sampling construction to obtain Frege or resolution refutations of size `M^c` for some fixed c; charge proof output length and verify soundness. If no such bound is available, this is just the coNP obstacle packaged as proof complexity.
 ## Q243 - CircCons transfer needs a succinct large-support sampler
 
 C-399 proves the direct table-driven C-388 list encoding, after padding its domain enough to satisfy the sampler-size side condition, cannot be a CircCons NO instance: an O(Lm)-size lookup circuit fits every finite, consistently labeled sample, and CircCons compares against SIZE(m^(log log m)). A more succinct large-support sampler is not ruled out, but C-346 does not construct one; SZK^A membership would not itself be a deterministic P validity test. Do not repeat the direct padded-list transfer. Since this does not advance the central q-state target, resume endpoint-derived LFP work: prove a completeness-forced context collision plus a high compatible splice, or construct a near-linear full-promise cover. C-341 alone proves neither.
@@ -1955,7 +2075,7 @@ Raw witness count, constraint count, and expanded incidence fail under reuse. Se
 
 ## Q246 - Can strongly explicit distinguishers survive the OPS promise?
 
-Atserias–Müller give a 2025 uniform magnification theorem for approximate MCSP using sparse code-like distinguishers. Audit a direct transfer to the exact OPS gap before trying to adapt the construction: fixed-beta s1=N^beta/poly(log N) is 2^(Theta(n)), not the theorem's 2^(o(n)); the theorem is P-uniform; and its approximation NO set rejects middle-band tables that Gap-MCSP leaves unconstrained. Minterm patching proves that OPS high tables are Omega(N^beta/log N) Hamming positions from SIZE(s1), but only places high tables inside a stronger approximate NO set. A usable route needs a reduction preserving both sides of the promise and nonuniform ordinary total-gate size. Until then, treat this as a related theorem, not progress on the OPS target.
+Atseriasâ€“MÃ¼ller give a 2025 uniform magnification theorem for approximate MCSP using sparse code-like distinguishers. Audit a direct transfer to the exact OPS gap before trying to adapt the construction: fixed-beta s1=N^beta/poly(log N) is 2^(Theta(n)), not the theorem's 2^(o(n)); the theorem is P-uniform; and its approximation NO set rejects middle-band tables that Gap-MCSP leaves unconstrained. Minterm patching proves that OPS high tables are Omega(N^beta/log N) Hamming positions from SIZE(s1), but only places high tables inside a stronger approximate NO set. A usable route needs a reduction preserving both sides of the promise and nonuniform ordinary total-gate size. Until then, treat this as a related theorem, not progress on the OPS target.
 
 ## Q247 - Promise incompatibility graphs do not pay for shared DAGs
 
@@ -1998,7 +2118,7 @@ After C-416, stop refining random-completion entropy bounds. Try a source-indexe
 
 ### Idea 533 - Couple the output router to a hard source, not just to a table
 
-C-417's exact split: a single-output G(z,a) of R gates guarantees CC(T_z)<=R+O(1) but costs up to MR when composed table-by-table; a multi-output E(z) composes at R+S but can put an arbitrary High truth table in M output-wire labels using two gates. Make the routing map lambda(a) explicit and seek source-indexed tables T_z(a)=v_lambda(a)(z), with r signals and q router gates. Then fixed-table complexity is at most q+c_mux*r+O(1), while F�E still shares the R internal gates. The unresolved bridge is a promised hard source H with CC(H)>R+S+B, plus exact low/high labels for every source input. Do not count output-wire bits as gates or presume an uncharged router is uniform. Check parity, repeated blocks, sparse checks and global block relations. C-417 report: research/C417_PAIRED_FAMILY_OUTPUT_MODEL_TRADEOFF_2026-09-30.md.
+C-417's exact split: a single-output G(z,a) of R gates guarantees CC(T_z)<=R+O(1) but costs up to MR when composed table-by-table; a multi-output E(z) composes at R+S but can put an arbitrary High truth table in M output-wire labels using two gates. Make the routing map lambda(a) explicit and seek source-indexed tables T_z(a)=v_lambda(a)(z), with r signals and q router gates. Then fixed-table complexity is at most q+c_mux*r+O(1), while Fï¿½E still shares the R internal gates. The unresolved bridge is a promised hard source H with CC(H)>R+S+B, plus exact low/high labels for every source input. Do not count output-wire bits as gates or presume an uncharged router is uniform. Check parity, repeated blocks, sparse checks and global block relations. C-417 report: research/C417_PAIRED_FAMILY_OUTPUT_MODEL_TRADEOFF_2026-09-30.md.
 
 
 
@@ -2022,3 +2142,27 @@ Given any ordinary separator C and High table f, evaluate C(f)=0, then back-prop
 
 For a High table f, play the finite game whose rows are truth-table addresses, whose columns are circuits of size s1, and whose payoff is whether the circuit disagrees with f. If the value were below 1/4, minimax would give a distribution over Low circuits with error below 1/4 at every address. A majority of 8 ln(2N)+O(1) sampled circuits would then compute f exactly in fewer than s2 gates. Therefore the game value is at least 1/4, and sampling its address strategy gives an O(log |Low|)=O(N^beta)-address anti-checker. The majority cost is a genuine ordinary fan-in-two gate calculation with unrestricted reuse. This is the classical Lipton-Young/OPS anti-checker existence mechanism, not a new lower bound. The projective-plane counterexample shows ordinary matching-number arguments alone would stop at a square-root hitting set; fractional value repairs that combinatorial weakness. But the distribution depends on f and is not computed by an arbitrary Gap-MCSP separator. C-421's zero-certificate must also reject accepted middle inputs. Next examine selector synthesis from the separator's DAG, while keeping its NP best-response and shared lookup costs explicit. No ordinary/native frontier change; report C-422.
 **C-422 LP closeout:** The direct minimax selector can be computed by enumerating all Low functions, materializing the address-by-candidate payoff matrix, and solving the finite LP; this costs 2^(O(N^beta)) gates and does not magnify. Retire full matrix enumeration as a selector mechanism. Continue only with a separator-sensitive synthesis argument or a direct shared-DAG gate potential.
+## C-425: Hamming tubes and the certificate-sharing counterexample (2026-09-30)
+
+Learning: circuit-size margin is stable under table edits. Patching `d` truth-table locations costs `O(nd+n)` fan-in-two gates, so the `Theta(N^beta/n)` tube around all Low tables is entirely below the exact OPS NO threshold and is a valid complete separator. But this says nothing about implementation size; enumerating all centers remains `O(N 2^(O(N^beta)))`.
+
+Decisive failed mechanism: certificate multiplicity. A shared `O(N)` population counter recognizes the sound Low set `wt<=u or N-wt<=u` for `u=Theta(N^beta/n^2)`. Its safe cube cover needs `binom(N,u)` cubes over the weight-u layer. Thus shared gates compress an exponential family of certificates. Generic certificate counts are capped by `3^N`, so logarithmic counts stop at linear lower bounds. Do not charge each certificate/cube as a separate computation.
+
+Next: seek a gate-semantic potential with a constant per-operation recurrence under fan-out and a superlinear value forced by complete Low coverage plus High soundness. Must survive the population counter, parity, repeated-block equality, sparse parity-check, and global-relation patterns. Full proof/accounting: `research/C425_HAMMING_TUBES_CERTIFICATE_SHARING_2026-09-30.md`.
+# C-436 continuation queue (1 October 2026)
+
+1. **Primary target:** keep ordinary OPS total-gate GapMCSP primary with exact `s1=N^beta/(c log N)`, `s2=N^beta`, and one fixed `epsilon` for all sufficiently small fixed `beta`.
+2. **First-principles requirement:** produce a numeric invariant of actual gate functions in an arbitrary shared fan-in-two DAG; prove per-operation growth and a superlinear value forced by every valid total separator extension. â€œResidual behaviorâ€ is a target, not yet a defined invariant. Reject it if either half simply restates the desired lower bound.
+3. **Transfer filter:** do not use monotone matching, comparator, formula, oracle, implicit-input, or native-fusion lower bounds unless a costed composition puts the arbitrary separator back in the source's exact hard model.
+4. **Counterexamples:** retain parity, repeated-block equality, sparse parity checks, globally generated block relations, and `AND_i(x_i OR y_i)` as mandatory attacks on generic charges.
+5. **Paired upper:** retain exact full-promise Low-description enumeration at `O(N*2^(O(N^beta)))`; continue searching for a full-promise shared implementation, but do not claim trie compression absent a worst-case bound.
+
+C-436 retires the direct Rao-matching transfer and adds no new mechanism or frontier improvement. See [report](C436_FIRST_PRINCIPLES_AUDIT_AND_MONOTONE_TRANSFER_2026-10-01.md).
+# C-437 continuation queue (1 October 2026)
+
+1. **Source candidate:** Renâ€“Williams' `E^{prMA}/1` function has ordinary circuit complexity `Omega(2^m/m)`. This matches the separator's general circuit model.
+2. **Exact map target:** for each sufficiently small fixed `beta`, build a costed table map with `CC(T_x)<=N^beta/(c log N)` on source YES and `CC(T_x)>N^beta` on source NO, with `R+B+N^(1+epsilon)<Omega(2^m/m)` on hard lengths.
+3. **Immediate attacks:** a pointwise polynomial-size history predicate makes every output Low when `N=2^(alpha m)`; a polynomial output length leaves the actual High lower bound unproved; source `prMA` queries cannot be inlined for free.
+4. **Do not reopen** Rao's native C-261/C-310 LowExt route or reuse the C-430 composition lemma without a new map. The new contribution is only the E-prMA source budget and its transfer window.
+
+C-437 has no quantitative effect; the map is the single open bottleneck. See [report](C437_EPRMA_NEARMAX_SOURCE_TRANSFER_WINDOW_2026-10-01.md).
