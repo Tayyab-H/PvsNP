@@ -10,10 +10,10 @@
 Let `d` be the number of variables in the table functions, `M=2^d`, and use the concrete OPS thresholds
 
 ```text
-s1 = floor(M^beta/(10d)),    s2 = ceil(M^beta),
+s1 = floor(M^beta/(10d)),    tau2 = M^beta,    s2 = floor(tau2)+1,
 ```
 
-with fixed `0<beta<1`. The low side is `CC(T)<=s1`; the high side is `CC(T)>=s2`; the middle is undefined. OPS's magnification theorem has one universal low-threshold constant and requires one fixed `epsilon>0` for every sufficiently small fixed `beta>0`; its proof uses the denominator `10d`.
+with fixed `0<beta<1`. The low side is `CC(T)<=s1`; the high side is `CC(T)>tau2`, equivalently `CC(T)>=s2`; the middle is undefined. In particular, `s2=ceil(tau2)` only when `tau2` is nonintegral; if `tau2` is an integer, the first NO complexity is `tau2+1`. OPS's magnification theorem has one universal low-threshold constant and requires one fixed `epsilon>0` for every sufficiently small fixed `beta>0`; its proof uses the denominator `10d`.
 
 The attempted mechanism is a deterministic paired-family embedding. Given a source Boolean function `H(z)`, produce a table `T_z` with the OPS label equal to `H(z)` on every source input, so an arbitrary separator `F` of `S` gates would yield a small circuit for `H`. The map must not compute `H` itself, every table must land on the right side of the actual gap, and all sharing and output representation costs must be stated.
 

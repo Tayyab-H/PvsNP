@@ -2,13 +2,13 @@
 
 **Status:** proved counterconstruction for the repeated-block / random-partition restriction route. On a block-constant subspace of dimension `N^gamma`, the full induced Gap-MCSP promise is separated by distance to the two constant patterns, using `O(N^gamma log^2 N)` gates. This is not a full-promise separator and does not change either quantitative frontier.
 
-**OPS calibration:** Theorem 1.4 of Oliveira–Pich–Santhanam states: for a universal `c>=1`, if one fixed `epsilon>0` gives `Gap-MCSP[N^beta/(c n),N^beta]` circuit complexity greater than `N^(1+epsilon)` for every sufficiently small fixed `beta>0`, then `NP` is not contained in `P/poly`. The paper's promise is YES for `CC<=s1` and NO for `CC>=s2`; their proof exhibits the concrete denominator `10n`. This cycle uses `s1=N^beta/(10n)` and `s2=N^beta` and proves a separator for the stronger NO side `CC>=s2`. It makes no magnification claim.
+**OPS calibration:** Theorem 1.4 of Oliveira–Pich–Santhanam states: for a universal `c>=1`, if one fixed `epsilon>0` gives `Gap-MCSP[N^beta/(c n),N^beta]` circuit complexity greater than `N^(1+epsilon)` for every sufficiently small fixed `beta>0`, then `NP` is not contained in `P/poly`. The formal promise is YES for `CC<=s1` and NO for `CC>s2`; their proof exhibits the concrete denominator `10n`. This cycle uses `s1=N^beta/(10n)` and real threshold `s2=N^beta`, and its constructed separator rejects the stronger auxiliary set `CC>=s2` as well. It makes no magnification claim.
 
 ## Question
 
 C-407 showed that random coordinate-support slices expose only sparse low tables. This cycle tests a distinct, denser restriction: choose a random balanced partition of table coordinates and allow each block to vary as one bit. This includes both sparse tables and tables close to all ones, and directly stress-tests repeated-block equality examples.
 
-Fix `N=2^n`, `0<beta<1/2`, `s1=N^beta/(10n)`, `s2=N^beta`, and any fixed `gamma` with `beta<gamma<1`. The promised YES tables have `CC<=s1`; take promised NO tables to have `CC>=s2`, and leave the middle unpromised. Let
+Fix `N=2^n`, `0<beta<1/2`, `s1=N^beta/(10n)`, `tau2=N^beta`, and any fixed `gamma` with `beta<gamma<1`. The formal promised YES tables have `CC<=s1` and promised NO tables have `CC>tau2`; leave the middle unpromised. The construction below also rejects any boundary table with `CC=tau2` when that value is an integer. Let
 
 `m=2^floor(gamma*n)`, `r=N/m`.
 

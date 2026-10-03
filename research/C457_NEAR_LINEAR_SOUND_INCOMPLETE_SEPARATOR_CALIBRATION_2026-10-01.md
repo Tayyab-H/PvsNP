@@ -38,7 +38,7 @@ The first two predicates are computed by a binary population counter and compari
 CC(Q) = O(N log N).
 ```
 
-Every accepted table is Low by Section 1, so `Q(T)=0` on **every** OPS High table (`CC(T)>=s2`, with the usual threshold-rounding convention). This statement covers the full actual High set, not a sampled or artificial NO family.
+Every accepted table is Low by Section 1, so `Q(T)=0` on **every** formal OPS High table (`CC(T)>N^beta`). In fact, the circuit rejects the stronger auxiliary set `CC(T)>=N^beta` too, including an integral equality boundary. This statement covers the full actual High set, not a sampled or artificial NO family.
 
 Its accepting set is sparse. The sparse/co-sparse part has at most `2 sum_(j<=k) binom(N,j)=2^(O(k log(N/k)))` members; the Reed–Muller code has `2^M` members. Since `k log(N/k)=O(N^beta)` and `M=N^{H_2(alpha)+o(1)}<N^beta`,
 

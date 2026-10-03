@@ -4,10 +4,10 @@
 
 ## 1. Calibrated target
 
-Let `M=2^d` be the truth-table input length. OPS Theorem 1.4 uses a universal constant `c>=1`, low threshold `s1=M^beta/(c d)`, high threshold `s2=M^beta`, and requires one fixed `epsilon>0` to work for every sufficiently small fixed `beta>0`. Its proof instantiates the denominator as `10d`. The promise is `CC(f)<=s1` versus `CC(f)>=s2`; the middle is unconstrained. This report uses the concrete thresholds
+Let `M=2^d` be the truth-table input length. OPS Theorem 1.4 uses a universal constant `c>=1`, low threshold `s1=M^beta/(c d)`, and real high threshold `tau2=M^beta`; NO means `CC(f)>tau2`, equivalently at least `floor(tau2)+1` gates. The theorem requires one fixed `epsilon>0` to work for every sufficiently small fixed `beta>0`. Its proof instantiates the denominator as `10d`. This report uses the concrete thresholds
 
 ```text
-s1 = floor(M^beta/(10d)),    s2 = ceil(M^beta).
+s1 = floor(M^beta/(10d)),    s2 = floor(tau2)+1  [first integer NO size].
 ```
 
 The theorem below holds for every fixed `0<beta<1` and every fixed `0<gamma<1-beta`; the square-root choice `gamma=1/2` is a convenient special case for `beta<1/2`. It is only about an induced subpromise and does not establish the OPS lower-bound premise.
@@ -22,7 +22,7 @@ V_P = { f_y : y in {0,1}^q },     f_y(a)=y_j when a in B_j.
 
 ### Theorem
 
-For every fixed `0<beta<1`, every fixed `0<gamma<1-beta`, and all sufficiently large `d`, there is a partition `P` such that every nonconstant `f in V_P` has `CC(f)>=s2`. The two constant tables have circuit size at most one, hence are YES for large `d`. Therefore the exact induced promise on `V_P` is
+For every fixed `0<beta<1`, every fixed `0<gamma<1-beta`, and all sufficiently large `d`, there is a partition `P` such that every nonconstant `f in V_P` has `CC(f)>=s2=floor(tau2)+1`, hence `CC(f)>tau2`. The two constant tables have circuit size at most one, hence are YES for large `d`. The constructed representative-equality test accepts the constants and rejects every nonconstant trace, so it separates the formal induced promise (`CC<=s1` versus `CC>tau2`). Thus this is an easy restricted trace with an exact promise-preserving source map.
 
 ```text
 YES: y=0^q or y=1^q,

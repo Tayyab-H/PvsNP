@@ -10,13 +10,14 @@ Let `N=2^n`, and let `CC(T)` be the minimum number of fan-in-two AND/OR/NOT gate
 
 ```text
 s1 = 2^(beta*n)/(c*n) = N^beta/(c log_2 N),
-s2 = 2^(beta*n)        = N^beta,
+tau2 = 2^(beta*n)       = N^beta,
+s2 = floor(tau2)+1      (first integer NO size),
 ```
 
-the promised YES tables have `CC(T)<=s1` and promised NO tables have `CC(T)>=s2` (with the paper's integer-rounding convention). A valid separator is an arbitrary total Boolean circuit `F` on the `N` table bits satisfying
+the promised YES tables have `CC(T)<=s1` and promised NO tables have `CC(T)>tau2`, equivalently `CC(T)>=s2`. A valid separator is an arbitrary total Boolean circuit `F` on the `N` table bits satisfying
 
 ```text
-{T : CC(T)<=s1}  subseteq  F^(-1)(1)  subseteq  {T : CC(T)<s2}.
+{T : CC(T)<=s1}  subseteq  F^(-1)(1)  subseteq  {T : CC(T)<=tau2}.
 ```
 
 Its answer on the middle band is free. OPS prove that if there is one fixed `epsilon>0` such that, for every sufficiently small fixed `beta>0`, this promise has no fan-in-two circuit of size at most `N^(1+epsilon)`, then `NP` is not contained in `P/poly`. The paper has a universal constant `c` and instantiates `c=10` in the proof. This is a sufficient route to `P != NP`, and its conclusion is stronger than `P != NP`; it is not an equivalence. [OPS, Theorem 1.4](https://theoryofcomputing.org/articles/v017a011/v017a011.pdf)

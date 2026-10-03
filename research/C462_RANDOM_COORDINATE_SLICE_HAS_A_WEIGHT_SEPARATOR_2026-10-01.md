@@ -12,7 +12,7 @@ Let `N=2^n`, with OPS thresholds
 s1 = N^beta/(c*n),       s2 = N^beta,
 ```
 
-where `c` is the fixed OPS constant and `beta>0` is fixed. The full separator must accept every table of circuit size at most `s1` and reject every table of circuit size at least `s2`; the middle band is free. Fix an arbitrary anchor table `T0` with `CC(T0)<=s1`.
+where `c` is the fixed OPS constant and `beta>0` is fixed. The full separator must accept every table of circuit size at most `s1` and reject every table of circuit size greater than `s2`; the middle band is free. Fix an arbitrary anchor table `T0` with `CC(T0)<=s1`.
 
 For a coordinate set `B subseteq [N]`, consider the subcube
 
@@ -72,7 +72,7 @@ Choose
 rH = floor((s2-s1)/(2*K0*(n+1))).
 ```
 
-For sufficiently large `n`, every completion at distance at most `rH` has circuit size strictly below `s2`. Thus
+For sufficiently large `n`, every completion at distance at most `rH` has circuit size strictly below `s2`. The formal OPS NO side is `CC(T)>s2`; this argument also rejects the boundary case `CC(T)=s2`. Thus
 
 ```text
 CC(T)>=s2 and T in Q(B,T0)  =>  dist(T,T0)>rH.
